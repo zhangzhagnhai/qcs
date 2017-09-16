@@ -1,0 +1,6 @@
+.commentList img{width: 0.9rem; height: 0.9rem; border-radius: 50%; float: left;}
+.commentList{padding-left: 0.26rem}
+.commentContain{float: left;width: 6.04rem; height: 0.9rem;margin-left: 0.3rem}
+.commentName{line-height: 0.6rem; height: 0.6rem; font-size: 0.3rem; color: #464c56; margin-top: -0.03rem}
+.commentDate{line-height: 0.25rem; height: 0.25rem; font-size: 0.25rem; color: #969fa9}
+.commentDetail{font-size: 0.3rem; color:#464c56; line-height: 0.5rem; padding-left: 1.2rem; padding-right: 0.26rem; margin: 0.15rem 0 0.25rem; }

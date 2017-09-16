@@ -1,0 +1,15 @@
+.areaImg{background: url("../images/xiala.png"); background-size: cover;width: 0.15rem; height: 0.15rem;  float: left; margin-left: -0.15rem;}
+.search{width: 0.3rem; height: 0.3rem;  float: left; margin-left: 0.28rem; background: url("../images/sousuo.png");background-size: cover;  }
+.flexBox{display: -webkit-box}
+.flexBox .nav{-webkit-box-flex:1; height: 0.87rem; line-height: 0.87rem; padding-top: 0.01rem; text-align: center; font-size: 0.32rem; color: #383838; width: 33.3%;}
+.flexBox .navx{-webkit-box-flex:1; height: 0.87rem; line-height: 0.87rem; padding-top: 0.01rem; text-align: center; font-size: 0.32rem; color: #777c8f; width: 33.3%;}
+.controlA #itemA{color: #383838;font-weight: bold;}
+.controlA #itemB{color: #383838;}
+.controlA #itemC{color: #383838;}
+.controlB #itemA{color: #383838;}
+.controlB #itemB{color: #383838;font-weight: bold;}
+.controlB #itemC{color: #383838;}
+.controlC #itemA{color: #383838;}
+.controlC #itemB{color: #383838;}
+.controlC #itemC{color: #383838;font-weight: bold;}
+.inverstList{background-color: white; margin-bottom: 0.15rem;}

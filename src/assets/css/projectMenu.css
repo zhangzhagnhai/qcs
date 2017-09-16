@@ -1,0 +1,4 @@
+.fsNav{height: 0.88rem; background-color: #f7f7f7}
+.fsNavs{height: 0.58rem; width: 6.99rem; border: 1px solid #4285F4; border-radius: 3px; margin: 0 auto; overflow: hidden}
+.fsNavs div{box-sizing:border-box; width: 2.33rem; height: 0.58rem; border-right: 1px solid #4285F4; line-height:0.58rem; float: left; text-align: center; font-size: 0.28rem;background-color:white; color:#4285F4;}
+.fsNavs .select{background-color:#4285F4; color:white;}

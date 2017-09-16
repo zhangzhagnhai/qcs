@@ -1,0 +1,12 @@
+.companyContentx{line-height: 0.5rem; font-size: 0.3rem; margin-top: 0.2rem; margin-bottom: 0.26rem;  padding: 0 0.26rem; color:#6c747c;   white-space: pre-wrap;  word-wrap: break-word; }
+.contact{height: 1rem; display: flex;  display: -moz-flex; display: -webkit-flex;  align-items: center;  -webkit-align-items: center;}
+.contactImg{margin-left:0.3rem; width: 0.3rem;float: left; }
+.contactIntroduce{margin-left: 0.2rem; float: left;height: 0.34rem; line-height: 0.34rem; font-size: 0.3rem; color: #464c56;}
+.contactFont{margin-left: 0.26rem;float: left;height: 0.34rem; line-height: 0.34rem; font-size: 0.3rem; color: #6c747c;}
+
+.cutLine{position: fixed; bottom: 4.94rem; width: 100%;}
+
+.productList{width: 7.18rem; padding: 0.3rem 0.16rem 0; display: inline-block;}
+.productList li{float: left; padding: 0 0.1rem 0.1rem;}
+.productList li img{width: 3.39rem; height: 2.4rem; border-radius: 5px}
+.productList li div{height: 0.78rem; line-height: 0.78rem; font-size: 0.28rem; color: #464c56; text-align: center;}

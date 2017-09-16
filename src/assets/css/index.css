@@ -1,0 +1,44 @@
+* {
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    font-family:PingFangSC-Regular, sans-serif;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+input,textarea{
+    -webkit-touch-callout:default;
+    -webkit-user-select:text;
+    -khtml-user-select:text;
+    -moz-user-select:text;
+    -ms-user-select:text;
+    user-select:text;
+}
+body,div,ol,ul,li,a,span,dl,dt,dd,strong,var,em,p,h1,h2,h3,img,input,table,tr,th,td{margin:0;padding:0;}
+ul,ol{list-style:none;}
+
+input{
+    background:none;
+    outline:none;
+    border:0;
+}
+
+.canSelect{
+    -webkit-touch-callout:default;
+    -webkit-user-select:text;
+    -khtml-user-select:text;
+    -moz-user-select:text;
+    -ms-user-select:text;
+    user-select:text;
+}
+
+a{display: block; text-decoration: none; color: black}
+img{object-fit: cover;}
+

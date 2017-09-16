@@ -1,0 +1,8 @@
+.cityMenuContain{position: fixed; top:0; width: 100%; background-color: white; z-index: 100;}
+.cityMenuContain img{position: absolute; top:0;  right:0; width: 0.89rem; height: 0.85rem; }
+.scrollMenu{width: 6.5rem; height: 0.85rem;  margin-left: 0.5rem; overflow: auto;-webkit-overflow-scrolling : touch;}
+.cityMenu{float: left; margin-left: -0.3rem; margin-right: -9999px; -webkit-overflow-scrolling : touch; }
+.cityMenu span{float:left; height: 0.85rem; line-height:0.85rem; padding: 0 0.3rem; font-size: 0.32rem; font-weight: bold; color: #464c56; position: relative;}
+.cityMenu .select{color: #4285F4;}
+.cityMenuBorder{display:none; margin: 0 auto; height: 1px; width: 0.4rem; bottom: 0; background-color: #4285F4;}
+.cityMenu .select .cityMenuBorder{display: block}

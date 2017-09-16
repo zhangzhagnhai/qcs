@@ -1,0 +1,67 @@
+.detail_top{  padding: 0.14rem 0.1rem 0; position: relative; }
+.bg_top{background: url("/static/defalut.png"); background-size: cover; height: 3.6rem; position: relative;}
+.bg_read{background: url("../images/readCounter.png");border-radius: 5px; background-size: cover; position: absolute; bottom: 0.1rem; right: 0.1rem; width: 1.27rem; height: 0.5rem;}
+.read_num{height: 0.5rem; line-height: 0.5rem; font-size: 0.24rem; color:#dddddd;  right: 0.01rem; text-align: center; overflow: hidden;  white-space:nowrap; }
+
+.submit{position:fixed; bottom: 0; display:block; background-color: #4285F4; height: 0.88rem; line-height: 0.88rem; font-size: 0.36rem; text-align: center; color: white; width: 100%;}
+.jiantou{background: url("../images/youjiantou.png"); background-size: cover; float: right; width:0.15rem; height: 0.24rem; margin-right: 0.3rem; margin-top: 0.31rem}
+
+.submit_contain{width: 6.64rem; margin: 0 auto; height: 1rem; /*border-bottom:1px solid #d1d1d1;   */ position: relative;}
+.submit_contain div{color: #666666; width: 2.6rem; text-align: left; display: inline-block; float: left; margin-top: 0.45rem;  height: 0.3rem; line-height: 0.3rem; font-size: 0.3rem;}
+.submit_contain input{border:none; border-radius:0; color: #666666;  height: 0.4rem; line-height: normal; margin-top: 0.35rem; width: 4.94rem; font-size: 0.3rem;   left: 1rem; padding-left: 1rem;  /*padding-left: 1.6rem;*/  position: absolute;}
+.borderLine{border-bottom:0.5px solid #d1d1d1; width: 7.07rem; float: left; margin-left: 0.43rem;}
+/*
+textarea{border-radius:0;padding-left: 0.18rem; padding-right:0.18rem; width: 6.6rem; margin: 0 auto; height: 2.4rem;color: #666666; font-size: 0.3rem; display: block; line-height: 0.6rem; !*border-bottom:1px solid #b4b3b3;*!}
+*/
+.myInfoSelect{ height: 0.32rem; line-height: 0.32rem; margin-top: 0.44rem; width: 4.94rem; font-size: 0.3rem; color: #666666;  left: 1rem; padding-left: 1rem;  position: absolute;}
+.button{margin:0 auto;width: 4.6rem; text-align: center; height: 0.66rem; line-height: 0.66rem; font-size: 0.33rem; color: #ffffff; background-color: #0193e6; border-radius: 5px;}
+
+.template{width:6.9rem; padding:0.3rem 0.3rem 0; overflow:hidden; font-size: 14px}
+.template img{width: 100% !important; height: auto !important;}
+
+.centerTitle{ font-size: 0.3rem; height: 0.31rem; line-height: 0.31rem;overflow: hidden;  white-space: nowrap;  text-overflow: ellipsis; color: #333333}
+.centerContent{ font-size: 0.24rem; color: #666666; line-height: 0.38rem;}
+
+/*qcs2.0*/
+.menu{height: 0.35rem; line-height: 0.35rem; padding: 0.3rem 0.26rem; border-bottom: 0.5px solid #dddddd;}
+.menuLeftImg{width: 0.08rem; height: 0.32rem;  background-color: #4285F4; border-radius: 4px; float: left;/*background: url("../../assets/images/shu.png") center center; background-size: cover*/}
+.menuLeftName{height: 0.35rem; line-height:0.35rem; font-size: 0.35rem; color:#4b4c56; float: left; margin-left: 0.2rem; font-weight: bold;}
+.menuRightImg{height: 0.29rem; width:0.18rem; margin-top: 0.03rem; float: right; background: url("../../assets/images/youjian.png") center center; background-size: cover }
+.menuRightName{height: 0.35rem; line-height:0.35rem; font-size: 0.31rem; color:#989fa2; float: right; margin-right: 0.15rem}
+.zhanKai{border-top:0.5px solid #dddddd; text-align: center; font-size: 0}
+.zhanKai span{float: left; font-size: 0.3rem; line-height: 0.9rem; color:#4285F4;}
+.zhanKai img{float: left; margin-left: 0.15rem; margin-top: 0.37rem; height: 0.14rem; width: 0.26rem;}
+.defaultSubmit{height: 0.88rem}
+.submitButton{position: fixed; z-index: 99998; bottom: 0; height: 0.88rem; left: 0; right: 0; width: 100%; line-height:0.88rem; font-size: 0.36rem; background-color:#4285F4; color: white; text-align: center;}
+.footer{height: 1rem; position: fixed; bottom: 0; width: 100%; background-color: white; border-top:0.5px solid #d1d1d1;}
+.footer li{width: 25%; height: 1rem; float: left;}
+.footer li div{height: 0.42rem; line-height: 0.42rem; font-size: 0.42rem; text-align: center;color: #808080; margin-top: 0.15rem;}
+.footer li .footerFont{height: 0.2rem; line-height: 0.2rem; font-size: 0.2rem;margin-top: 0.09rem; }
+.footer li .footerColor{color: #4285F4;}
+.smallLine{height: 0.5px; background-color:#dddddd; }
+.cutLine{height: 0.2rem; background-color:#f7f7f7; }
+.cutLines{height: 0.3rem; background-color:#f7f7f7; }
+.cutLineFont{height: 0.9rem; line-height: 0.9rem;  background-color:#f7f7f7; font-size: 0.32rem; padding-left: 0.3rem; color: #464c56;}
+.cutLineFont .leftFont{float: left; color: #464c56;}
+.cutLineFont .rightFont{float: right; color: #969fa9;}
+
+.mengceng{position:fixed; top:0; width:100%; height: 15rem; z-index: 99999;}
+.mengcengBg{position:absolute; top:0; height: 15rem;  width:100%; background-color: black; opacity: 0.2;}
+.mengcengContain{position:absolute; top:3rem; width: 5.5rem; left:0; right: 0; margin: auto; background-color: white; border-radius: 6px;}
+.mengcengTitle{margin-top:0.33rem; color: #464c56; font-size: 0.34rem; /*height: 0.58rem;*/ line-height: 0.58rem; text-align: center; font-weight: bold;}
+.mengcengTitleContain{display: inline-block; font-size: 0}
+.mengcengTitleContain img{height: 0.36rem; float: left; margin-top: 0.11rem}
+.mengcengTitleContain div{float: left; margin-left: 0.15rem; text-align: left;font-size: 0.34rem; line-height: 0.58rem}
+.mengcengContent{margin-top: 0.32rem;margin-bottom: 0.3rem;  color: #6c747c; font-size: 0.28rem; line-height: 0.5rem; padding-left: 0.45rem; padding-right: 0.45rem; text-align: center;}
+/*.mengcengContent{margin-top: 0.35rem;margin-bottom: 0.4rem;  color: #6c747c; font-size: 0.3rem; line-height: 0.5rem; text-align: center;}*/
+.mengcengButtons{width: 5.5rem; border-top:0.5px solid #d1d1d1;}
+.mengcengButtonLine{height: 100%; float: right; display: inline-block; border-right: 0.5px solid #d1d1d1;}
+.mengcengButtonA{color:#969fa9; width: 50%; height: 0.96rem; line-height: 0.96rem; text-align: center; font-size: 0.3rem; display: inline-block; float: left; }
+.mengcengButtonB{width: 100%; height: 0.96rem; line-height: 0.96rem; text-align: center; font-size: 0.3rem; display: inline-block; float: left; color: #4285F4;}
+.button_confirm{position:absolute; width: 5.52rem; height:0.86rem;line-height:0.86rem; left: 0.1rem; top:1.38rem; border-top:1px solid #afafaf;text-align: center; font-size: 0.33rem; color:#656a7a;}
+.goHome{position:fixed; bottom: 1.1rem; left:0.3rem; height: 1rem; width: 1rem; border-radius: 50%; background: url(../images/fanhuizhuye.png); background-size: cover;}
+
+.noDataImg{display: block; margin: 1.65rem auto 1rem;}
+.noDataFont{display: block; text-align: center; height: 0.3rem; line-height: 0.3rem; font-size: 0.3rem; color: #6c747c; margin-bottom: 2.4rem;}
+
+

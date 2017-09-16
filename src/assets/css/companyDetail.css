@@ -1,0 +1,23 @@
+.companyContent{-webkit-line-clamp: 4;line-height: 0.42rem; font-size: 0.26rem; margin-top: 0.16rem; margin-bottom: 0.26rem; padding: 0 0.3rem; color:#666666;   white-space: pre-wrap;  word-wrap: break-word;    overflow: hidden;  text-overflow: ellipsis; display: -webkit-box;  -webkit-box-orient: vertical;}
+.companyContentx{line-height: 0.42rem; font-size: 0.26rem; margin-top: 0.16rem; margin-bottom: 0.26rem;  padding: 0 0.3rem; color:#666666;     white-space: pre-wrap;  word-wrap: break-word; }
+.arrow{float: left;background:url(../images/jiantouxiala.png); margin-left: 0.18rem; background-size:cover; display: inline-block; width: 0.24rem; height: 0.26rem;}
+.arrowx{float: left;background:url(../images/jiantouxialadao.png); margin-left: 0.18rem; background-size:cover; display: inline-block; width: 0.24rem; height: 0.26rem;}
+
+.navList{display: inline-block; padding: 0.3rem 0.16rem 0; width: 7.16rem}
+.navList li{float: left; margin: 0 0.14rem;}
+.navImg{width: 3.3rem; height: 2rem; background: url(../images/defalut.png) center center;background-size: cover; border-radius: 5px;}
+.navFont{font-size: 0.26rem; text-align: center; margin-top: 0.22rem; margin-bottom: 0.34rem; color: #333333;}
+
+.contact{margin-top: 0.38rem; margin-bottom: 0.28rem; height: 0.34rem; font-size: 0.24rem;}
+.contactImg{margin-left:0.3rem;width: 0.34rem; height: 0.34rem; border-radius: 5px; float: left;}
+.contactFont{margin-left: 0.26rem;float: left;height: 0.34rem; line-height: 0.34rem; font-size: 0.24rem; color: #333333;}
+
+textarea{padding-left: 0.18rem; padding-right:0.18rem; width: 7.14rem; margin: 0 auto; height: 4.06rem; font-size: 0.27rem; display: block; line-height: 0.6rem;}
+
+.navFontInput{font-size: 0.26rem; margin-top: 0.22rem; margin-bottom: 0.34rem;}
+/*
+.submit_contain{display:flex; align-items:center; width: 6.95rem; margin: 0 auto; height: 0.8rem; border-bottom:1px dashed #b4b3b3;}
+.submit_contain div{padding-left: 0.18rem; width: 1.7rem; text-align: left; display: inline-block; float: left;  height: 0.8rem; line-height: 0.8rem; font-size: 0.3rem;}
+.submit_contain input{display: inline-block; float: left;  height: 0.32rem; line-height: 0.32rem; width: 5.15rem; font-size: 0.26rem;}
+*/
+

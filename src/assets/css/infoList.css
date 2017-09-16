@@ -1,0 +1,17 @@
+.imgUl{ width: 9999px; display:inline-block; transition:all ease 1s;  -moz-transition:all ease 1s;  -webkit-transition: all ease 1s; }
+.imgUl li{float: left; }
+.logoImg{ display:block; height:4.12rem; width: 7.5rem; background-size: cover; float: left;}
+.contentImg{  display:block; width: 100%;height:7.56rem;  background-size: 100%;}
+.white{height: 0.18rem; width:0.18rem; background-color: white; border-radius: 50%; margin: 0 0.08rem; float: left}
+
+.infoList{width: 4.33rem; height: 1.8rem;float: left}
+.infoList p{margin-top:-0.07rem; line-height: 0.44rem;height: 0.88rem; font-size: 0.3rem; color: #464c56;display: -webkit-box;  -webkit-box-orient: vertical;  -webkit-line-clamp: 2;   overflow: hidden;}
+.infoList .newsFs{font-size: 0.26rem; line-height: 0.26rem; height: 0.26rem; margin-top: 0.32rem; color: #6c7c7c;}
+.infoListImg{background:url('/static/defalut.png') center center; background-size:cover; width:2.4rem; height: 1.8rem; float: left; border-radius: 3px;  margin-left: 0.25rem;}
+.infoContainer{height: 0.24rem;  margin-top: 0.18rem}
+.infoDate{float: left;height: 0.24rem; font-size: 0.24rem; line-height: 0.24rem; color: #969fa9}
+.infoReadImg{float: right; background: url('../images/toumingduyanjinghei.png'); background-size: cover; height: 0.22rem; width: 0.34rem;margin-right: 0.13rem; margin-top: 0.17rem;}
+.infoReads{float: right;height: 0.24rem; font-size: 0.24rem; line-height: 0.24rem; color: #969fa9}
+
+.noticeWord{width: 6.98rem; height: 0.3rem; line-height: 0.3rem; font-size: 0.3rem; color: #333333;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.noticeTime{height: 0.24rem; line-height: 0.24rem; font-size: 0.24rem;color: #aaaaaa; margin-top: 0.18rem; margin-bottom: 0.23rem;}

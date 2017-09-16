@@ -1,0 +1,14 @@
+.smallLine{margin-left: 0.26rem; width: 7.24rem}
+.uploadHeader{font-size: 0.26rem; text-align: center; line-height: 0.76rem; height: 0.76rem; color:#969fa9}
+.contactFont{padding: 0.33rem 0}
+.contact input{width: 5.5rem}
+.contact ::-webkit-input-placeholder{height: 0.34rem; line-height: 0.34rem; font-size: 0.3rem; padding-top: 0.03rem;}
+
+.connectionInfo{height: 1rem; display: flex;  display: -moz-flex; display: -webkit-flex;  align-items: center;  -webkit-align-items: center;}
+.connectionName{height: 0.3rem; line-height: 0.3rem;font-size: 0.3rem; color: #464c56; padding-left: 0.26rem; width: 1.69rem;}
+.connectionInfo input{width: 5.24rem; overflow: hidden; color: #6c747c; font-size: 0.3rem; height: 0.3rem; line-height: 0.3rem; padding: 0.35rem 0}
+.connectionInfo ::-webkit-input-placeholder{height: 0.3rem; line-height: 0.3rem; font-size: 0.3rem; padding: 0.08rem 0}
+.companyContentx{display:block; padding: 0.12rem 0.2rem; font-size: 0.26rem; line-height: 0.51rem; color: #6c747c; box-sizing:border-box; margin: 0.3rem auto; height: 3rem; width: 6.98rem; border: 0.5px solid #dddddd; border-radius: 3px;}
+.productListx{width: 7.18rem; padding: 0.3rem 0.16rem 0; display: inline-block;}
+.productListx li{float: left; padding: 0 0.1rem;}
+.productListx li img{width: 3.39rem; height: 2.4rem; border-radius: 3px}

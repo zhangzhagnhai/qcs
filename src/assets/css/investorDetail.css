@@ -1,0 +1,19 @@
+.title{margin-top:0.3rem;  height:0.36rem; line-height: 0.36rem;}
+.title_name{display:inline-block; font-size: 0.35rem; height:0.36rem; line-height: 0.36rem; float: left; padding-left:0.3rem; }
+.title_tag{ float: left; }
+.title_tag .img{background: url("../images/tag.png");margin-top: 0.03rem; display:inline-block;float: left;  background-size: cover; height: 0.26rem; width: 0.28rem; margin-left:0.24rem; }
+.title_tag .font{display:inline-block;float: left; height: 0.36rem; line-height: 0.36rem; font-size: 0.26rem; margin-left: 0.1rem; color:#999999; }
+
+.frame{margin-top: 0.3rem; display: inline-block;width: 1.2rem;height:0.4rem; line-height:0.4rem;font-size: 0.26rem; color:white;background-color: #4285F4; border-radius: 3px; text-align: center;}
+.frameP{font-size: 0.3rem; line-height: 0.5rem; margin-top: 0.15rem; color: #464c56; margin-bottom: 0.2rem; }
+
+/*图文布局*/
+.companyContain{padding: 0.3rem 0.26rem; height: 1.8rem;}
+.companyImg{background: url("/static/defalut.png") center center;  width: 2.4rem; height: 1.8rem; border-radius: 3px;  background-size: cover;display: inline-block; float: left;}
+.companyRight{padding-left:0.3rem; height: 1.8rem; float: left; display: inline-block; max-width: 4.2rem;}
+.companyRight div{margin-top:0.06rem; height:0.32rem; line-height:0.32rem; font-size: 0.32rem; color: #464c56;}
+.companyRight p{margin-top:0.13rem; line-height:0.44rem; font-size: 0.26rem; color:#969fa9;}
+
+.investorBottom{   height: 0.9rem;    position: fixed;  bottom: 0;  width: 100%;  background-color: white; }
+.sectionOne{ width: 33.3%;  height: 0.6rem; margin-top: 0.15rem; float: left; display: inline-block; }
+.sectionFont{ text-align: center; height: 0.6rem; line-height: 0.6rem; font-size: 0.3rem; color: #0193e6;}
