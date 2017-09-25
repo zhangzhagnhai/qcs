@@ -67,7 +67,7 @@
        <router-link :to="{name:'selectProject',query:{id:id}}" class="buttonRight">投递项目</router-link>
      </div>
 
-     <talk @setTalk="setTalk" :showTalk="showTalk" :id='uid'></talk>
+     <talk @setTalk="setTalk" :showTalk="showTalk" :id='uid' :hasTalked="investor.hasTalked"></talk>
    </div>
 </template>
 
@@ -111,6 +111,7 @@
       },
       setTalk(){
         this.showTalk=false;
+        this.investor.hasTalked=true;
       },
       showTalkText(){
         if(localStorage.getItem("userId")!=this.id){
@@ -132,7 +133,7 @@
 <style src="../../assets/css/investorDetail.css" scoped></style>
 <style src="../../assets/css/activeDetail.css" scoped></style>
 <style scoped>
-   .img{width: 1.55rem; height: 1.55rem; float:left; border-radius: 3px; overflow: hidden;}
+   .img{width: 1.55rem; height: 1.55rem; float:left; border-radius: 3px;  border: 0.5px solid #efefef; box-sizing:border-box;}
    .nav_right{display:inline-block; float:left;height: 1.55rem; margin-left: 0.3rem}
    .nav_name{ height: 0.48rem; line-height: 0.48rem; font-size: 0.4rem; font-weight: bold; max-width: 5rem;overflow: hidden;}
    .nav_name div{float: left; color: #464c56;}

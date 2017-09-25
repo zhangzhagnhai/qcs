@@ -26,7 +26,7 @@
 </script>
 <style scoped>
     .container{height: 1.2rem; padding: 0.3rem 0.26rem}
-    img{height: 1.2rem; width: 1.2rem; float: left; border-radius: 50%;}
+    img{height: 1.2rem; width: 1.2rem; float: left; border-radius: 50%;  border: 0.5px solid #efefef; box-sizing:border-box;}
     .connectionFont{float: left;margin-left: 0.3rem; width: 5.48rem; height: 1.2rem;}
     .connectionName{font-size: 0.3rem; line-height: 0.3rem; height: 0.3rem;  color: #464c56;}
     .connectionCompany{font-size: 0.26rem; line-height: 0.57rem; height: 0.57rem; color: #6c747c; overflow: hidden}

@@ -3,9 +3,9 @@
     <div v-title data-title="消息">
       消息
     </div>
-    <ul id="content" style="font-size: 0">
+    <ul id="content" style="font-size: 0;background-color: #f7f7f7;">
       <li v-for="message in messageList" :class="message.type">
-          <div class="time">{{message.time | formatDate}}</div>
+          <div class="time">{{message.time | formatDates}}</div>
           <div class="container">
             <img class="img" :src="message.send_user.show_img">
             <div class="info">
@@ -36,7 +36,7 @@
   </div>
 </template>
 <script>
-  import {formatDate} from '../../assets/js/date.js';
+  import {formatDate,formatDateA} from '../../assets/js/date.js';
   import {host} from '../../assets/js/util'
   export default{
     data(){
@@ -51,8 +51,8 @@
       this.id=this.$route.query.id;
       this.getData();
     },filters: {
-      formatDate(time) {
-        var date = new Date(time);
+      formatDates(time) {
+        //var date = new Date(time);
         return formatDate(time, "yyyy-MM-dd hh:mm");
       }
     },methods:{
@@ -73,7 +73,8 @@
         })
       },
       talk(){
-        var date = new Date();
+        var date = formatDateA(new Date(),"yyyy-MM-dd hh:mm:ss");
+
         var _this = this;
         if (this.talkString.length > 150) {
           Overlay.show("最多可输入150个字", 2000);

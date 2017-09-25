@@ -5,8 +5,8 @@
     </div>
 
     <div class="logoImg" :style="{backgroundImage:'url('+active.image+')'}"></div>
-    <div class="logoFont">{{active.title}}<span>|</span><span>{{active.summary}}</span></div>
-
+    <div class="projectName">{{active.title}}</div>
+    <p class="summary">{{active.summary}}</p>
     <div style="padding:0 0 0 0.3rem;">
       <div class="activeInfo">时间：{{active.start_time | formatDate}} 至 {{active.end_time | formatDate}}</div>
       <div class="activeInfo">地址：{{active.province_str+active.city_str+active.county_str}}</div>
@@ -302,6 +302,8 @@
 <style src="../../assets/css/activeDetail.css" scoped></style>
 <style scoped>
     .logoImg{background-size: cover;}
+    .projectName{padding:0 0.26rem; margin-top: 0.4rem; height: 0.34rem; line-height: 0.34rem; font-size: 0.34rem; color: #464c56; font-weight: bold;}
+    .summary{padding:0 0.26rem; line-height: 0.5rem; font-size: 0.3rem; margin: 0.2rem 0;  color: #6c747c;overflow : hidden;  text-overflow: ellipsis;  display: -webkit-box;  -webkit-line-clamp: 3;  -webkit-box-orient: vertical;}
     .font{line-height:0.24rem; width: 0.85rem; height: 0.24rem; overflow: hidden;white-space:nowrap;text-overflow:ellipsis;}
     .allImg{float:right; margin: 0.29rem 0.3rem 0 0.1rem;  height: 0.32rem;}
     .payContainer{position: fixed; bottom: 0; width: 100% ;background-color: white; }

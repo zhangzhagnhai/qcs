@@ -12,7 +12,7 @@
     <div class="time">
       <div>{{personInfo.created_at|formatDate}}&nbsp;&nbsp;|&nbsp;&nbsp;{{personInfo.show_views}}阅</div>
     </div>
-    <div class="template" style="font-size: 16px; color: #444444; line-height:1.5; padding-top:0">
+    <div class="template" style="font-size: 0.36rem; color: #6c747c; line-height:0.66rem; padding-top:0">
   <!--    <div class="smallLine"></div>-->
       <div v-html="personInfo.content"></div>
     </div>
@@ -69,7 +69,7 @@
 <style src="../../assets/css/infoList.css" scoped></style>
 <style scoped>
     .newsTitle{font-size: 0.46rem; font-weight: bold; line-height: 0.71rem; text-align: left; color: #464c56; padding: 0.28rem 0.26rem}
-    .fsImg{float: left; width: 0.5rem; height: 0.5rem;  border-radius: 50%}
+    .fsImg{float: left; width: 0.5rem; height: 0.5rem;  border-radius: 50%; border: 0.5px solid #efefef; box-sizing:border-box;}
     .fsName{float: left; height: 0.5rem; line-height: 0.5rem; color: #464c56; font-size: 0.26rem; margin-left: 0.2rem}
     .time{height: 0.6rem; font-size: 0; padding: 0 0.26rem;}
     .time div{font-size: 0.26rem; line-height: 0.82rem; float: left; color: #969fa9}

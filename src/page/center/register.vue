@@ -92,7 +92,9 @@
           $.post(host+"/center/centerUserInfo",this.userInfo).then(function (response) {
             if(response.code){
               Overlay.show("绑定手机号成功")
-              window.history.go(-1)
+              $.post(host+"/center/updateRelationAndInvestor").then(function (res) {
+                window.history.go(-1)
+              })
             }else{
               Overlay.show(response.msg)
             }

@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <div v-if="showMengCeng" class="mengceng">
+      <div v-if="showMengCeng&&!hasTalked" class="mengceng">
         <div @click='showMengCeng=false' class="mengcengBg"></div>
         <div class="mengcengContain">
           <div class="mengcengTitle">留言已发送成功</div>
@@ -31,7 +31,7 @@
         showMengCeng:false
       }
     },
-    props:['id',"showTalk"],
+    props:['id',"showTalk","hasTalked"],
     methods: {
       talk(){
         console.log(this.id);

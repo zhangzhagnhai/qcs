@@ -49,7 +49,7 @@
 </script>
 <style scoped>
    .items{height: 1.5rem; }
-   .img{width: 0.9rem; height: 0.9rem; background-size: cover; border-radius: 50%; background-position: center center; }
+   .img{width: 0.9rem; height: 0.9rem; background-size: cover; border-radius: 50%; background-position: center center;  border: 0.5px solid #efefef; box-sizing:border-box; }
    .bmLeft{height: 1.5rem;  float: left; display: flex;  display: -moz-flex; display: -webkit-flex;  align-items: center;  -webkit-align-items: center;}
    .bmLeftFont{font-size: 0.3rem; margin-left:0.3rem; color:#464c56; max-width: 2.4rem;}
    .bmRight{height: 1.5rem;  float: right;margin-right: 0.3rem; display: flex;  display: -moz-flex; display: -webkit-flex;  align-items: center;  -webkit-align-items: center;}

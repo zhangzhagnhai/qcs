@@ -94,7 +94,7 @@
       if(window.select)
         this.select= window.select;
       this.id=this.$route.query.id;
-      this.isMyProject=this.$route.query.isMyProject||false;
+      this.isMyProject=this.$route.query.isMyProject=="true"?"true":"false";
       console.log(this.isMyProject)
       this.getData();
     },methods:{

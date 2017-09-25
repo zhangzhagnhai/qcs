@@ -1,0 +1,12 @@
+open www.hcsoo.com 
+zzh
+123
+cd /laravel.hcsoo.com/public/test
+put E:\work\QCS-2.0\invest2.0\dist\demo.html 
+put E:\work\QCS-2.0\invest2.0\dist\index.html 
+rmdir static
+mkdir static
+cd static
+mkdir js
+mkdir css
+mkdir img

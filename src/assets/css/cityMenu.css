@@ -4,5 +4,5 @@
 .cityMenu{float: left; margin-left: -0.3rem; margin-right: -9999px; -webkit-overflow-scrolling : touch; }
 .cityMenu span{float:left; height: 0.85rem; line-height:0.85rem; padding: 0 0.3rem; font-size: 0.32rem; font-weight: bold; color: #464c56; position: relative;}
 .cityMenu .select{color: #4285F4;}
-.cityMenuBorder{display:none; margin: 0 auto; height: 1px; width: 0.4rem; bottom: 0; background-color: #4285F4;}
+.cityMenuBorder{display:none; margin: -0.03rem auto; height: 0.04rem; width: 0.4rem; bottom: 0; background-color: #4285F4;}
 .cityMenu .select .cityMenuBorder{display: block}

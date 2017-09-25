@@ -21,7 +21,7 @@
       }
     },
     created(){
-      this.templateId=this.$route.query.templateId?this.$route.query.templateId:'5';
+      this.templateId=this.$route.query.templateId?this.$route.query.templateId:localStorage.getItem('templateID');
       var stateArray=this.getQueryStringByName('state').split("_");
       if(stateArray&&stateArray.length>1&&(location.href.length-location.href.indexOf("#"))<=2){
         var stateObj={};

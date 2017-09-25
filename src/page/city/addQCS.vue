@@ -58,7 +58,10 @@
         }
         $.getJSON(host+"/city/fensheApply",this.userInfo).then(function (response) {
             if(response.code){
-              Overlay.show("提交成功")
+              Overlay.show("提交成功");
+              window.history.go(-1)
+            }else {
+              Overlay.show(response.msg);
             }
         })
 

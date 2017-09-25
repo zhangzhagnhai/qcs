@@ -38,6 +38,7 @@
     data(){
       return {
         select: 1,
+        id:"",
         meetingId:"",
         userInfo:{
         }
@@ -66,7 +67,13 @@
           })
         }
       },submit(){
-        console.log(this.userInfo)
+        console.log(this.userInfo.mobile)
+        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        if((this.userInfo.mobile)&&!myreg.test(this.userInfo.mobile)){
+          Overlay.show("请输入正确的手机号");
+          return;
+        }
+
         var totalField=0;
         var _this=this;
         for(var i=0;i<this.userInfo.tag.length;i++){

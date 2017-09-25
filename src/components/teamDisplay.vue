@@ -35,9 +35,10 @@
   .teamIcon {
     height: 1.2rem;
     width: 1.2rem;
-    border-radius: 100%;
+    border-radius: 50%;
     display: inline-block;
     float: left;
+    border: 0.5px solid #efefef; box-sizing:border-box;
   }
 
   .teamIconItem {

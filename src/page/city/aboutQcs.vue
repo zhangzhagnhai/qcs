@@ -94,7 +94,7 @@
   .fsNavs div{width: 3.5rem; height: 0.58rem; line-height:0.58rem; float: left; text-align: center; font-size: 0.28rem;background-color:white; color:#4285F4;}
   .fsNavs .select{background-color:#4285F4; color:white;}
   .mainFS{height: 1.2rem; padding: 0.3rem 0.26rem; font-size: 0}
-  .mainFSImg{width: 1.2rem; height: 1.2rem; float: left; border-radius: 3px}
+  .mainFSImg{width: 1.2rem; height: 1.2rem; float: left; border-radius: 3px;  border: 0.5px solid #efefef; box-sizing:border-box;}
   .mainFSFontContain{height: 1.2rem; width:5.48rem; float: left; margin-left: 0.3rem;}
   .mainFSName{height: 0.76rem; line-height: 0.76rem; font-size: 0.36rem; color: #464c56}
   .mainFsArea{height: 0.36rem; line-height: 0.36rem;font-size: 0.26rem; color: #6c747c; overflow: hidden;}

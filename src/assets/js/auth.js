@@ -67,7 +67,7 @@ import {host,strToJson} from '../../assets/js/util'
 
   //初始化验证.
   (function () {
-    var templateID=5;
+    var templateID=localStorage.getItem('templateID')||5;
 
     var stateArray=getQueryStringByName('state').split("_");
     console.log(stateArray);
@@ -78,11 +78,15 @@ import {host,strToJson} from '../../assets/js/util'
           templateID=tempArray[1];
           console.log("state template init");
           break;
+        }else if(getQueryStringByName('templateId')){
+          templateID=getQueryStringByName('templateId')
         }
       }
     }else if(getQueryStringByName('templateId')){
       templateID=getQueryStringByName('templateId')
       console.log("getQueryStringByName template init");
+    }else{
+      templateID=localStorage.getItem('templateID')
     }
 
   /*  if((!stateArray)||stateArray[0]=="")

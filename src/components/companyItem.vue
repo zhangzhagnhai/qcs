@@ -13,8 +13,8 @@
        </div>
 
        <div class="srContain">
-          <input type="text" placeholder="请输入公司名称" v-model="company.name" @change="textChange"/>
-          <textarea placeholder="请输入公司简介" @change="textChange" v-model="company.introduce"></textarea>
+          <input type="text" placeholder="请输入公司名称" v-model="company.name" @change="textChange" maxlength="12"/>
+          <textarea placeholder="请输入公司简介" @change="textChange" v-model="company.introduce" maxlength="45"></textarea>
        </div>
   </div>
 </template>

@@ -10,7 +10,7 @@
 
 .baoMingList{display: inline-block; margin-left: 0.12rem;/* margin-bottom: 0.3rem;*/   overflow: hidden;}
 .baoMingList li{float: left; padding:0.16rem 0.18rem;}
-.baoMingList .img{width: 0.85rem; height: 0.85rem; background: url('/static/defalut.png'); background-size: cover; border-radius: 50%;}
+.baoMingList .img{width: 0.85rem; height: 0.85rem; background: url('/static/defalut.png'); background-size: cover; border-radius: 50%;   border: 0.5px solid #efefef; box-sizing:border-box;}
 .baoMingList .font{font-size: 0.24rem; text-align: center; margin-top: 0.18rem; color:#969fa9;}
 .moreImg{background-image: url('../images/youjian.png'); background-size: cover;float: right; height: 0.32rem; width: 0.23rem;}
 

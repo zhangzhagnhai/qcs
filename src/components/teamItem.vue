@@ -15,12 +15,12 @@
       </div>
 
       <div style="float:left; margin-left: 0.3rem; width: 4.35rem">
-         <input type="text" placeholder="请输入你的名称" v-model="team.name" style="margin-top: 0.15rem">
-         <input type="text" placeholder="请输入你的职位" v-model="team.job">
+         <input type="text" placeholder="请输入你的名称" v-model="team.name" maxlength="12" style="margin-top: 0.15rem">
+         <input type="text" placeholder="请输入你的职位" v-model="team.job" maxlength="12">
       </div>
     </div>
     <div style="height:0.48rem; line-height: 0.48rem; font-size: 0.28rem; color: #464c56">个人介绍：</div>
-    <textarea  class="companyContentx" placeholder="添加文字内容" v-model="team.introduce"></textarea>
+    <textarea  class="companyContentx" placeholder="添加文字内容" v-model="team.introduce" maxlength="150"></textarea>
   </div>
 </template>
 <script>

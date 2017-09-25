@@ -84,7 +84,10 @@
       submit(){
         $.post(host+"/center/centerInvestorSave", this.investor).then(function (response) {
           if(response.code){
-            Overlay.show("提交成功")
+            Overlay.show("提交成功，等待审核");
+            window.history.go(-1)
+          }else {
+            Overlay.show(response.msg);
           }
         })
         //this.showMengCeng=true;

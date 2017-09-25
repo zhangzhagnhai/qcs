@@ -112,14 +112,10 @@
         }else{
           $.getJSON(host+"/communication/communicationDoSign", this.userInfo).then(function (response) {
             if(response.code){
-              Overlay.show("提交成功")
-              _this.userInfo.name="";
-              _this.userInfo.mobile="";
-              _this.userInfo.company="";
-              _this.userInfo.job="";
-              _this.userInfo.request="";
+              Overlay.show("提交成功");
+              window.history.go(-1)
             }else {
-              Overlay.show("提交失败")
+              Overlay.show(response.msg);
             }
           })
         }

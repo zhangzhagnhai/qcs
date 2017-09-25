@@ -9,7 +9,7 @@
       <div class="emptyFont">暂时没有消息呢~</div>
     </div>
 
-    <ul id="sysContent" style="font-size: 0">
+    <ul id="sysContent" style="font-size: 0; background-color: #f7f7f7;">
       <li v-for="message in messageList" class="left">
           <div class="time">{{message.time | formatDate}}</div>
           <div class="container">

@@ -35,7 +35,7 @@
       },
       citysName:function(){
         var cityName={};
-        if(this.province){
+        if(this.province&&addrobj){
           for(var i in addrobj[this.province]){
             cityName[i]=addrname[i]
           }
@@ -44,7 +44,7 @@
       },
       countysName:function(){
         var countyName={};
-        if(this.city){
+        if(this.city&&this.province&&addrobj[this.province]){
           for(var i in addrobj[this.province][this.city]){
             var county=addrobj[this.province][this.city][i];
             countyName[county]=addrname[county]
@@ -55,7 +55,6 @@
     },
     watch:{
       'province':function(n,o){
-        console.log(Object.getOwnPropertyNames(this.citysName)[0])
         if(this.init)
           return
         if(n!=o) this.city=Object.getOwnPropertyNames(this.citysName)[0];

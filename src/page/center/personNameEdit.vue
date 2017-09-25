@@ -64,6 +64,7 @@
     font-size: 0.32rem;
     color: #464c56;
     padding: 0.34rem 0;
+    width: 6rem;
   }
 
   .personArrow {

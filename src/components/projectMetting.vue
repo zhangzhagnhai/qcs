@@ -28,7 +28,7 @@
         <div class="iconFont">{{projectMeeting.location}}</div>
       </div>
 
-      <div v-if="isDetail">
+      <div v-if="isDetail&&false">
         <div class="smallLine"></div>
         <div class="projectMeetingTop">
           <img :src="projectMeeting.fenshe.fenshe_logo" >

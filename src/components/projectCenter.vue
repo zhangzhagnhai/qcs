@@ -4,7 +4,7 @@
     <span v-if="showStatus" class="fk fkSelect">{{project.result_str}}</span>
     <div class="projectAttend">
       <div class="projectAttendName">{{project.name}}</div>
-      <div style="margin-top: 0.14rem; height: 0.26rem">
+      <div style="margin-top: 0.14rem; height: 0.26rem; overflow: hidden;">
         <div class="title_tag" v-for="labelsArr in project.request">
           <div class="img"></div>
           <div class="font">{{labelsArr.name}}</div>

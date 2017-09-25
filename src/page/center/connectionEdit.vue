@@ -80,7 +80,7 @@
     <div class="submitButton" @click="submit">保存</div>
 
     <!--弹窗-->
-    <div v-if="showMengCeng" class="mengceng">
+    <div v-if="mobile&&showMengCeng" class="mengceng">
       <div @click='showMengCeng=false' class="mengcengBg"></div>
       <div class="mengcengContain">
         <div class="mengcengTitle">完善个人信息</div>
@@ -90,17 +90,21 @@
         </div>
       </div>
     </div>
+
+    <prevRegister v-if="mobile"></prevRegister>
   </div>
 </template>
 <script>
   import imageUpload from '../../components/imageUpload'
   import productItem from "../../components/productItem.vue";
+  import prevRegister from '../../components/prevRegister'
   import {host} from '../../assets/js/util'
   export default {
     data () {
       return {
         connectionDetail: {},
-        showMengCeng: true
+        showMengCeng: true,
+        mobile:""
       }
     }, mounted(){
       this.getData();
@@ -109,14 +113,18 @@
       getData(){
         var _this = this;
         _this.$emit("loading",true);
-        $.getJSON(host + "/center/centerRelationshipInfo").then(function (response) {
-          _this.connectionDetail = response.relationship;
-          if(response.relationship&&response.relationship.name){
-            _this.showMengCeng=false;
-          }else{
-            _this.showMengCeng=true;
-          }
-          _this.$emit("loading",false);
+        $.getJSON(host + "/wx/getUserInfoByUid").then(function (res) {
+            _this.mobile=res.mobile;
+            $.getJSON(host + "/center/centerRelationshipInfo").then(function (response) {
+              _this.connectionDetail = response.relationship;
+              if(response.relationship&&response.relationship.company){
+                _this.showMengCeng=false;
+              }else{
+                _this.showMengCeng=true;
+              }
+              console.log(_this.showMengCeng)
+              _this.$emit("loading",false);
+            })
         })
       }
       ,
@@ -133,9 +141,22 @@
         }
       },
       submit(){
+        if(!this.connectionDetail.company)
+        {
+          Overlay.show("请输入你的单位名称");
+          return;
+        }
+        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        if(!myreg.test(this.connectionDetail.mobile)){
+          Overlay.show("请输入正确的手机号")
+          return;
+        }
         $.post(host+"/center/centerRelationshipSave", this.connectionDetail).then(function (response) {
           if(response.code){
-            Overlay.show("提交成功")
+            Overlay.show("提交成功，等待审核");
+            window.history.go(-1)
+          }else {
+            Overlay.show(response.msg);
           }
         })
         //this.showMengCeng=true;
@@ -149,7 +170,8 @@
     },
     components: {
       imageUpload,
-      productItem
+      productItem,
+      prevRegister
     }
   }
 </script>

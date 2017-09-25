@@ -31,7 +31,7 @@
 
       <div style="height: 0.26rem; margin-top: 0.25rem; margin-bottom: 0.4rem;">
         <img src=../assets/images/didian.png class="iconImg">
-        <div class="iconFont">杭州活动地址</div>
+        <div class="iconFont">{{active.province_str+active.city_str+active.county_str}}</div>
       </div>
 
       <div class="activePrice">{{active.price==0?"免费":'￥'+active.price}}</div>

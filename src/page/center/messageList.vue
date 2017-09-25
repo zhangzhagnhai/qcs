@@ -20,7 +20,7 @@
            </div>
            <div class="messageContainer">
               <div style="height: 0.44rem;">
-                <div class="messageName">{{message.name}}</div>
+                <div class="messageName">{{message.show_name}}</div>
                 <div class="messageTime">{{message.recentMessage.created_at | formatDate}}</div>
               </div>
               <div class="messageInfo">{{message.recentMessage.body}}</div>
@@ -63,6 +63,7 @@
 </script>
 <style scoped>
     .icon{width: 0.9rem; height: 0.9rem; border-radius: 50%; float: left;}
+    li .icon{border: 0.5px solid #efefef; box-sizing:border-box;}
     .iconName{float: left; height: 0.9rem; line-height: 0.9rem; font-size: 0.34rem; color: #464c56; margin-left: 0.3rem;}
     .systemNums{float:left; height:0.4rem; line-height: 0.4rem; width:0.4rem; text-align: center; font-size: 0.24rem; color: white; border-radius:50%; background-color: #cc0000; margin-top: 0.25rem;margin-left: 0.15rem}
     .youjian{float: right; height: 0.34rem; margin-top: 0.28rem;}

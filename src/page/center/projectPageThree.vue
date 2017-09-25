@@ -23,6 +23,11 @@
       }
     },
     props:["userInfo"],
+    created(){
+       if(this.userInfo.teams.length==0){
+         this.add();
+       }
+    },
     methods: {
       add(){
         this.userInfo.teams.push({image:'',img:'',name:'',job:"",introduce:""})

@@ -5,21 +5,30 @@
     </div>
     <div class="serviceContainer">
        <div class="serviceContain">
-         <img src="../../assets/images/zhaozijin.png">
-         <h1>找资金</h1>
-         <h2>让你的好项目不会</h2>
-         <h2>缺失在资金短缺上</h2>
-         <router-link to="investorList" class="anniu">免费查找</router-link>
+          <div style="height:0.56rem;margin-top: 0.49rem">
+            <img src="static/zhaozijin.png" />
+            <h1>找资金</h1>
+          </div>
+          <h2>让你的好项目不会缺失在资金短缺上</h2>
        </div>
-        <div class="serviceContain">
-          <img src="../../assets/images/zhiku.png">
-          <h1>智库</h1>
-          <h2>节约你宝贵时间</h2>
-          <h2>帮你解决专业难题</h2>
-          <router-link to="thinkList" class="anniu">马上解决</router-link>
-        </div>
+       <div style="width: 1.76rem; height:2rem;  float: left;">
+          <router-link to="investorList" class="anniu">免费查找</router-link>
+       </div>
     </div>
- <!--   <addresss></addresss>-->
+    <div class="serviceContainer">
+      <div class="serviceContain">
+        <div style="height:0.56rem;margin-top: 0.49rem">
+          <img src="static/zhiku.png" />
+          <h1>智库</h1>
+        </div>
+        <h2>节约你宝贵时间帮你解决专业难题</h2>
+      </div>
+      <div style="width: 1.76rem; height:2rem;  float: left;">
+        <router-link to="thinkList" class="anniu">马上解决</router-link>
+      </div>
+    </div>
+
+    <img src="static/ditu.png" style="margin: 1.36rem auto 0; display: block; width: 6.98rem;">
     <foot select="2"></foot>
   </div>
 </template>
@@ -46,10 +55,10 @@
   }
 </script>
 <style scoped>
-   .serviceContainer{padding: 0.3rem 0.11rem; font-size: 0; display: inline-block;}
-   .serviceContain{float: left; background-color: white; width: 3.34rem; height: 3.8rem; border-radius: 5px; margin:0 0.15rem; }
-   .serviceContain img{margin:0.4rem auto 0.3rem; height: 0.75rem;  display: block;}
-   h1{font-size: 0.34rem; font-weight: normal; color: #464c56; height: 0.34rem; line-height: 0.34rem; text-align: center;margin-bottom: 0.22rem}
-   h2{font-size: 0.26rem; font-weight: normal; color: #969fa9; height: 0.41rem; line-height: 0.41rem; text-align: center; }
-   .anniu{margin:0.05rem auto; padding-top: 0.03rem; height:0.76rem; line-height:0.76rem; font-size: 0.26rem;  width:1.76rem; color: white; text-align: center; background: url(../../assets/images/anniu.png); background-size: cover;}
+   .serviceContainer{height:2rem; width: 6.98rem; margin: 0.3rem auto 0; background-color: white; border-radius: 3px;}
+   .serviceContain{width: 4.7rem; height:2rem;  float: left; margin-left: 0.3rem;}
+   .serviceContain img{height: 0.56rem; width: 0.56rem; float: left;}
+   h1{margin-left:0.15rem; font-size: 0.34rem; color: #464c56;height: 0.56rem; line-height:0.56rem;float: left}
+   h2{font-size: 0.28rem; font-weight: normal; color: #969fa9; height: 0.28rem; line-height: 0.28rem; margin-top: 0.2rem;}
+   .anniu{margin:0.62rem auto; padding-top: 0.03rem; height:0.76rem; line-height:0.76rem; font-size: 0.26rem;  width:1.76rem; color: white; text-align: center; background: url(../../assets/images/anniu.png); background-size: cover;}
 </style>

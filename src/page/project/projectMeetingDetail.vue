@@ -6,6 +6,55 @@
 
     <projectMeeting :projectMeeting="invest" isDetail="detail"></projectMeeting>
     <div style="height: 0.2rem; background-color: #f7f7f7"></div>
+    <div class="col">
+        <div class="left">
+            <div class="numContain">
+               <div>
+                 <span class="nums">{{invest.joinProgramCount+invest.joinPeopleCount}}</span>
+                 <span class="people">人</span></div>
+            </div>
+            <div class="peopleNums">参会人次</div>
+        </div>
+        <div class="right">
+            <div class="fs">
+               <img :src="invest.fenshe.fenshe_logo">
+               <span class="fsName">{{invest.fenshe.name}}</span>
+               <span class="fsStatu">主办</span>
+            </div>
+            <ul class="items">
+              <li>
+                <div class="itemContain">
+                    <div class="itemContainer">
+                       <div>{{invest.joinProgramCount}}</div>
+                       <span>项</span>
+                    </div>
+                </div>
+                <div class="itemName">参会项目</div>
+                <div class="sBorder"></div>
+              </li>
+              <li>
+                <div class="itemContain">
+                  <div class="itemContainer">
+                    <div>{{invest.joinPeopleCount}}</div>
+                    <span>人</span>
+                  </div>
+                </div>
+                <div class="itemName">参访人次</div>
+                <div class="sBorder"></div>
+              </li>
+              <li>
+                <div class="itemContain">
+                  <div class="itemContainer">
+                    <div>{{invest.joinProgramReqCount}}</div>
+                    <span>项</span>
+                  </div>
+                </div>
+                <div class="itemName">需求总量</div>
+              </li>
+            </ul>
+        </div>
+    </div>
+    <div style="height: 0.2rem; background-color: #f7f7f7"></div>
 
     <div style="height: 0.86rem; border-bottom:  0.5px solid #dddddd;">
       <div class="menus">
@@ -54,6 +103,7 @@
     data () {
       return {
         invest: {
+          fenshe:{}
         },
         templateId:"",
         id:"",
@@ -95,6 +145,26 @@
 
 </script>
 <style scoped>
+  .col{height: 2.5rem; padding: 0 0.26rem;}
+  .col .left{width: 1.7rem; height: 1.7rem; float: left; margin-top: 0.4rem; background: url('/static/canhuirenci.png') center center; background-size: cover;}
+  .numContain{height: 0.46rem; margin-top: 0.43rem; text-align: center; color: #4285F4}
+  .numContain div{display: inline-block; font-size: 0}
+  .numContain .nums{font-size: 0.46rem; height: 0.46rem; line-height: 0.46rem; font-weight: bold; float: left;}
+  .numContain .people{font-size: 0.22rem; height: 0.22rem; line-height: 0.22rem;float: left; margin-top: 0.18rem}
+  .peopleNums{margin-top:0.15rem; height: 0.26rem; line-height: 0.26rem; font-size: 0.26rem; text-align: center; color: #4285F4}
+  .col .right{width: 4.98rem; margin-left: 0.3rem; height: 2.5rem; float: left;}
+  .fs{height: 0.6rem; line-height: 0.6rem; padding: 0.25rem 0; border-bottom: 0.5px solid #dddddd}
+  .fs img{width: 0.6rem; height: 0.6rem; float: left;  border-radius: 50%; border: 0.5px solid #efefef; box-sizing:border-box;}
+  .fsName{float: left; margin-left: 0.2rem; font-size: 0.3rem; color: #464c56}
+  .fsStatu{float: left; margin-left: 0.15rem; font-size: 0.22rem; color: #969fa9}
+
+  .items li{float: left; position: relative;}
+  .itemContain{height:0.36rem; width: 1.66rem; margin-top: 0.35rem; text-align: center;}
+  .itemContainer{display: inline-block; font-size: 0;}
+  .itemContainer div{float: left; font-weight: bold; color: #4285F4; font-size: 0.36rem; line-height: 0.36rem;}
+  .itemContainer span{float: left; color: #969fa9;font-size: 0.22rem; line-height: 0.22rem; margin-top: 0.1rem; margin-left: 0.08rem;}
+  .items li .itemName{height:0.56rem; line-height: 0.56rem; font-size: 0.26rem; color: #969fa9; width: 1.66rem; text-align: center;}
+  .sBorder{position: absolute; height: 0.45rem; top:0.48rem; right: 0; border-right: 1px solid #dddddd;}
   .mengceng {
     position: fixed;
     top: 0;

@@ -50,11 +50,14 @@
          </div>
        </div>
      </div>
+
+     <prevRegister v-if="showMobile"></prevRegister>
    </div>
 </template>
 <script>
   import investorList from '../center/myInvestorList.vue'
   import investorEdit from '../center/myInvestorEdit.vue'
+  import prevRegister from '../../components/prevRegister'
   import {host} from '../../assets/js/util'
   export default {
     data(){
@@ -64,7 +67,9 @@
         investor:{},
         isInvestor:true,
         isInvestorTypeSelect:1,
-        showCheckType:false
+        showCheckType:false,
+        mobile:"",
+        showMobile:false
       }
     },mounted(){
       this.templateId = this.$route.query.templateId;
@@ -73,13 +78,16 @@
       getData(){
         var _this=this;
         _this.$emit("loading",true);
-        $.getJSON(host+"/center/investorAcceptProgram").then(function (response) {
-          _this.isInvestor=response.tag;
-          _this.investor=response.investor;
-          if(!response.tag)
-            _this.investor.type=0;
-          _this.projectList=response.programs;
-          _this.$emit("loading",false);
+        $.getJSON(host + "/wx/getUserInfoByUid").then(function (res) {
+            _this.mobile=res.mobile;
+            $.getJSON(host+"/center/investorAcceptProgram").then(function (response) {
+              _this.isInvestor=response.tag;
+              _this.investor=response.investor;
+              if(!response.tag)
+                _this.investor.type=0;
+              _this.projectList=response.programs;
+              _this.$emit("loading",false);
+            })
         })
         return;
         if(this.select==1){
@@ -104,7 +112,9 @@
           this.select=index;
          // this.getData();
         }if(index==2){
-          if(this.investor.type==0&&!this.isInvestor){
+          if(!this.mobile){
+            this.showMobile=true;
+          }else if(this.investor.type==0&&!this.isInvestor){
             this.isInvestorTypeSelect=this.investor.type;
             this.showCheckType=true;
           }else{
@@ -121,7 +131,8 @@
       }
     },components:{
       investorList,
-      investorEdit
+      investorEdit,
+      prevRegister
     }
   }
 </script>

@@ -12,7 +12,7 @@
           style="width:100%; height:100%; border-radius: 5px; overflow: hidden;"></imageUpload>
       </div>
 
-      <input class="productInput" v-model="product.title" placeholder="输入产品与服务内容" maxlength="11"   @change="textChange">
+      <input class="productInput" v-model="product.title" placeholder="输入产品与服务内容" maxlength="12"   @change="textChange">
     </div>
 </template>
 <script>

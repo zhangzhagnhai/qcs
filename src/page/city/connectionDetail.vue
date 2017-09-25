@@ -51,7 +51,7 @@
       <div v-if="showSubmit" class="submitButton" @click="showTalk=true">沟通</div>
 
 
-      <talk @setTalk="setTalk" :showTalk="showTalk" :id='uid'></talk>
+      <talk @setTalk="setTalk" :showTalk="showTalk" :id='uid' :hasTalked="companyDetail.hasTalked"></talk>
   </div>
 </template>
 <script>
@@ -91,6 +91,7 @@
         })
       },setTalk(){
         this.showTalk=false;
+        this.companyDetail.hasTalked=true;
       }
     }, components:{
       connection,

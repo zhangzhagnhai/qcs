@@ -37,7 +37,7 @@
   }
 </script>
 <style lang="scss" scoped>
-  .img{width: 1.55rem; height: 1.55rem; float:left; border-radius: 3px; overflow: hidden;}
+  .img{width: 1.55rem; height: 1.55rem; float:left; border-radius: 3px;  border: 0.5px solid #efefef; box-sizing:border-box;}
   .nav_right{display:inline-block; float:left;height: 1.55rem; margin-left: 0.3rem}
   .nav_name{ height: 0.48rem; line-height: 0.48rem; font-size: 0.36rem; width: 5rem;overflow: hidden;}
   .nav_name div{float: left; color: #464c56;}

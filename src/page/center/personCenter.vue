@@ -33,7 +33,7 @@
         <span class="leftWord">人脉展示</span>
         <router-link to="connectionEdit">
           <img src="../../assets/images/youjiantou.png" class="rightArrow">
-          <span class="rightWord">完善信息进去人脉展示</span>
+          <span class="rightWord">{{userInfo.hasRelationship?"查看完善你的人脉信息":"完善信息进去人脉展示"}}</span>
         </router-link>
       </div>
     </div>
@@ -59,7 +59,7 @@
         <router-link to="myInvestor">
           <span class="leftWord">我是投资人</span>
           <img src="../../assets/images/youjiantou.png" class="rightArrow">
-          <span class="rightWord">认证投资人</span>
+          <span class="rightWord">{{userInfo.hasInvestor?"查看完善你的投资人信息":"认证投资人"}}</span>
         </router-link>
       </div>
     </div>
