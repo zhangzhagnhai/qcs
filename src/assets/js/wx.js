@@ -53,7 +53,7 @@ import {host,strToJson} from '../../assets/js/util'
     if(getCode==false){
       setTimeout(function(){
         setShare(data);
-      },1000000)
+      },10000)
       return;
     }
     //var href=window.location.href.substr(0,window.location.href.indexOf('?'));

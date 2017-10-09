@@ -91,7 +91,7 @@
       </div>
     </div>
 
-    <prevRegister v-if="mobile"></prevRegister>
+    <prevRegister v-if="!mobile"></prevRegister>
   </div>
 </template>
 <script>

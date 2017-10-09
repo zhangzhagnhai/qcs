@@ -47,8 +47,8 @@
         </div>
       </div>
       <!--对话-->
-      <div v-if="showSubmit" class="defaultSubmit"></div>
-      <div v-if="showSubmit" class="submitButton" @click="showTalk=true">沟通</div>
+      <div v-if="showSubmit&&companyDetail.user_id" class="defaultSubmit"></div>
+      <div v-if="showSubmit&&companyDetail.user_id" class="submitButton" @click="showTalk=true">沟通</div>
 
 
       <talk @setTalk="setTalk" :showTalk="showTalk" :id='uid' :hasTalked="companyDetail.hasTalked"></talk>

@@ -40,6 +40,9 @@
       </li>
     </ul>
 
+    <div v-if="selectItem==2&&invest.teams.length==0">
+      <div class="noDataFont" style="margin: 1rem auto">项目方还未上传团队成员</div>
+    </div>
     <!--底部操作按钮-->
     <div v-if="isMeeting==='false'||!isMeeting">
       <div style="height: 1rem"></div>

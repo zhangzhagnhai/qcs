@@ -57,8 +57,8 @@
      </div>
      <div v-if="investor.companys.length==0" style="margin: 1rem auto; font-size: 0.28rem; height:0.28rem;color: #999999;text-align: center ">暂无经营公司</div>
 
-     <div class="defaultSubmit"></div>
-     <div style="height: 0.88rem; position: fixed; bottom: 0; background-color: white;">
+     <div v-if="investor.user_id" class="defaultSubmit"></div>
+     <div v-if="investor.user_id" style="height: 0.88rem; position: fixed; bottom: 0; background-color: white;">
        <div class="smallLine"></div>
        <div class="buttonLeft">
          <img src="../../assets/images/liuyan.png" style="float: left; height: 0.36rem;">

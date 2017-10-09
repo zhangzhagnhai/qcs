@@ -61,8 +61,8 @@
     </div>
 
     <!--参加报名-->
-    <div class="defaultSubmit"></div>
-    <div style="height: 0.88rem; position: fixed; bottom: 0; background-color: white;">
+    <div v-if="showMenu" class="defaultSubmit"></div>
+    <div v-if="showMenu" style="height: 0.88rem; position: fixed; bottom: 0; background-color: white;">
       <div class="smallLine"></div>
       <div class="buttonLeft" @click="openShare">
           <img src="../../assets/images/fenxiang.png" style="float: left; height: 0.36rem;">
@@ -144,7 +144,8 @@
         maxNum:5,
         totalNum:4,
         showErrInfo:false,
-        isClick:false
+        isClick:false,
+        showMenu:false
       }
     },
     created(){
@@ -154,6 +155,12 @@
       "$route": "getData"
     },mounted(){
       //this.getData();
+      var _this=this;
+      window.onscroll = function () {
+        if(document.body.scrollTop>0){
+          _this.showMenu=true;
+        }
+      }
     },methods:{
       getData(){
         var _this=this;

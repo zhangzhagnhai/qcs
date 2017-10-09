@@ -84,9 +84,9 @@
     </ul>
 
 
-    <div class="defaultSubmit"></div>
+    <div v-if="showMenu" class="defaultSubmit"></div>
 
-    <div class="footerContainer">
+    <div v-if="showMenu" class="footerContainer">
       <router-link :to="{name:'selectProject',query:{meetingId:invest.id}}" class="leftButton">项目报名</router-link>
       　
       <router-link :to="{name:'projectAttend',query:{id:invest.id}}" class="rightButton">参会报名</router-link>
@@ -108,7 +108,8 @@
         templateId:"",
         id:"",
         selectItem: 1,
-        showInterest: false
+        showInterest: false,
+        showMenu:false
       }
     },
     created(){
@@ -140,6 +141,12 @@
       }
     },mounted(){
       this.getData();
+      var _this=this;
+      window.onscroll = function () {
+        if(document.body.scrollTop>0){
+          _this.showMenu=true;
+        }
+      }
     }
   }
 

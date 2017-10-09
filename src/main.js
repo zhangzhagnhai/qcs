@@ -4,9 +4,11 @@ import Vue from 'vue'
 import VueResource from 'vue-resource'
 //import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueLazyload from 'vue-lazyload'
+import VueScroller from 'vue-scroller'
 import App from './App'
 import router from './router'
 import title from './directive/title.js';
+
 import {host,strToJson} from './assets/js/util'
 // 引入静态资源
 //require('http://res.wx.qq.com/open/js/jweixin-1.0.0.js')
@@ -27,6 +29,7 @@ $.getJSON(host+"/global/getFensheInfo").then(function (response) {
     window.fenshe=response;
     Vue.use(VueResource)
     Vue.use(VueLazyload)
+    Vue.use(VueScroller)
     //Vue.use(VueAwesomeSwiper)
     /*const templateId='0791';*/
     Vue.prototype.loading=loading;
@@ -49,7 +52,9 @@ $.getJSON(host+"/global/getFensheInfo").then(function (response) {
 }).fail(function(){
     window.fenshe={}
     Vue.use(VueResource)
-    Vue.use(VueAwesomeSwiper)
+    Vue.use(VueLazyload)
+    Vue.use(VueScroller)
+    //Vue.use(VueAwesomeSwiper)
     /*const templateId='0791';*/
 
     Vue.http.options.emulateJSON = true;

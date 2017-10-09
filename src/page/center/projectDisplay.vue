@@ -3,14 +3,17 @@
     <div v-title :data-title="project.name">
       {{project.name}}
     </div>
-    <div class="cutLines"></div>
-    <div class="fsNav">
-      <div class="fsNavs">
-        <div :class="select==1?'select':''" @click="selectMenu(1)">基本信息</div>
-        <div :class="select==2?'select':''" @click="selectMenu(2)">详细信息</div>
-        <div :class="select==3?'select':''" @click="selectMenu(3)" style="border: none">团队介绍</div>
+    <div style="position: fixed; top:0; width: 100%; z-index: 100001">
+      <div class="cutLines"></div>
+      <div class="fsNav">
+        <div class="fsNavs">
+          <div :class="select==1?'select':''" @click="selectMenu(1)">基本信息</div>
+          <div :class="select==2?'select':''" @click="selectMenu(2)">详细信息</div>
+          <div :class="select==3?'select':''" @click="selectMenu(3)" style="border: none">团队介绍</div>
+        </div>
       </div>
     </div>
+   <div style="height: 1.18rem"></div>
 
 
     <div v-if="select==1" style="font-size: 0">

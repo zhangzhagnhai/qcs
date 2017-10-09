@@ -1,28 +1,54 @@
 <template>
   <div>
 
-    <div v-for="(item,index) in userInfo.introduce">
-      <textarea v-if="item.type=='text'" class="companyContentx" placeholder="添加文字内容" v-model="item.value"></textarea>
+     <draggable :list="userInfo.introduce" :options="{draggable:'.test'}">
+           <div v-for="(item,index) in userInfo.introduce" style="padding: 0 0.26rem;"  class="test">
+             <div style="position: absolute; height: 1rem; width: 6.98rem; z-index: 100000;"></div>
+             <textarea v-if="item.type=='text'" class="companyContentx test" placeholder="添加文字内容" v-model="item.value"></textarea>
 
-      <div v-if="item.type=='img'"
-        style="width: 6.98rem; margin: 0.3rem auto; border: 0.5px solid #c3ced9;border-radius: 3px;overflow: hidden;">
-        <imageUpload
-          :ref="'pictureInput'+index"
-          @change="onChange(index,'pictureInput'+index)"
-          accept="image/jpeg,image/png"
-          size="10"
-          radius="0"
-          buttonClass="btn"
-          :customStrings="{ }"
-          :defaultImg="item.value?item.value:'/static/wdxmtijiaoxiangmu.png'"
-          noCut="true"
-          style="overflow: hidden; margin: 0 auto; border-radius: 3px;"></imageUpload>
-      </div>
+             <div v-if="item.type=='img'"
+                  class="test" style="width: 6.98rem; margin: 0.3rem auto; border: 0.5px solid #c3ced9;border-radius: 3px;overflow: hidden;">
+               <imageUpload
+                 :ref="'pictureInput'+index"
+                 @change="onChange(index,'pictureInput'+index)"
+                 accept="image/jpeg,image/png"
+                 size="10"
+                 radius="0"
+                 buttonClass="btn"
+                 :customStrings="{ }"
+                 :defaultImg="item.value?item.value:'/static/wdxmtijiaoxiangmu.png'"
+                 noCut="true"
+                 style="overflow: hidden; margin: 0 auto; border-radius: 3px;"></imageUpload>
+             </div>
 
-      <div style="height: 0.4rem; font-size: 0px;">
-        <img src="static/shanchu.png" class="delete" @click="deleteItem(index)" />
-      </div>
-    </div>
+             <div class="test" style="height: 0.4rem; font-size: 0px;">
+               <img src="static/shanchu.png" class="delete" @click="deleteItem(index)" />
+             </div>
+           </div>
+      <!--  <div v-for="(item,index) in userInfo.introduce" style="padding: 0 0.26rem;">
+
+            <textarea v-if="item.type=='text'" class="companyContentx drag" placeholder="添加文字内容" v-model="item.value"></textarea>
+
+            <div v-if="item.type=='img'"
+                 class="drag" style="width: 6.98rem; margin: 0.3rem auto; border: 0.5px solid #c3ced9;border-radius: 3px;overflow: hidden;">
+              <imageUpload
+                :ref="'pictureInput'+index"
+                @change="onChange(index,'pictureInput'+index)"
+                accept="image/jpeg,image/png"
+                size="10"
+                radius="0"
+                buttonClass="btn"
+                :customStrings="{ }"
+                :defaultImg="item.value?item.value:'/static/wdxmtijiaoxiangmu.png'"
+                noCut="true"
+                style="overflow: hidden; margin: 0 auto; border-radius: 3px;"></imageUpload>
+            </div>
+
+            <div style="height: 0.4rem; font-size: 0px;">
+              <img src="static/shanchu.png" class="delete" @click="deleteItem(index)" />
+            </div>
+        </div>-->
+  </draggable>
 
     <div style="height: 0.7rem; width: 6.98rem; margin: 0.3rem auto">
       <div class="addButton" @click="add('text')">
@@ -38,6 +64,7 @@
 </template>
 <script>
   import imageUpload from '../../components/imageUpload'
+  import draggable from 'vuedraggable'
   export default {
     data(){
       return {
@@ -66,7 +93,8 @@
       }
     },
     components: {
-      imageUpload
+      imageUpload,
+      draggable
     }
   }
 </script>
@@ -97,6 +125,6 @@
   .addButton .add{
     font-size: 0.5rem; margin-top: -0.04rem; margin-right: 0.1rem;
   }
-  .delete{display:inline-block; float: right; width: 0.9rem; height: 0.4rem; border-radius: 3px; margin-right: 0.26rem; }
+  .delete{display:inline-block; float: right; width: 0.9rem; height: 0.4rem; border-radius: 3px;}
 
 </style>

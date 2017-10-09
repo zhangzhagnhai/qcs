@@ -3,7 +3,6 @@ import Router from 'vue-router'
 
 import PageTransition from '@/components/PageTransition'
 
-
 Router.prototype.goBack = function () {
   this.isBack = true
   window.history.go(-1)

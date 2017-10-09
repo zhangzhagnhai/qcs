@@ -25,6 +25,13 @@
           <news :personInfo="news" newsType="0"></news>
           <div v-if="newsIndex!=newInfos.length-1" class="smallLine"></div>
         </div>
+     <!-- <scroller v-if="selectIndex==0" :on-refresh="refresh"
+                :on-infinite="infinite" style="position:fixed;bottom: 0; top:1.15rem;">
+        <div v-for="(news,newsIndex) in newInfos">
+          <news :personInfo="news" newsType="0"></news>
+          <div v-if="newsIndex!=newInfos.length-1" class="smallLine"></div>
+        </div>
+      </scroller>-->
         <div v-if="newInfos.length==0&&selectIndex==0">
           <img src="static/z.png" style="width: 3.31rem" class="noDataImg">
           <div class="noDataFont">暂无创投资讯呢~</div>
@@ -116,6 +123,7 @@
               _this.$emit("loading",true);
               $.getJSON(host+"/city/newsList").then(function (response) {
                 _this.newInfos=response.news;
+                //_this.newInfos.length=6;
                 _this.control=true;
                 _this.$emit("loading",false);
               })
@@ -244,6 +252,20 @@
           totalWidth-=containWidth;
           this.$refs.scrollMenu.scrollLeft =totalWidth>0?totalWidth:0;
         }
+      },
+      refresh:function(done){
+        console.log("bbb")
+        done();
+      },
+      infinite: function (done) {
+        console.log(this.newInfos.length)
+        var _this = this;
+        $.getJSON(host+"/city/newsList").then(function (response) {
+          _this.newInfos=_this.newInfos.concat(response.news);
+          console.log(_this.newInfos.length)
+          _this.control=true;
+          done();
+        })
       }
     },mounted(){
       this.getData();

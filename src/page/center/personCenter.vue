@@ -33,7 +33,7 @@
         <span class="leftWord">人脉展示</span>
         <router-link to="connectionEdit">
           <img src="../../assets/images/youjiantou.png" class="rightArrow">
-          <span class="rightWord">{{userInfo.hasRelationship?"查看完善你的人脉信息":"完善信息进去人脉展示"}}</span>
+          <span class="rightWord">{{userInfo.hasRelationship?"查看完善你的人脉信息":"完善信息进入人脉展示"}}</span>
         </router-link>
       </div>
     </div>
