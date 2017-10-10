@@ -31,7 +31,16 @@ export default {
   created(){
     this.id = this.$route.query.id;
     this.templateId = this.$route.query.templateId;
-    console.log(this.templateId)
+
+    let a=3;
+    let b=5;
+    if(a=false||2){
+      a++
+      b++
+    }
+    console.log(a)
+    console.log(b)
+   // console.log(this.templateId)
   }
 }
 </script>

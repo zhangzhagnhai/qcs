@@ -8,7 +8,7 @@
           <div class="fenShe">
             <div class="fensheName">{{projectMeeting.fenshe.name}}</div>
             <div class="fs">
-              <div>{{projectMeeting.owner}}</div>
+              <div>{{projectMeeting.owner||"主办"}}</div>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
           <div class="fenShe">
             <div class="fensheName">{{projectMeeting.fenshe.name}}</div>
             <div class="fs">
-              <div>{{projectMeeting.owner}}</div>
+              <div>{{projectMeeting.owner||"主办"}}</div>
             </div>
           </div>
         </div>

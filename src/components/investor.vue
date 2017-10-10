@@ -8,7 +8,7 @@
             <div class="nav_name">
               <div>{{investor.name}}</div>
             </div>
-            <div class="summary">{{investor.introduce}}</div>
+            <div class="summary">{{investor.motto}}</div>
             <div class="fkl">
               <span>投递数:</span><span class="num">{{investor.programs_count}}</span><span style="padding-left: 0.4rem">反馈率:</span><span class="num">{{investor.return_percent}}%</span>
              </div>

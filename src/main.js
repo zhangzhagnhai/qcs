@@ -24,57 +24,63 @@ import weixin from './assets/js/wx.js'
 import './assets/js/auth.js';
 import loading from './components/loading'
 
-$.getJSON(host+"/global/getFensheInfo").then(function (response) {
-    console.log("fenshe init ok")
-    window.fenshe=response;
-    Vue.use(VueResource)
-    Vue.use(VueLazyload)
-    Vue.use(VueScroller)
-    //Vue.use(VueAwesomeSwiper)
-    /*const templateId='0791';*/
-    Vue.prototype.loading=loading;
-    Vue.http.options.emulateJSON = true;
-    Vue.http.options.headers = {
-      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    };
-    /* eslint-disable no-new */
-    var vue=new Vue({
-      el: '#app',
-      router,
-      template: '<App/>',
-      components: { App }
-    })
+var timer=setInterval(function(){
+   if(localStorage.getItem('userId')){
+     $.getJSON(host+"/global/getFensheInfo").then(function (response) {
+       console.log("fenshe init ok")
+       window.fenshe=response;
+       Vue.use(VueResource)
+       Vue.use(VueLazyload)
+       Vue.use(VueScroller)
+       //Vue.use(VueAwesomeSwiper)
+       /*const templateId='0791';*/
+       Vue.prototype.loading=loading;
+       Vue.http.options.emulateJSON = true;
+       Vue.http.options.headers = {
+         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+       };
+       /* eslint-disable no-new */
+       var vue=new Vue({
+         el: '#app',
+         router,
+         template: '<App/>',
+         components: { App }
+       })
 
-    router.beforeEach((to, from, next) => {
-      to.query.templateId =vue.$route.query.templateId?vue.$route.query.templateId:'0791';
-      next();
-    });
-}).fail(function(){
-    window.fenshe={}
-    Vue.use(VueResource)
-    Vue.use(VueLazyload)
-    Vue.use(VueScroller)
-    //Vue.use(VueAwesomeSwiper)
-    /*const templateId='0791';*/
+       router.beforeEach((to, from, next) => {
+         to.query.templateId =vue.$route.query.templateId?vue.$route.query.templateId:'0791';
+         next();
+       });
+     }).fail(function(){
+       window.fenshe={}
+       Vue.use(VueResource)
+       Vue.use(VueLazyload)
+       Vue.use(VueScroller)
+       //Vue.use(VueAwesomeSwiper)
+       /*const templateId='0791';*/
 
-    Vue.http.options.emulateJSON = true;
-    Vue.http.options.headers = {
-      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    };
-    /* eslint-disable no-new */
-    var vue=new Vue({
-      el: '#app',
-      router,
-      template: '<App/>',
-      components: { App }
-    })
+       Vue.http.options.emulateJSON = true;
+       Vue.http.options.headers = {
+         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+       };
+       /* eslint-disable no-new */
+       var vue=new Vue({
+         el: '#app',
+         router,
+         template: '<App/>',
+         components: { App }
+       })
 
-    router.beforeEach((to, from, next) => {
-      to.query.templateId =vue.$route.query.templateId?vue.$route.query.templateId:'0791';
-      next();
-    });
-    console.log("初始化失败！！！！")
-})
+       router.beforeEach((to, from, next) => {
+         to.query.templateId =vue.$route.query.templateId?vue.$route.query.templateId:'0791';
+         next();
+       });
+       console.log("初始化失败！！！！")
+     })
+     clearInterval(timer);
+   }
+},100);
+
 
 export default {
   created(){
