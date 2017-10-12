@@ -7,7 +7,7 @@
      <div class="fsNav">
        <div class="fsNavs">
          <div :class="select==1?'select':''" @click="selectMenu(1)">接收的项目</div>
-         <div :class="select==2?'select':''" @click="selectMenu(2)">投资人资料</div>
+         <div :class="select==2||select==3?'select':''" @click="selectMenu(2)">投资人资料</div>
        </div>
      </div>
 
@@ -21,9 +21,12 @@
        <div class="rzGo" @click="selectMenu(2)">去认证</div>
      </div>
 
+     <!--投资人投资机构预览页-->
+     <investorDisplay v-if="select==2" :isInvestorType="investor.type" :investor="investor" @select="changeSelect"></investorDisplay>
 
      <!--投资人投资机构编辑-->
-     <investorEdit v-if="select==2" :isInvestorType="investor.type" :investor="investor"></investorEdit>
+     <investorEdit v-if="select==3" :isInvestorType="investor.type" :investor="investor" @select="changeSelect"></investorEdit>
+
 
      <!--选择类型-->
      <div v-if="showCheckType" class="mengceng">
@@ -57,6 +60,7 @@
 <script>
   import investorList from '../center/myInvestorList.vue'
   import investorEdit from '../center/myInvestorEdit.vue'
+  import investorDisplay from '../center/myInvestorDisplay.vue'
   import prevRegister from '../../components/prevRegister'
   import {host} from '../../assets/js/util'
   export default {
@@ -106,12 +110,11 @@
           })
         }
       },
-
       selectMenu(index){
         if(index==1){
           this.select=index;
          // this.getData();
-        }if(index==2){
+        }else if(index==2||index==3){
           if(!this.mobile){
             this.showMobile=true;
           }else if(this.investor.type==0&&!this.isInvestor){
@@ -127,11 +130,16 @@
         /*选择投资类型*/
          this.investor.type=this.isInvestorTypeSelect;
          this.showCheckType=false;
-         this.select=2
+         this.select=3
+      },
+      changeSelect:function(index){
+        console.log(index)
+        this.select=index
       }
     },components:{
       investorList,
       investorEdit,
+      investorDisplay,
       prevRegister
     }
   }

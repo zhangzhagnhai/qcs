@@ -10,10 +10,10 @@
         <div class="left">
             <div class="numContain">
                <div>
-                 <span class="nums">{{invest.joinProgramCount+invest.joinPeopleCount}}</span>
+                 <span class="nums">{{invest.joinProgramCount*6+invest.joinPeopleCount}}</span>
                  <span class="people">人</span></div>
             </div>
-            <div class="peopleNums">参会人次</div>
+            <div class="peopleNums">参会总数</div>
         </div>
         <div class="right">
             <div class="fs">
@@ -29,7 +29,7 @@
                        <span>项</span>
                     </div>
                 </div>
-                <div class="itemName">参会项目</div>
+                <div class="itemName">项目报名</div>
                 <div class="sBorder"></div>
               </li>
               <li>
@@ -39,7 +39,7 @@
                     <span>人</span>
                   </div>
                 </div>
-                <div class="itemName">参访人次</div>
+                <div class="itemName">参会报名</div>
                 <div class="sBorder"></div>
               </li>
               <li>

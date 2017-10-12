@@ -138,6 +138,10 @@ export default new Router({
           name: 'messagePerson',
           component: resolve => require(['@/page/center/messagePerson.vue'], resolve)
         },{
+          path: '/connectionDisplay',
+          name: 'connectionDisplay',
+          component: resolve => require(['@/page/center/connectionDisplay.vue'], resolve)
+        },{
           path: '/connectionEdit',
           name: 'connectionEdit',
           component: resolve => require(['@/page/center/connectionEdit.vue'], resolve)

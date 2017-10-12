@@ -7,5 +7,5 @@ ul li .imgContainer,.imgContainer img{position:relative; width: 2.4rem; height: 
 .rightName{height: 0.72rem; line-height: 0.72rem; font-size: 0.32rem; overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
 .rightItem{height: 0.26rem; padding-top: 0.2rem}
 .right img{width: 0.26rem; float: left;}
-.right .iconFont{margin-left: 0.15rem; float: left; height: 0.26rem; font-size: 0.26rem; line-height: 0.26rem; color: #969fa9; }
+.right .iconFont{margin-left: 0.15rem; float: left;  width: 3.97rem; height: 0.26rem; font-size: 0.26rem; line-height: 0.26rem; color: #969fa9; }
 .iconFont span{margin-left: 0.2rem; }

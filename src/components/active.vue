@@ -17,7 +17,7 @@
           <div class="countNumBG"></div>
           <div class="countNum">
             <span>{{statusStr}}</span>
-            <span style="float: right">已报名 {{active.sign_count}}/{{active.people_num}}</span>
+            <span style="float: right">已报名 {{active.sign_count}}/{{active.people_num==99999?"不限":active.people_num}}</span>
           </div>
         </div>
       </div>

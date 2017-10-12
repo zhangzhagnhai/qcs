@@ -31,7 +31,7 @@
           <img src="/static/renmai.png">
         </div>
         <span class="leftWord">人脉展示</span>
-        <router-link to="connectionEdit">
+        <router-link :to="{name:userInfo.hasRelationship?'connectionDisplay':'connectionEdit'}">
           <img src="../../assets/images/youjiantou.png" class="rightArrow">
           <span class="rightWord">{{userInfo.hasRelationship?"查看完善你的人脉信息":"完善信息进入人脉展示"}}</span>
         </router-link>

@@ -59,6 +59,7 @@
           </div>
           <div v-if="index!=aboutQcs.fensheList.length-1" class="smallLine"></div>
         </router-link>
+        <div v-if="aboutQcs.fensheList.length==0"  style="margin: 1rem auto; font-size: 0.28rem; height:0.28rem;color: #999999;text-align: center ">其他分社洽谈中~</div>
       </div>
 
     </div>
