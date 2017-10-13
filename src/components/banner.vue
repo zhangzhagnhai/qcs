@@ -2,10 +2,10 @@
   <div style="font-size: 0px; width: 100%; overflow: hidden; position: relative">
     <ul class="imgUl" :style="{transform: 'translate(-'+(7.5*banners.length)+'rem, 0px)'}">
       <li v-for="(banner,index) in banners">
-        <router-link :to="{name : banner.href}"><img :src="banner.src" class="logoImg"></router-link>
+        <router-link :to="{name : banner.href,query: {id: banner.id}}"><img :src="banner.src" class="logoImg"></router-link>
       </li>
       <li v-for="(banner,index) in banners">
-        <router-link :to="{name : banner.href}"><img :src="banner.src" class="logoImg"></router-link>
+        <router-link :to="{name : banner.href,query: {id: banner.id}}"><img :src="banner.src" class="logoImg"></router-link>
       </li>
     </ul>
     <div style="position:absolute; height: 0.18rem; bottom: 0.2rem;left: 0; right: 0; margin: 0 auto; text-align: center;">
@@ -27,16 +27,14 @@
     data(){
       return{
         banners:[{
-          href:"index",
-          src:"http://www.hcsoo.com/test/Public/upload/img/2017-04-22/58fae5c1ef66c.jpg"
+          href:"projectMeetingDetail",
+          src: "static/banner1.jpg",
+          id:1
         },{
-          href:"index",
-          src:"http://www.hcsoo.com/test/Public/upload/img/2017-04-22/58fae6046e699.jpg"
-        },
-          {
-            href:"index",
-            src:"http://www.hcsoo.com/test/Public/upload/img/2017-04-22/58fae6046e699.jpg"
-          }
+          href:"activeDetail",
+          src:"static/banner2.jpg",
+          id:18
+        }
         ]
       }
     },created(){

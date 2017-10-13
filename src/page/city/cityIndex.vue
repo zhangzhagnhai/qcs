@@ -114,7 +114,7 @@
     <div class="cutLines"></div>
 
     <!--广告-->
-    <img class="ad" src="static/guanggaowei.jpg" >
+    <img class="ad" src="static/ad.jpg" >
     <div class="cutLines"></div>
 
     <!--人脉-->

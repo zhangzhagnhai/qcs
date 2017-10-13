@@ -26,7 +26,7 @@
 
       <div style="height: 0.26rem">
         <img src=../assets/images/riqi.png class="iconImg">
-        <div class="iconFont">{{active.start_time | formatDate}} 至 {{active.start_time | formatDate}}</div>
+        <div class="iconFont">{{active.start_time | formatDate}} 至 {{active.end_time | formatDate}}</div>
       </div>
 
       <div style="height: 0.26rem; margin-top: 0.25rem; margin-bottom: 0.4rem;">
