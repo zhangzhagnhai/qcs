@@ -19,7 +19,7 @@
            <div class="value"><span v-for="field in project.tag">{{field.name}}&nbsp;&nbsp;&nbsp;</span></div>
          </div>
          <div class="container">
-           <div class="key">投资地区:</div>
+           <div class="key">所在地区:</div>
            <div class="value"><span>{{project.province_str}}&nbsp;&nbsp;&nbsp;</span><span>{{project.city_str}}</span></div>
          </div>
          <div class="container" style="border: none">

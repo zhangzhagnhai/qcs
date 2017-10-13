@@ -38,11 +38,11 @@
       <ul class="footer" style="height: 1rem; position: fixed; bottom: 0; width: 100%;">
         <li @click="selected(0)">
           <div :class="project.return==2?['icon-bgxer']:['icon-bgx']"></div>
-          <div :class="project.return==2?'footerFont footerColor':'footerFont'">不敢兴趣</div>
+          <div :class="project.return==2?'footerFont footerColor':'footerFont'">不感兴趣</div>
         </li>
         <li @click="selected(1)">
           <div :class="project.return==1?['icon-gxer']:['icon-gx']"></div>
-          <div :class="project.return==1?'footerFont footerColor':'footerFont'">敢兴趣</div>
+          <div :class="project.return==1?'footerFont footerColor':'footerFont'">感兴趣</div>
         </li>
         <li @click="selected(2)">
           <div :class="project.yuetan_status==1?['icon-yter']:['icon-yt']"></div>

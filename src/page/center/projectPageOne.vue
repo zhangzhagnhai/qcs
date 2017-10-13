@@ -37,7 +37,7 @@
       <div class="smallLine"></div>
 
       <div class="connectionInfo">
-        <div class="connectionName">投资地区:</div>
+        <div class="connectionName">所在地区:</div>
         <addressComponent @change="addressChange" :myProvince="userInfo.province" :myCity="userInfo.city" :myCounty="userInfo.county" noCounty="false"></addressComponent>
       </div>
       <div class="smallLine"></div>

@@ -262,6 +262,6 @@ import {host,strToJson} from '../../assets/js/util'
     console.log(state)
     //http://laravel.hcsoo.com/index.html?#/investorDetail?id=8&investType=1
     //location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0952e81967686150&redirect_uri=' + encodeURI('http://' + location.host + location.pathname+myHash) + '&response_type=code&scope=snsapi_userinfo&state=xgabcd';
-    location.href= 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0952e81967686150&redirect_uri=' + encodeURI('http://' + location.host + location.pathname) + '&response_type=code&scope=snsapi_userinfo&state='+state;
+    location.href= 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx775d33e15997b1a4&redirect_uri=' + encodeURI('http://' + location.host + location.pathname) + '&response_type=code&scope=snsapi_userinfo&state='+state;
   }
 })();
