@@ -81,12 +81,15 @@
         </div>
       </div>
     </div>
+
+    <prevRegister v-if="showRegister"></prevRegister>
   </div>
 </template>
 
 <script>
   import project from '../../components/project.vue'
   import teamDisplay from '../../components/teamDisplay'
+  import prevRegister from '../../components/prevRegister'
   import {host} from '../../assets/js/util'
   export default {
 
@@ -96,6 +99,7 @@
         invest: {
           title:''
         },
+        showRegister:false,
         templateId:"",
         selectItem: 1,
         showInterest: 0,
@@ -104,7 +108,8 @@
     },
     components: {
       project,
-      teamDisplay
+      teamDisplay,
+      prevRegister
     },
     methods: {
       getData(){
@@ -145,6 +150,10 @@
 
           })
         } else {
+          if(!this.invest.mobile){
+            this.showRegister=true;
+            return;
+          }
           if(!this.invest.hasInteresting){
             this.showInterest = true;
           }

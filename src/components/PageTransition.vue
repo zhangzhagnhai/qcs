@@ -80,8 +80,13 @@
           //this.$router.push({path: 'hello'});
         }
       }
-      //this.display="none";
+      this.display="none";
       window.scrollTo(0, 0)
+      var _this=this;
+      /*延迟渲染*/
+      setTimeout(function(){
+        _this.display="block";
+      },100)
 
       let isBack = this.$router.isBack
       if (isBack) {

@@ -1,6 +1,6 @@
 import {host,strToJson} from '../../assets/js/util'
 (function () {
-  var PRODUCTION = true;
+  var PRODUCTION = false;
   var defaultUser=30;
   var userDefer = $.Deferred();
   //window.PRODUCTION=PRODUCTION;

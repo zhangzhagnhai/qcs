@@ -1,7 +1,7 @@
 @echo on
 
-e:
+d:
 
-cd work\QCS-2.0\github\qcs
+cd zzh\qcs
 
 npm run dev
