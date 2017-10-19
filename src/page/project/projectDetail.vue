@@ -99,6 +99,7 @@
         invest: {
           title:''
         },
+        user:{},
         showRegister:false,
         templateId:"",
         selectItem: 1,
@@ -122,6 +123,7 @@
         var href=location.href.split('#')[0]+"#projectDetail?id="+this.id+"&isMeeting="+this.isMeeting+"&templateId="+this.templateId;
         $.getJSON(host+"/communication/programDetail", {id:_this.id,templateId: _this.templateId}).then(function (response) {
           _this.invest =response.program;
+          _this.user=response.user;
           // _this.$set(_this,"invest",response.communication);
           _this.$emit("loading",false);
           console.log(_this.isMeeting)
@@ -150,7 +152,7 @@
 
           })
         } else {
-          if(!this.invest.mobile){
+          if(!this.user.mobile){
             this.showRegister=true;
             return;
           }

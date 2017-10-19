@@ -86,18 +86,15 @@
       /*延迟渲染*/
       setTimeout(function(){
         _this.display="block";
+        let isBack = _this.$router.isBack
+        if (isBack) {
+          _this.transitionName = 'slide-right'
+        } else {
+          _this.transitionName = 'slide-left'
+        }
+        _this.$router.isBack = false;
+        next();
       },100)
-
-      let isBack = this.$router.isBack
-      if (isBack) {
-        this.transitionName = 'slide-right'
-      } else {
-        this.transitionName = 'slide-left'
-      }
-      this.$router.isBack = false;
-      console.log(this.$router.isBack)
-      next();
-
     },
     watch: {
       "$route": "setShare"

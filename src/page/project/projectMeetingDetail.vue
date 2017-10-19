@@ -29,7 +29,7 @@
                        <span>项</span>
                     </div>
                 </div>
-                <div class="itemName">项目报名</div>
+                <div class="itemName">线上项目</div>
                 <div class="sBorder"></div>
               </li>
               <li>
@@ -39,7 +39,7 @@
                     <span>人</span>
                   </div>
                 </div>
-                <div class="itemName">参会报名</div>
+                <div class="itemName">线上报名</div>
                 <div class="sBorder"></div>
               </li>
               <li>
