@@ -54,6 +54,11 @@
       </li>
     </ul>
 
+    <div v-if="myProjectList.length==0&&select==1">
+      <img src="static/f.png" style="width: 3.02rem" class="noDataImg">
+      <div class="noDataFont">暂时还没有发布项目~</div>
+    </div>
+
     <div v-if="projectList.length==0&&select==2">
       <img src="static/f.png" style="width: 3.02rem" class="noDataImg">
       <div class="noDataFont">还没有我感兴趣的项目~</div>

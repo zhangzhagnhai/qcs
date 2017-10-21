@@ -3,7 +3,7 @@
     <div v-title data-title="服务中心">
       服务中心
     </div>
-    <div class="serviceContainer">
+    <router-link to="investorList" class="serviceContainer">
        <div class="serviceContain">
           <div style="height:0.56rem;margin-top: 0.49rem">
             <img src="static/zhaozijin.png" />
@@ -12,10 +12,10 @@
           <h2>让你的好项目不会缺失在资金短缺上</h2>
        </div>
        <div style="width: 1.76rem; height:2rem;  float: left;">
-          <router-link to="investorList" class="anniu">免费查找</router-link>
+          <div class="anniu">免费查找</div>
        </div>
-    </div>
-    <div class="serviceContainer">
+    </router-link>
+    <router-link to="thinkList" class="serviceContainer">
       <div class="serviceContain">
         <div style="height:0.56rem;margin-top: 0.49rem">
           <img src="static/zhiku.png" />
@@ -24,9 +24,9 @@
         <h2>节约你宝贵时间帮你解决专业难题</h2>
       </div>
       <div style="width: 1.76rem; height:2rem;  float: left;">
-        <router-link to="thinkList" class="anniu">马上解决</router-link>
+        <div class="anniu">马上解决</div>
       </div>
-    </div>
+    </router-link>
 
     <img src="static/ditu.png" style="margin: 1.36rem auto 0; display: block; width: 6.98rem;">
     <foot select="2"></foot>
