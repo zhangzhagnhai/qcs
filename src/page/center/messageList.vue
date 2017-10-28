@@ -27,6 +27,11 @@
            </div>
         </router-link>
       </ul>
+
+      <div v-if="messageList.length==0">
+        <img class="emptyImg" src="static/wuxiaoxi.png">
+        <div class="emptyFont">暂时没有消息呢~</div>
+      </div>
     </div>
 </template>
 <script>
@@ -76,3 +81,4 @@
     .messageTime{height: 0.34rem; line-height: 0.34rem; font-size: 0.24rem; color: #969fa9; float: right;}
     .messageInfo{height:0.61rem;  line-height: 0.61rem; font-size: 0.26rem; color: #6c747c; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 </style>
+<style src="../../assets/css/system.css" scoped></style>

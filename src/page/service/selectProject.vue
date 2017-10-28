@@ -37,6 +37,11 @@
        </li>
     </ul>
 
+    <div v-if="myProjectList.length==0">
+      <img src="static/f.png" style="width: 3.02rem" class="noDataImg">
+      <div class="noDataFont">暂时还没有发布项目~</div>
+    </div>
+
     <div class="defaultSubmit"></div>
     <router-link :to="{name:'projectSubmit',query:{meetingId:meetingId}}" class="submitButton">创建新项目</router-link>
   </div>
