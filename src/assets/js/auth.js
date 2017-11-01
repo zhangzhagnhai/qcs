@@ -1,7 +1,7 @@
 import {host,strToJson} from '../../assets/js/util'
 (function () {
   var PRODUCTION = true;
-  var defaultUser=30;
+  var defaultUser=1;
   var userDefer = $.Deferred();
   //window.PRODUCTION=PRODUCTION;
   function getQueryStringByName(name) {
