@@ -3,8 +3,8 @@
     <pictureInput
       ref="pictureInput"
       @change="onChange"
-      accept="image/jpeg,image/png"
-      size="10"
+      accept="image/jpeg,image/png,image/jpg"
+      size="20"
       buttonClass="btn"
       :customStrings="{ }"
       :defaultImg="defaultImg"

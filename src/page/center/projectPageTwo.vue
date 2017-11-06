@@ -16,7 +16,7 @@
                  radius="0"
                  buttonClass="btn"
                  :customStrings="{ }"
-                 :defaultImg="item.value?item.value:'/static/wdxmtijiaoxiangmu.png'"
+                 :defaultImg="item.value?item.value:'static/wdxmtijiaoxiangmu.png'"
                  noCut="true"
                  style="overflow: hidden; margin: 0 auto; border-radius: 3px;"></imageUpload>
              </div>

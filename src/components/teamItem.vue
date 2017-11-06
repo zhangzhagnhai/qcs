@@ -10,7 +10,7 @@
           radius="50"
           buttonClass="btn"
           :customStrings="{ }"
-          :defaultImg="team.image?team.image:'/static/wdxmshangchuanzhaopian.png'"
+          :defaultImg="team.image?team.image:'static/wdxmshangchuanzhaopian.png'"
           style="width:100%; height:100%; overflow: hidden; margin: 0 auto; border-radius: 50%;"></imageUpload>
       </div>
 

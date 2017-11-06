@@ -15,7 +15,7 @@
     <div class="centerContainBg">
       <div class="centerContain">
         <div class="leftIcon">
-          <img src="/static/xiaoxi.png">
+          <img src="static/xiaoxi.png">
         </div>
         <router-link to="messageList">
           <span class="leftWord">我的消息</span>
@@ -28,7 +28,7 @@
     <div class="centerContainBg" >
       <div class="centerContain" style="border: none">
         <div class="leftIcon">
-          <img src="/static/renmai.png">
+          <img src="static/renmai.png">
         </div>
         <span class="leftWord">人脉展示</span>
         <router-link :to="{name:userInfo.hasRelationship?'connectionDisplay':'connectionEdit'}">
@@ -42,7 +42,7 @@
     <div class="centerContainBg">
       <div class="centerContain">
         <div class="leftIcon">
-          <img src="/static/xiangmu.png">
+          <img src="static/xiangmu.png">
         </div>
         <router-link to="myProject">
           <span class="leftWord">我的项目</span>
@@ -54,7 +54,7 @@
     <div class="centerContainBg">
       <div class="centerContain" style="border: none">
         <div class="leftIcon">
-          <img src="/static/touziren.png">
+          <img src="static/touziren.png">
         </div>
         <router-link to="myInvestor">
           <span class="leftWord">我是投资人</span>
@@ -68,7 +68,7 @@
     <div class="centerContainBg">
       <div class="centerContain">
         <div class="leftIcon">
-          <img src="/static/duijihui.png">
+          <img src="static/duijihui.png">
         </div>
         <router-link to="myProjectMeeting">
           <span class="leftWord">我参加的对接会</span>
@@ -81,7 +81,7 @@
     <div class="centerContainBg">
       <div class="centerContain" style="border: none">
         <div class="leftIcon">
-          <img src="/static/huodong.png">
+          <img src="static/huodong.png">
         </div>
         <router-link to="myActive">
           <span class="leftWord">已报名的活动</span>

@@ -16,7 +16,7 @@
 
      <!--去认证-->
      <div v-if="select==1&&!isInvestor">
-       <img src="/static/yindaorenzheng.png" class="rzImg">
+       <img src="static/yindaorenzheng.png" class="rzImg">
        <div class="rzIntroduce">想要接受项目,需要先认证成为投资人</div>
        <div class="rzGo" @click="selectMenu(2)">去认证</div>
      </div>
@@ -37,13 +37,13 @@
          </div>
          <div class="mengcengCheck" style="margin-top:0.32rem;">
            <div class="mengcengCheckDiv" @click="isInvestorTypeSelect=1">
-             <img :src="isInvestorTypeSelect==1?'/static/dagou.png':'/static/dagouer.png'">
+             <img :src="isInvestorTypeSelect==1?'static/dagou.png':'static/dagouer.png'">
              <div>我是投资人</div>
            </div>
          </div>
          <div class="mengcengCheck" style="margin-top:0.2rem; margin-bottom:0.23rem;">
            <div class="mengcengCheckDiv" @click="isInvestorTypeSelect=2">
-             <img :src="isInvestorTypeSelect==2?'/static/dagou.png':'/static/dagouer.png'">
+             <img :src="isInvestorTypeSelect==2?'static/dagou.png':'static/dagouer.png'">
              <div>我是投资机构</div>
            </div>
          </div>

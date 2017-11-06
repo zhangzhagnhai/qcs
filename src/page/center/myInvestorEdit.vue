@@ -3,7 +3,7 @@
      <imageUpload
        ref="pictureInput"
        @change="onChange"
-       :defaultImg="investor.image?investor.image:'/static/shangchuantouxiang.png'"
+       :defaultImg="investor.image?investor.image:'static/shangchuantouxiang.png'"
        style="height: 1.55rem; width: 1.55rem; margin: 0.6rem auto 0;  overflow: hidden;  box-sizing: border-box;  border: 0.5px solid #c3ced9; border-radius: 50%"></imageUpload>
      <div class="uploadHeader">上传头像</div>
 

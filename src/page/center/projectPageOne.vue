@@ -4,7 +4,7 @@
         <imageUpload
           ref="pictureInput"
           @change="onChange"
-          :defaultImg="userInfo.image?userInfo.image:'/static/wdxmtijiaoxiangmu.png'"
+          :defaultImg="userInfo.image?userInfo.image:'static/wdxmtijiaoxiangmu.png'"
           style="width:100%; height:100%; overflow: hidden; margin: 0 auto; border-radius: 3px;"></imageUpload>
       </div>
       <div class="connectionInfo">

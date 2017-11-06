@@ -11,7 +11,7 @@
              <imageUpload
                ref="pictureInput"
                @change="onChange"
-               :defaultImg="userInfo.image?userInfo.image:'/static/shangchuantouxiang.png'"
+               :defaultImg="userInfo.image?userInfo.image:'static/shangchuantouxiang.png'"
                style="overflow: hidden; margin: 0 auto; border-radius: 50%"></imageUpload>
            </div>
 
