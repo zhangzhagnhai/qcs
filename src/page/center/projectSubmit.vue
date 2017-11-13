@@ -69,6 +69,14 @@
           })
         }
       },submit(){
+        if(!this.userInfo.name){
+          Overlay.show("请输入项目名称");
+          return;
+        }
+        if(!this.userInfo.founder){
+          Overlay.show("请输入项目创始人");
+          return;
+        }
         console.log(this.userInfo.mobile)
         var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
         if((this.userInfo.mobile)&&!myreg.test(this.userInfo.mobile)){

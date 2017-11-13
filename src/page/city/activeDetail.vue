@@ -9,7 +9,7 @@
     <p class="summary">{{active.summary}}</p>
     <div style="padding:0 0 0 0.3rem;">
       <div class="activeInfo">时间：{{active.start_time | formatDate}} 至 {{active.end_time | formatDate}}</div>
-      <div class="activeInfo">地址：{{active.province_str+active.city_str+active.county_str}}</div>
+      <div class="activeInfo">地址：{{active.province_str+active.city_str+active.county_str+active.street}}</div>
       <div class="activeInfo">人数：已报名<span id="bm">{{active.sign_count}}</span>人 / <span v-if="active.people_num==99999">不限</span><span v-if="active.people_num!=99999">限<span id="bmTotal">{{active.people_num}}</span>人</span></div>
       <div class="activeInfo">价格：<span style="color:#4285F4;">￥{{active.price}}</span></div>
 

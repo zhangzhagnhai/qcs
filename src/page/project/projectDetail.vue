@@ -44,7 +44,7 @@
       <div class="noDataFont" style="margin: 1rem auto">项目方还未上传团队成员</div>
     </div>
     <!--底部操作按钮-->
-    <div v-if="isMeeting==='false'||!isMeeting">
+    <div v-if="showMenu&&(isMeeting==='false'||!isMeeting)">
       <div style="height: 1rem"></div>
       <ul class="footer" style="height: 1rem; position: fixed; bottom: 0; width: 100%;">
         <li @click="selected(0)">
@@ -104,7 +104,8 @@
         templateId:"",
         selectItem: 1,
         showInterest: 0,
-        isMeeting:0
+        isMeeting:0,
+        showMenu:false
       }
     },
     components: {
@@ -173,6 +174,12 @@
 
     },mounted(){
       this.getData();
+      var _this=this;
+      window.onscroll = function () {
+        if(document.body.scrollTop>0){
+          _this.showMenu=true;
+        }
+      }
     }
   }
 
