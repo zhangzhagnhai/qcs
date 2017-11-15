@@ -7,7 +7,7 @@
     <projectMeeting :projectMeeting="invest" isDetail="detail"></projectMeeting>
     <div style="height: 0.2rem; background-color: #f7f7f7"></div>
     <div class="col">
-        <div class="left">
+        <div class="left" style="background-image: url('static/canhuirenci.png');">
             <div class="numContain">
                <div>
                  <span class="nums">{{invest.joinProgramCount*6+invest.joinPeopleCount}}</span>
