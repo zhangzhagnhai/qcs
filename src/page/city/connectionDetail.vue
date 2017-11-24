@@ -82,6 +82,7 @@
           _this.uid=response.relationship.user_id;
           _this.companyDetail =response.relationship;
           _this.$emit("loading",false);
+          _czc.push(["_trackPageview",response.relationship.name]);
           JSDK.setShare({
             title:response.relationship.name,
             desc:"每一段成功的背后，总是因为他们做对了什么。氢创创投，领航成功！",

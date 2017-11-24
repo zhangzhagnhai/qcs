@@ -171,6 +171,7 @@
           _this.active =response.activity;
           _this.reset();
           document.body.style.display="block";
+          _czc.push(["_trackPageview",response.activity.title]);
           JSDK.setShare({
             title:response.activity.title,
             desc:response.activity.summary,

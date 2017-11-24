@@ -17,6 +17,7 @@
       getData(){
         var _this=this;
         $.getJSON(host+"/city/fensheDetail",{id:this.id}).then(function (response) {
+           _czc.push(["_trackPageview",response.fenshe.name]);
           _this.aboutQcs=response.fenshe;
         })
       }

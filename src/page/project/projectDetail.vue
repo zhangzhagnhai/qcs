@@ -128,6 +128,7 @@
           // _this.$set(_this,"invest",response.communication);
           _this.$emit("loading",false);
           console.log(_this.isMeeting)
+          _czc.push(["_trackPageview",response.program.name]);
           JSDK.setShare({
             title:response.program.name,
             desc:response.program.summary,

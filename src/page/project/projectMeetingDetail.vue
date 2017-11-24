@@ -131,6 +131,7 @@
          // _this.$set(_this,"invest",response.communication);
           console.log(_this.invest.programs )
           _this.$emit("loading",false);
+          _czc.push(["_trackPageview",response.communication.title]);
           JSDK.setShare({
             title:response.communication.title,
             desc:" 让项目资本资源，精准对接。给得再多，不如懂你！",

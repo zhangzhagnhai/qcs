@@ -45,6 +45,7 @@
         $.getJSON(host+"/city/newsDetail",{id:this.id}).then(function (response) {
           _this.personInfo=response.news;
           _this.$emit("loading",false);
+          _czc.push(["_trackPageview",response.news.title]);
           JSDK.setShare({
             title:response.news.title,
             desc:response.news.summary,
