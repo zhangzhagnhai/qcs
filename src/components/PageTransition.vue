@@ -27,7 +27,7 @@
         var stateObj={};
         console.log(stateArray);
         for(var i=0;i<stateArray.length;i++){
-          var tempArray=stateArray[i].split("+");
+          var tempArray=stateArray[i].split(".");
           stateObj[tempArray[0]]=tempArray[1]
         }
         if(stateObj.templateId)
