@@ -59,7 +59,7 @@
   </div>
 </template>
 <script>
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
     data(){
       return {
@@ -85,7 +85,7 @@
     },
     methods: {
       setShare(){
-        var href=location.href.split('#')[0]+"#projectAttend?id="+this.userInfo.communication_id+"&templateId="+this.templateId;
+        var href=shareHref+"#projectAttend?id="+this.userInfo.communication_id+"&templateId="+this.templateId;
         JSDK.setShare({
           title:"氢创同城",
           desc:"氢创同城",

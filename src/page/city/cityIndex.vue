@@ -168,7 +168,7 @@
   import active from '../../components/active'
   import connection from '../../components/connection'
   import foot from '../../components/Foot'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   import banner from '../../components/banner'
   export default {
     data(){
@@ -195,7 +195,7 @@
     },
     methods: {
       setShare(){
-        var href=location.href.split('#')[0]+"#cityIndex?templateId="+this.templateId;
+        var href=shareHref+"#cityIndex?templateId="+this.templateId;
         JSDK.setShare({
           title:"氢创同城丨城里",
           desc:"世界上本没有城，志同道合的人多了，便有了城。关注创投，分享精彩！",

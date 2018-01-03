@@ -24,7 +24,7 @@
 <script>
   import project from '../../components/project.vue'
   import foot from '../../components/Foot'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
     data(){
       return {
@@ -39,7 +39,7 @@
     methods: {
       getData: function () {
         var _this=this;
-        var href=location.href.split('#')[0]+"#projectList?templateId="+this.templateId;
+        var href=shareHref+"#projectList?templateId="+this.templateId;
         _this.$emit("loading",true);
         $.getJSON(host+"/communication/programList", { templateId: _this.templateId}).then(function (response) {
           _this.investList =response.program;

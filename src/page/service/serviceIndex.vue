@@ -34,6 +34,7 @@
 </template>
 <script>
   import foot from '../../components/Foot'
+  import {host,shareHref} from '../../assets/js/util'
   export default{
     data(){
         return{
@@ -41,7 +42,7 @@
         }
     },mounted(){
       this.templateId=this.$route.query.templateId;
-      var href=location.href.split('#')[0]+"#serviceIndex?templateId="+this.templateId;
+      var href=shareHref+"#serviceIndex?templateId="+this.templateId;
       JSDK.setShare({
         title:"氢创同城丨服务",
         desc:"让项目资本资源，精准对接。给得再多，不如懂你！",

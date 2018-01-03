@@ -20,7 +20,7 @@
 </template>
 <script>
   import {formatDate} from '../../assets/js/date.js';
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
     data () {
       return {
@@ -41,7 +41,7 @@
       getData(){
         var _this=this;
         _this.$emit("loading",true);
-        var href=location.href.split('#')[0]+"#newsDetail?id="+this.id+"&newsType="+this.newsType+"&templateId="+this.templateId;
+        var href=shareHref+"#newsDetail?id="+this.id+"&newsType="+this.newsType+"&templateId="+this.templateId;
         $.getJSON(host+"/city/newsDetail",{id:this.id}).then(function (response) {
           _this.personInfo=response.news;
           _this.$emit("loading",false);

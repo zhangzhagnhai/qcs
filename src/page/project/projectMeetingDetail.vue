@@ -96,7 +96,7 @@
 <script>
   import projectMeeting from '../../components/projectMetting.vue'
   import project from '../../components/project.vue'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
 
     name: 'app',
@@ -124,7 +124,7 @@
     methods: {
       getData: function () {
         var _this=this;
-        var href=location.href.split('#')[0]+"#projectMeetingDetail?id="+this.id+"&templateId="+this.templateId;
+        var href=shareHref+"#projectMeetingDetail?id="+this.id+"&templateId="+this.templateId;
         _this.$emit("loading",true);
         $.getJSON(host+"/communication/communicationDetail", {id:_this.id,templateId: _this.templateId}).then(function (response) {
           _this.invest =response.communication;

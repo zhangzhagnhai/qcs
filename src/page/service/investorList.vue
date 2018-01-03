@@ -43,7 +43,7 @@
 
 <script>
   import investor from '../../components/investor'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
     data(){
       return{
@@ -68,7 +68,7 @@
         })
       },
       setShare(){
-        var href=location.href.split('#')[0]+"#investorList?templateId="+this.templateId;
+        var href=shareHref+"#investorList?templateId="+this.templateId;
         JSDK.setShare({
           title:"氢创同城丨找资金",
           desc:"让项目资本资源，精准对接。氢创创投，给你需要！",

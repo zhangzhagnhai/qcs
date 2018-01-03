@@ -165,7 +165,7 @@ import {host,strToJson} from '../../assets/js/util'
         "province": null,
         "city": null,
         "country": null,
-        "headimgurl": "http://wx.qlogo.cn/mmopen/DXgfT2rBIEOXvwvYFTIdQiaewjvicpcbnXXvRzWujO7lKIvG7h7zVicoNCia5hw2tGzAvy1Nog2TLgicS2ibaxptkwxmskxaaBlBpJ/0",
+        "headimgurl": "https://wx.qlogo.cn/mmopen/DXgfT2rBIEOXvwvYFTIdQiaewjvicpcbnXXvRzWujO7lKIvG7h7zVicoNCia5hw2tGzAvy1Nog2TLgicS2ibaxptkwxmskxaaBlBpJ/0",
         "unionid": null,
         "attention": false,
         "isAdmin": true,
@@ -237,8 +237,8 @@ import {host,strToJson} from '../../assets/js/util'
       //newHref=decodeURI(newHref)
       newHref=newHref.replace("_","&")
       console.log(newHref)
-      console.log('http://' + location.host + location.pathname+newHref)
-      location.href='http://' + location.host + location.pathname+newHref;
+      console.log('https://' + location.host + location.pathname+newHref)
+      location.href='https://' + location.host + location.pathname+newHref;
     }
     console.log(newHref)
   }

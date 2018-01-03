@@ -90,7 +90,7 @@
   import project from '../../components/project.vue'
   import teamDisplay from '../../components/teamDisplay'
   import prevRegister from '../../components/prevRegister'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
 
     name: 'app',
@@ -121,7 +121,7 @@
         this.templateId=this.$route.query.templateId;
         this.isMeeting=this.$route.query.isMeeting;
 
-        var href=location.href.split('#')[0]+"#projectDetail?id="+this.id+"&isMeeting="+this.isMeeting+"&templateId="+this.templateId;
+        var href=shareHref+"#projectDetail?id="+this.id+"&isMeeting="+this.isMeeting+"&templateId="+this.templateId;
         $.getJSON(host+"/communication/programDetail", {id:_this.id,templateId: _this.templateId}).then(function (response) {
           _this.invest =response.program;
           _this.user=response.user;

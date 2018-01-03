@@ -22,7 +22,7 @@
 <script>
   import projectMetting from '../../components/projectMetting.vue'
   import foot from '../../components/Foot'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
     data(){
       return {
@@ -37,7 +37,7 @@
     methods: {
       getData: function () {
         var _this=this;
-        var href=location.href.split('#')[0]+"#projectMeetingList?templateId="+this.templateId;
+        var href=shareHref+"#projectMeetingList?templateId="+this.templateId;
         _this.$emit("loading",true);
         $.getJSON(host+"/communication/communicationList", { templateId: _this.templateId}).then(function (response) {
           _this.investList =response.communication;

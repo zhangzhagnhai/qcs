@@ -78,7 +78,7 @@
   import connection from '../../components/connection'
   import aboutQcs from '../city/aboutQcs'
   import foot from '../../components/Foot'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
     data () {
       return {
@@ -193,7 +193,7 @@
         }
       },
       setShare(imgUrl){
-        var href=location.href.split('#')[0]+"#cityMenu?typeMenu="+this.selectIndex+"&templateId="+this.templateId;
+        var href=shareHref+"#cityMenu?typeMenu="+this.selectIndex+"&templateId="+this.templateId;
         console.log(href)
         var title='';
         var desc='';

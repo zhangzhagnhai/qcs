@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   import wx from 'weixin-js-sdk'
   export default{
     data: function () {
@@ -42,7 +42,7 @@
         })
       },
       setShare(){
-        var href = location.href.split('#')[0] + "#thinkList?templateId=" + this.templateId;
+        var href = shareHref+ "#thinkList?templateId=" + this.templateId;
         JSDK.setShare({
           title: "氢创同城丨智库",
           desc: "知识，沉淀智慧。氢创创投，领航成功！",

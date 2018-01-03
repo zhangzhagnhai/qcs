@@ -74,7 +74,7 @@
 <script>
   import investor from '../../components/investor'
   import talk from '../../components/talk'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
     data(){
       return{
@@ -94,7 +94,7 @@
     methods:{
       getData(){
         var _this=this;
-        var href=location.href.split('#')[0]+"#investorDetail?id="+this.id+"&investType="+this.investType+"&templateId="+this.templateId;
+        var href=shareHref+"#investorDetail?id="+this.id+"&investType="+this.investType+"&templateId="+this.templateId;
         _this.$emit("loading",true);
         $.getJSON(host+"/service/investorDetail",{id:this.id}).then(function (response) {
           _this.uid=response.investor.user_id;

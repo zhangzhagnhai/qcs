@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import {host} from '../assets/js/util'
+  import {host,shareHref} from '../assets/js/util'
   import loading from '../components/loading'
   export default {
     data () {
@@ -48,7 +48,7 @@
       setShare(to,from){
         if(to&&from&&to.name==from.name)
           return
-        var href='http://' + location.host + location.pathname+"?templateId="+this.templateId;
+        var href=shareHref+"#projectIndex?templateId="+this.templateId;
         this.$route.query.fenshe=window.fenshe;
         JSDK.setShare({
           title:"氢创同城",

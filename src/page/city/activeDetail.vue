@@ -122,7 +122,7 @@
   import active from '../../components/active';
   import {formatDate} from '../../assets/js/date.js';
   import wx from 'weixin-js-sdk'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
     data () {
       return {
@@ -166,7 +166,7 @@
         var _this=this;
         this.id=this.$route.query.id;
         document.body.style.display="none";
-        var href=location.href.split('#')[0]+"#activeDetail?id="+this.id+"&templateId="+this.templateId;
+        var href=shareHref+"#activeDetail?id="+this.id+"&templateId="+this.templateId;
         $.getJSON(host+"/city/activityDetail",{id:this.id}).then(function (response) {
           _this.active =response.activity;
           _this.reset();

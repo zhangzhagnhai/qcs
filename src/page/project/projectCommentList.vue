@@ -39,7 +39,7 @@
 </template>
 <script>
   import {formatDate} from '../../assets/js/date.js';
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
     data(){
       return {
@@ -60,7 +60,7 @@
       getData(){
         var _this=this;
         _this.$emit("loading",true);
-        var href=location.href.split('#')[0]+"#projectCommentList?id="+this.id+"&templateId="+this.templateId;
+        var href=shareHref+"#projectCommentList?id="+this.id+"&templateId="+this.templateId;
         $.getJSON(host+"/communication/programCommentsList", {id:this.id}).then(function (response) {
           _this.commentList=response.comments;
           _this.$emit("loading",false);

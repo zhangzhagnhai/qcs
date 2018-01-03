@@ -56,7 +56,7 @@
 </template>
 <script>
   import connection from '../../components/connection'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   import talk from '../../components/talk'
   export default {
     data () {
@@ -76,7 +76,7 @@
     },methods:{
       getData(){
         var _this=this;
-        var href=location.href.split('#')[0]+"#connectionDetail?id="+this.id+"&templateId="+this.templateId;
+        var href=shareHref+"#connectionDetail?id="+this.id+"&templateId="+this.templateId;
         _this.$emit("loading",true);
         $.getJSON(host+"/city/relationshipDetail",{id:this.id}).then(function (response) {
           _this.uid=response.relationship.user_id;

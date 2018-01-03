@@ -74,7 +74,7 @@
   import projectMetting from '../../components/projectMetting.vue'
   import project from '../../components/project.vue'
   import foot from '../../components/Foot'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   export default {
     data(){
       return {
@@ -95,7 +95,7 @@
       getData: function () {
 
         var _this=this;
-        var href=location.href.split('#')[0]+"#projectIndex?templateId="+this.templateId;
+        var href=shareHref+"#projectIndex?templateId="+this.templateId;
         _this.$emit("loading",true);
         $.getJSON(host+"/communication/communicationIndex", { templateId: _this.templateId}).then(function (response) {
           _this.communicationList =response.communication;
