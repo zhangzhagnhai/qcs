@@ -11,7 +11,7 @@
           <router-link :to="{name:'cityMenu',query: {typeMenu: 0}}" tag="span">创投资讯<div class="cityMenuBorder"></div></router-link>
           <router-link :to="{name:'cityMenu',query: {typeMenu: 1}}" tag="span">活动<div class="cityMenuBorder"></div></router-link>
           <router-link :to="{name:'cityMenu',query: {typeMenu: 2}}" tag="span">创投人物<div class="cityMenuBorder"></div></router-link>
-          <router-link :to="{name:'cityMenu',query: {typeMenu: 3}}" tag="span">人脉<div class="cityMenuBorder"></div></router-link>
+          <router-link :to="{name:'cityMenu',query: {typeMenu: 3}}" tag="span">氢创圈<div class="cityMenuBorder"></div></router-link>
           <router-link :to="{name:'cityMenu',query: {typeMenu: 4}}" tag="span">氢创同城<div class="cityMenuBorder"></div></router-link>
         </div>
       </div>

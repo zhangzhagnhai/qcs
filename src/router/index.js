@@ -80,7 +80,11 @@ export default new Router({
           path: '/connectionDetail',
           name: 'connectionDetail',
           component:  resolve => require(['@/page/city/connectionDetail.vue'], resolve)
-        }, {
+        },{
+          path: '/memberDetail',
+            name: 'memberDetail',
+            component:  resolve => require(['@/page/city/memberDetail.vue'], resolve)
+        },{
           path: '/addQcs',
           name: 'addQcs',
           component:  resolve => require(['@/page/city/addQcs.vue'], resolve)
