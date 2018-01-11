@@ -2,7 +2,7 @@
    <div style="font-size: 0">
       <img src="/static/vipIntroduce.jpg" style="width: 7.5rem">
       <div style="height: 0.9rem"></div>
-      <div class="addVIP">加入会员</div>
+      <router-link to="vipSubmit" tag="div" class="addVIP">加入会员</router-link>
    </div>
 </template>
 <script>

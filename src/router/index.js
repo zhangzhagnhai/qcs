@@ -190,6 +190,10 @@ export default new Router({
             name: 'vipIntroduce',
             component: resolve => require(['@/page/vip/vipIntroduce.vue'], resolve)
         },{
+           path: '/vipSubmit',
+            name: 'vipSubmit',
+            component: resolve => require(['@/page/vip/vipSubmit.vue'], resolve)
+        },{
             path: '/vipRules',
             name: 'vipRules',
             component: resolve => require(['@/page/vip/vipRules.vue'], resolve)
