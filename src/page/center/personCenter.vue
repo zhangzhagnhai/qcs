@@ -5,11 +5,14 @@
     </div>
 
     <img src="static/beijing.png" class="headerBg">
-    <img :src="userInfo.show_img" class="header">
-    <div class="centerName">{{userInfo.show_name}}</div>
-    <div class="centerPhone">{{userInfo.mobile?userInfo.mobile:"未绑定手机号"}}</div>
-    <router-link to="personManager">
-      <img src="static/bianjigerenzhuye.png" class="centerEdit">
+    <router-link tag="div" to="personManager">
+      <img :src="userInfo.show_img" class="header">
+      <img :src="vipImg[2]" class="vipImg">
+      <div class="centerName">{{userInfo.show_name}}</div>
+      <div class="centerPhone">{{userInfo.mobile?userInfo.mobile:"未绑定手机号"}}</div>
+    </router-link>
+    <router-link to="vipIntroduce">
+      <img src="static/huiyuanquanyi.png" class="centerEdit">
     </router-link>
     <div class="cutLine"></div>
     <div class="centerContainBg">
@@ -30,10 +33,10 @@
         <div class="leftIcon">
           <img src="static/renmai.png">
         </div>
-        <span class="leftWord">人脉展示</span>
-        <router-link :to="{name:userInfo.hasRelationship?'connectionDisplay':'connectionEdit'}">
+        <span class="leftWord">氢创圈</span>
+        <router-link :to="{name:userInfo.hasRelationship?'memberDisplay':'memberEdit'}">
           <img src="../../assets/images/youjiantou.png" class="rightArrow">
-          <span class="rightWord">{{userInfo.hasRelationship?"查看完善你的人脉信息":"完善信息进入人脉展示"}}</span>
+          <span class="rightWord">{{userInfo.hasRelationship?"查看完善你的会员信息":"完善信息进入氢创圈"}}</span>
         </router-link>
       </div>
     </div>
@@ -91,7 +94,6 @@
       </div>
     </div>
 
-
     <foot select="3"></foot>
   </div>
 </template>
@@ -102,7 +104,8 @@
     data(){
       return {
         userInfo: {
-        }
+        },
+        vipImg:["static/qingmiaohuiyuan.png","static/qingyahuiuyan.png","static/qingsonghuiyuan.png"]
       }
     }, mounted(){
       this.templateId = this.$route.query.templateId;
@@ -111,6 +114,8 @@
       getData(){
         var _this=this;
         _this.$emit("loading",true);
+        $.getJSON(host+"/center/centerRelationshipType",{id:this.id}).then(function (response) {
+        })
         $.getJSON(host+"/center/centerIndex",{id:this.id}).then(function (response) {
           _this.userInfo=response.user;
           _this.$emit("loading",false);
@@ -130,16 +135,18 @@
   }
 
   .header {
-    height: 1.45rem;
-    width: 1.45rem;
+    height: 1.46rem;
+    width: 1.46rem;
     position: absolute;
-    left: 3.02rem;
+    left: 50%;
+    margin-left: -0.81rem;
+   /* left: 2.94rem;*/
     border-radius: 50%;
     top: 0.5rem;
     border:0.08rem solid white;
   }
   .centerEdit{
-    position:absolute; top:2.67rem; right: 0; width: 1.65rem; height: 0.45rem;
+    position:absolute; top:2.67rem; right: 0; width: 1.57rem; height: 0.45rem;
   }
 
   .centerName {
@@ -208,5 +215,9 @@
     float: right;
     margin-right: .26rem;
     height: 0.34rem;
+  }
+
+  .vipImg{
+    position: absolute; top: 1.92rem; left: 50%; margin-left: -0.6rem; width: 1.2rem; height: 0.3rem
   }
 </style>

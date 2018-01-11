@@ -150,6 +150,14 @@ export default new Router({
           name: 'connectionEdit',
           component: resolve => require(['@/page/center/connectionEdit.vue'], resolve)
         },{
+          path: '/memberDisplay',
+            name: 'memberDisplay',
+            component: resolve => require(['@/page/center/memberDisplay.vue'], resolve)
+        },{
+          path: '/memberEdit',
+            name: 'memberEdit',
+            component: resolve => require(['@/page/center/memberEdit.vue'], resolve)
+        },{
           path: '/register',
           name: 'register',
           component: resolve => require(['@/page/center/register.vue'], resolve)
@@ -177,6 +185,18 @@ export default new Router({
           path: '/myActive',
           name: 'myActive',
           component: resolve => require(['@/page/center/myActive.vue'], resolve)
+        },{
+           path: '/vipIntroduce',
+            name: 'vipIntroduce',
+            component: resolve => require(['@/page/vip/vipIntroduce.vue'], resolve)
+        },{
+            path: '/vipRules',
+            name: 'vipRules',
+            component: resolve => require(['@/page/vip/vipRules.vue'], resolve)
+        },{
+            path: '/vipSuccess',
+            name: 'vipSuccess',
+            component: resolve => require(['@/page/vip/vipSuccess.vue'], resolve)
         },{
           path: '/error',
           name: 'error',
