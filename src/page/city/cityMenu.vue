@@ -11,7 +11,7 @@
           <span ref="a" :class="selectIndex==0?'select':''"  @click="selectMenu(0)" >创投资讯<div class="cityMenuBorder"></div></span>
           <span ref="b" :class="selectIndex==1?'select':''"  @click="selectMenu(1)" >活动<div class="cityMenuBorder"></div></span>
           <span ref="c" :class="selectIndex==2?'select':''"  @click="selectMenu(2)" >创投人物<div class="cityMenuBorder"></div></span>
-          <span ref="d" :class="selectIndex==3?'select':''"  @click="selectMenu(3)" >人脉<div class="cityMenuBorder"></div></span>
+          <span ref="d" :class="selectIndex==3?'select':''"  @click="selectMenu(3)" >氢创圈<div class="cityMenuBorder"></div></span>
           <span ref="e" :class="selectIndex==4?'select':''"  @click="selectMenu(4)" >氢创同城<div class="cityMenuBorder"></div></span>
         </div>
       </div>
@@ -55,13 +55,21 @@
           <div class="noDataFont">暂无创投人物的专访~</div>
         </div>
 
-        <div v-if="selectIndex==3" v-for="(connection,connectionIndex) in connectionList">
+        <!--<div v-if="selectIndex==3" v-for="(connection,connectionIndex) in connectionList">
           <connection v-bind:connection=connection></connection>
           <div v-if="connectionIndex!=connectionList.length-1" class="smallLine"></div>
         </div>
         <div v-if="connectionList.length==0&&selectIndex==3">
           <img src="static/v.png" style="width: 3.74rem" class="noDataImg">
           <div class="noDataFont">还没有人脉加入,快来抢占先机~</div>
+        </div>-->
+        <div v-if="selectIndex==3" v-for="(connection,connectionIndex) in connectionList">
+          <member v-bind:connection=connection></member>
+          <div v-if="connectionIndex!=connectionList.length-1" class="smallLine"></div>
+        </div>
+        <div v-if="connectionList.length==0&&selectIndex==3">
+          <img src="static/v.png" style="width: 3.74rem" class="noDataImg">
+          <div class="noDataFont">还没有会员加入,快来抢占先机~</div>
         </div>
 
         <div v-if="selectIndex==4">
@@ -76,6 +84,7 @@
   import news from '../../components/news';
   import active from '../../components/active'
   import connection from '../../components/connection'
+  import member from '../../components/member'
   import aboutQcs from '../city/aboutQcs'
   import foot from '../../components/Foot'
   import {host,shareHref} from '../../assets/js/util'
@@ -275,6 +284,7 @@
       news,
       active,
       connection,
+      member,
       aboutQcs,
       foot
     }
