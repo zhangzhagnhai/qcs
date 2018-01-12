@@ -11,10 +11,10 @@
       </div>
       <div class="connectionInfo">
         <div class="connectionName">性别:</div>
-        <img src="/static/biaodanweixuanzhong.png"  style="float: left; height: 0.22rem;"/>
-        <span  style="font-size: 0.3rem; color: #6c747c; margin-left: 0.1rem">先生</span>
-        <img src="/static/biaodanweixuanzhong.png"  style="float: left; height: 0.22rem;"/>
-        <span style="font-size: 0.3rem; color: #6c747c; margin-left: 0.1rem">女士</span>
+        <img class="sexImg" @click="userInfo.isMan=1" :src="userInfo.isMan==1?'/static/biaodanxuanzhong.png':'/static/biaodanweixuanzhong.png'"/>
+        <span class="sexSpan" @click="userInfo.isMan=1">先生</span>
+        <img class="sexImg" @click="userInfo.isMan=0" :src="userInfo.isMan==0?'/static/biaodanxuanzhong.png':'/static/biaodanweixuanzhong.png'" style="margin-left: 0.5rem"/>
+        <span class="sexSpan" @click="userInfo.isMan=0">女士</span>
       </div>
       <div class="smallLine"></div>
       <div class="connectionInfo">
@@ -31,6 +31,21 @@
         <div class="connectionName">职位:</div>
         <input type="text" placeholder="请输入你的职位" v-model="userInfo.job">
       </div>
+      <div class="smallLine"></div>
+      <div class="type">
+        <div class="connectionName">会员类型:</div>
+        <ul>
+           <li><img class="sexImg" @click="userInfo.vipType=1" :src="userInfo.vipType==1?'/static/biaodanxuanzhong.png':'/static/biaodanweixuanzhong.png'"/> <span @click="userInfo.vipType=1" class="sexSpan">氢芽会员</span></li>
+           <li><img class="sexImg" @click="userInfo.vipType=2" :src="userInfo.vipType==2?'/static/biaodanxuanzhong.png':'/static/biaodanweixuanzhong.png'"/> <span @click="userInfo.vipType=2" class="sexSpan">氢苗会员</span></li>
+           <li><img class="sexImg" src="/static/biaodanbukexuanzeannui.png"/> <span class="sexSpan">氢松会员<span style="font-size: 0.21rem; margin-left: 0.1rem">(线上申请未开发)</span></span></li>
+        </ul>
+      </div>
+      <div class="smallLine"></div>
+      <div class="rules">
+        <img class="sexImg" @click="userInfo.agree=(userInfo.agree+1)%2" :src="userInfo.agree==0?'/static/biaodanxuanzhong.png':'/static/biaodanweixuanzhong.png'"/>
+        <span class="agree">我已同意<router-link :to="{name:'vipRules'}" tag="span">《会员章程》</router-link>
+          和<router-link :to="{name:'vipRules'}" tag="span">《保密合同》</router-link></span>
+      </div>
     </div>
 
     <div class="defaultSubmit"></div>
@@ -43,6 +58,9 @@
     data(){
       return {
         userInfo:{
+          isMan:1,
+          vipType:1,
+          agree:0
         },
         project:{}
       }
@@ -114,3 +132,15 @@
   }
 </script>
 <style src="../../assets/css/connectionEdit.css" scoped></style>
+<style scoped>
+  .sexImg{float: left; height: 0.22rem;}
+  .sexSpan{float: left;font-size: 0.3rem; color: #6c747c; margin-left: 0.1rem}
+  .type{  height: 2.06rem}
+  .type .connectionName{float: left; line-height: 0.88rem;}
+  ul{float: left; margin-top: 0.18rem;}
+   li{width: 4.94rem; height: 0.55rem;  display: -moz-flex;  display: -webkit-flex;  -webkit-box-align: center;  -ms-flex-align: center;  align-items: center;  -webkit-align-items: center;  }
+  .rules{height: 0.22rem;line-height: 0.22rem;margin-top:0.4rem;}
+  .rules img{ margin-left: 0.26rem}
+  .agree{float: left; font-size: 0.22rem; margin-left: 0.1rem; color: #969fa9}
+  .agree span{color: #4285F4}
+</style>
