@@ -4,7 +4,7 @@
       提交会员信息
     </div>
 
-    <div style="padding-left: 0.26rem">
+    <div>
       <div class="connectionInfo">
         <div class="connectionName">姓名:</div>
         <input type="text" placeholder="请输入你的姓名" v-model="userInfo.name">
