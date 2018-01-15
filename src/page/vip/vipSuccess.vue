@@ -3,20 +3,40 @@
       <div class="des">
          <div>
            <img src="static/gou.png"/>
-           <span>恭喜您成为氢苗会员</span>
+           <span>恭喜您成为{{type}}</span>
          </div>
       </div>
-      <div class="gn">您可享用氢苗会员八大权益!</div>
+      <div class="gn">您可享用{{type}}八大权益!</div>
       <router-link :to="{name:'memberEdit'}" tag="div" class="wshy">完善会员信息</router-link>
       <router-link :to="{name:'cityMenu',query: {typeMenu: 3}}" tag="div" class="ck">查看氢创圈</router-link>
   </div>
 </template>
 <script>
+  import {host} from '../../assets/js/util'
   export default {
     data() {
-      return {}
+      return {
+        type:'氢芽会员'
+      }
     },
-    methods: {},
+    mounted(){
+      this.templateId = this.$route.query.templateId;
+      this.getData();
+    },
+    methods: {
+      getData(){
+        var _this=this;
+        _this.$emit("loading",true);
+        $.getJSON(host+"/center/centerRelationshipType",{id:this.id}).then(function (response) {
+          if(response.typeCode==1){
+            _this.type='氢芽会员'
+          }else  if(response.typeCode==2){
+            _this.type='氢苗会员'
+          }
+          _this.$emit("loading",false);
+        })
+      }
+    },
     components: {}
   }
 </script>

@@ -1,5 +1,8 @@
 <template>
    <div>
+     <div v-title data-title="同意章程">
+       同意章程
+     </div>
       <div class="title">《同意章程》</div>
       <pre>123123</pre>
    </div>

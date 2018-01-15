@@ -88,6 +88,7 @@
         /*绑定手机号*/
         console.log(this.checkCode)
         console.log(this.userInfo.verify)
+        var _this=this;
         if(this.checkCode.toString().length>0&&this.checkCode==this.userInfo.verify&&this.checkMobile==this.userInfo.mobile){
           $.post(host+"/center/centerUserInfo",this.userInfo).then(function (response) {
             if(response.code){

@@ -20,36 +20,40 @@
          </li>
       </ul>
       <!--联系方式-->
-      <div v-if="false" class="cutLineFont">联系方式</div>
-      <div v-if="false">
-        <a class="contact" :href="'tel:'+companyDetail.mobile">
-          <img src="../../assets/images/dianhua.png" class="contactImg">
-          <div class="contactIntroduce">电话</div>
-          <div class="contactFont">{{companyDetail.mobile?companyDetail.mobile:'无'}}</div>
-        </a>
-        <div class="smallLine"></div>
-        <div class="contact">
-          <img src="../../assets/images/youxiang.png" class="contactImg">
-          <div class="contactIntroduce">邮箱</div>
-          <div class="contactFont">{{companyDetail.email?companyDetail.email:'无'}}</div>
-        </div>
-        <div class="smallLine"></div>
-        <div class="contact">
-          <img src="../../assets/images/dizhi.png" class="contactImg">
-          <div class="contactIntroduce">地址</div>
-          <div class="contactFont">{{companyDetail.location?companyDetail.location:'无'}}</div>
-        </div>
-        <div class="smallLine"></div>
-        <div class="contact">
-          <img src="../../assets/images/wanhzhi.png" class="contactImg">
-          <div class="contactIntroduce">网址</div>
-          <div class="contactFont">{{companyDetail.website?companyDetail.website:'无'}}</div>
+      <div v-if="isVip">
+        <div class="cutLineFont">联系方式</div>
+        <div>
+          <a class="contact" :href="'tel:'+companyDetail.mobile">
+            <img src="../../assets/images/dianhua.png" class="contactImg">
+            <div class="contactIntroduce">电话</div>
+            <div class="contactFont">{{companyDetail.mobile?companyDetail.mobile:'无'}}</div>
+          </a>
+          <div class="smallLine"></div>
+          <div class="contact">
+            <img src="../../assets/images/youxiang.png" class="contactImg">
+            <div class="contactIntroduce">邮箱</div>
+            <div class="contactFont">{{companyDetail.email?companyDetail.email:'无'}}</div>
+          </div>
+          <div class="smallLine"></div>
+          <div class="contact">
+            <img src="../../assets/images/dizhi.png" class="contactImg">
+            <div class="contactIntroduce">地址</div>
+            <div class="contactFont">{{companyDetail.location?companyDetail.location:'无'}}</div>
+          </div>
+          <div class="smallLine"></div>
+          <div class="contact">
+            <img src="../../assets/images/wanhzhi.png" class="contactImg">
+            <div class="contactIntroduce">网址</div>
+            <div class="contactFont">{{companyDetail.website?companyDetail.website:'无'}}</div>
+          </div>
         </div>
       </div>
+      <div v-if="!isVip">
+        <div class="cutLineFont">更多信息</div>
+        <p class="more">与智者同行,与高人为伍<br>加入氢创会员,对接精准人脉</p>
+        <router-link to="vipIntroduce" class="add">加入氢创圈</router-link>
+      </div>
 
-      <div class="cutLineFont">更多信息</div>
-      <p class="more">与智者同行,与高人为伍<br>加入氢创会员,对接精准人脉</p>
-      <div class="add">加入氢创圈</div>
       <!--对话-->
       <div v-if="showSubmit&&companyDetail.user_id" class="defaultSubmit"></div>
       <div v-if="showSubmit&&companyDetail.user_id" class="submitButton" @click="showTalk=true">沟通</div>
@@ -73,7 +77,8 @@
         showTalk:false,
         showMengCeng:false,
         uid:'',
-        templateId:""
+        templateId:"",
+        isVip:false
       }
     },created(){
       this.id=this.$route.query.id;
@@ -93,6 +98,11 @@
             imgUrl:response.relationship.image,
             href:href
           });
+        })
+
+        $.getJSON(host+"/center/centerRelationshipType",{id:this.id}).then(function (response) {
+          _this.isVip=(response.typeCode!=0);
+          _this.$emit("loading",false);
         })
       },setTalk(){
         this.showTalk=false;

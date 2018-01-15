@@ -7,7 +7,7 @@
     <img src="static/beijing.png" class="headerBg">
     <router-link tag="div" to="personManager">
       <img :src="userInfo.show_img" class="header">
-      <img :src="vipImg[2]" class="vipImg">
+      <img v-if="userInfo.hasRelationship>0" :src="vipImg[userInfo.hasRelationship-1]" class="vipImg">
       <div class="centerName">{{userInfo.show_name}}</div>
       <div class="centerPhone">{{userInfo.mobile?userInfo.mobile:"未绑定手机号"}}</div>
     </router-link>
@@ -34,9 +34,9 @@
           <img src="static/renmai.png">
         </div>
         <span class="leftWord">氢创圈</span>
-        <router-link :to="{name:userInfo.hasRelationship?'memberDisplay':'memberEdit'}">
+        <router-link :to="{name:userInfo.hasRelationship==0?'vipIntroduce':'memberEdit'}">
           <img src="../../assets/images/youjiantou.png" class="rightArrow">
-          <span class="rightWord">{{userInfo.hasRelationship?"查看完善你的会员信息":"完善信息进入氢创圈"}}</span>
+          <span class="rightWord">{{userInfo.hasRelationship==0?"申请成为会员":"完善信息进入氢创圈"}}</span>
         </router-link>
       </div>
     </div>
@@ -105,7 +105,7 @@
       return {
         userInfo: {
         },
-        vipImg:["static/qingmiaohuiyuan.png","static/qingyahuiuyan.png","static/qingsonghuiyuan.png"]
+        vipImg:["static/qingyahuiuyan.png","static/qingmiaohuiyuan.png","static/qingsonghuiyuan.png"]
       }
     }, mounted(){
       this.templateId = this.$route.query.templateId;
@@ -114,8 +114,6 @@
       getData(){
         var _this=this;
         _this.$emit("loading",true);
-        $.getJSON(host+"/center/centerRelationshipType",{id:this.id}).then(function (response) {
-        })
         $.getJSON(host+"/center/centerIndex",{id:this.id}).then(function (response) {
           _this.userInfo=response.user;
           _this.$emit("loading",false);
