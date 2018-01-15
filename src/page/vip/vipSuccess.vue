@@ -6,7 +6,7 @@
            <span>恭喜您成为{{type}}</span>
          </div>
       </div>
-      <div class="gn">您可享用{{type}}八大权益!</div>
+      <div v-if="level==2" class="gn">您可享用{{type}}八大权益!</div>
       <router-link :to="{name:'memberEdit'}" tag="div" class="wshy">完善会员信息</router-link>
       <router-link :to="{name:'cityMenu',query: {typeMenu: 3}}" tag="div" class="ck">查看氢创圈</router-link>
   </div>
@@ -16,6 +16,7 @@
   export default {
     data() {
       return {
+        level:1,
         type:'氢芽会员'
       }
     },
@@ -28,6 +29,7 @@
         var _this=this;
         _this.$emit("loading",true);
         $.getJSON(host+"/center/centerRelationshipType",{id:this.id}).then(function (response) {
+          _this.level=response.typeCode;
           if(response.typeCode==1){
             _this.type='氢芽会员'
           }else  if(response.typeCode==2){

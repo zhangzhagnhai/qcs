@@ -51,11 +51,14 @@
     <div class="defaultSubmit"></div>
     <div class="submitButton" @click="submit">提交</div>
     <prevRegister  v-if="!mobile"></prevRegister>
+
+   <!-- <vipRules  class="ht"></vipRules>-->
   </div>
 </template>
 <script>
   import {host} from '../../assets/js/util'
   import prevRegister from '../../components/prevRegister'
+  import vipRules from '../vip/vipRules.vue'
   import wx from 'weixin-js-sdk'
   export default {
     data(){
@@ -70,6 +73,7 @@
         },
         agree:1,
         isVip:false,
+        showRule:false,
         mobile:false
       }
     },mounted(){
@@ -148,7 +152,8 @@
       }
     },
     components:{
-      prevRegister
+      prevRegister,
+      vipRules
     }
   }
 </script>
@@ -158,10 +163,12 @@
   .sexSpan{float: left;font-size: 0.3rem; color: #6c747c; margin-left: 0.1rem}
   .type{  height: 2.06rem}
   .type .connectionName{float: left; line-height: 0.88rem;}
-  ul{float: left; margin-top: 0.18rem;}
+   ul{float: left; margin-top: 0.18rem;}
    li{width: 4.94rem; height: 0.55rem;  display: -moz-flex;  display: -webkit-flex;  -webkit-box-align: center;  -ms-flex-align: center;  align-items: center;  -webkit-align-items: center;  }
   .rules{height: 0.22rem;line-height: 0.22rem;margin-top:0.4rem;}
   .rules img{ margin-left: 0.26rem}
   .agree{float: left; font-size: 0.22rem; margin-left: 0.1rem; color: #969fa9}
   .agree span{color: #4285F4}
+
+  .ht{position: absolute; top:0; background-color: white; width: 100%; z-index: 99999 }
 </style>
