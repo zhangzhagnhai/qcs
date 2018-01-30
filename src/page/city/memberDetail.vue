@@ -20,7 +20,19 @@
          </li>
       </ul>
       <!--联系方式-->
-      <div v-if="isVip">
+      <div v-if="isVip==0">
+        <div class="cutLineFont">更多信息</div>
+        <p class="more">与智者同行,与高人为伍<br>加入氢创会员,对接精准人脉</p>
+        <router-link to="vipIntroduce" class="add">成为氢苗会员</router-link>
+      </div>
+
+      <div v-if="isVip==1">
+        <div class="cutLineFont">更多信息</div>
+        <p class="more">与智者同行,与高人为伍<br>加入氢创会员,对接精准人脉</p>
+        <div class="add" @click="pay">成为氢苗会员</div>
+      </div>
+
+      <div v-if="isVip==2">
         <div class="cutLineFont">联系方式</div>
         <div>
           <a class="contact" :href="'tel:'+companyDetail.mobile">
@@ -48,12 +60,6 @@
           </div>
         </div>
       </div>
-      <div v-if="!isVip">
-        <div class="cutLineFont">更多信息</div>
-        <p class="more">与智者同行,与高人为伍<br>加入氢创会员,对接精准人脉</p>
-        <router-link to="vipIntroduce" class="add">加入氢创圈</router-link>
-      </div>
-
       <!--对话-->
       <div v-if="showSubmit&&companyDetail.user_id" class="defaultSubmit"></div>
       <div v-if="showSubmit&&companyDetail.user_id" class="submitButton" @click="showTalk=true">沟通</div>
@@ -64,8 +70,9 @@
 </template>
 <script>
   import member from '../../components/member.vue'
-  import {host} from '../../assets/js/util'
+  import {host,shareHref} from '../../assets/js/util'
   import talk from '../../components/talk'
+  import wx from 'weixin-js-sdk'
   export default {
     data () {
       return {
@@ -85,7 +92,7 @@
     },methods:{
       getData(){
         var _this=this;
-        var href=location.href.split('#')[0]+"#connectionDetail?id="+this.id+"&templateId="+this.templateId;
+        var href=shareHref+"#memberDetail?id="+this.id+"&templateId="+this.templateId;
         _this.$emit("loading",true);
         $.getJSON(host+"/city/relationshipDetail",{id:this.id}).then(function (response) {
           _this.uid=response.relationship.user_id;
@@ -101,12 +108,32 @@
         })
 
         $.getJSON(host+"/center/centerRelationshipType",{id:this.id}).then(function (response) {
-          _this.isVip=(response.typeCode!=0);
+          _this.isVip=response.typeCode;
           _this.$emit("loading",false);
         })
       },setTalk(){
         this.showTalk=false;
         this.companyDetail.hasTalked=true;
+      },
+      pay(){
+        var _this=this;
+        $.post(host+"/pay/relationship").then(function (res) {
+          if(res.responese.code==1){
+            var data = res.responese.config;
+            wx.chooseWXPay({
+              timestamp: data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+              nonceStr: data.nonceStr, // 支付签名随机串，不长于 32 位
+              package: data.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+              signType:data.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+              paySign:data.paySign, // 支付签名
+              success: function (e) {
+                _this.$router.push({name:"vipSuccess"})
+              }
+            });
+          }else{
+            Overlay.show(res.responese.msg, 2000);
+          }
+        })
       }
     }, components:{
       member,

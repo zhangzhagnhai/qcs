@@ -5,7 +5,7 @@
       <div class="connectionFont">
         <div style="height: 0.3rem">
           <div class="connectionName">{{connection.name}}</div>
-          <div class="vipType gjVip">精英会员</div>
+          <div :class="connection.type==1?'vipType':'vipType gjVip'">{{connection.type_str}}</div>
         </div>
         <div class="connectionCompany">{{connection.company}}  <span>| {{connection.job}}</span></div>
         <div class="connectionFs">{{connection.fenshe.name}}</div>

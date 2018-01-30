@@ -43,8 +43,8 @@
       <div class="smallLine"></div>
       <div class="rules">
         <img class="sexImg" @click="agree=(agree+1)%2" :src="agree==1?'static/biaodanxuanzhong.png':'static/biaodanweixuanzhong.png'"/>
-        <span class="agree">我已同意<router-link :to="{name:'vipRules'}" tag="span">《会员章程》</router-link>
-          和<router-link :to="{name:'vipRules'}" tag="span">《保密合同》</router-link></span>
+        <span class="agree">我已同意<router-link :to="{name:'vipRules'}" target="_blank">《会员章程》</router-link>
+          和<router-link :to="{name:'secrecy'}" target="_blank">《保密合同》</router-link></span>
       </div>
     </div>
 
@@ -104,7 +104,7 @@
                 if(_this.userInfo.type==1){
                   _this.$router.push({name:"vipSuccess"})
                 }else if(_this.userInfo.type==2){
-                  $.post(host+"/pay/relationship", this.userInfo).then(function (res) {
+                  $.post(host+"/pay/relationship").then(function (res) {
                     if(res.responese.code==1){
                       var data = res.responese.config;
                       wx.chooseWXPay({
@@ -168,7 +168,7 @@
   .rules{height: 0.22rem;line-height: 0.22rem;margin-top:0.4rem;}
   .rules img{ margin-left: 0.26rem}
   .agree{float: left; font-size: 0.22rem; margin-left: 0.1rem; color: #969fa9}
-  .agree span{color: #4285F4}
+  .agree a{display:inline-block; color: #4285F4}
 
   .ht{position: absolute; top:0; background-color: white; width: 100%; z-index: 99999 }
 </style>
