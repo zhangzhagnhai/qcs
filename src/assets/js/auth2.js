@@ -62,7 +62,7 @@ import {host,strToJson} from '../../assets/js/util'
   })();
 
   function strToJson(str){
-     return JSON.parse(str);
+    return JSON.parse(str);
   }
 
   //初始化验证.
@@ -89,10 +89,10 @@ import {host,strToJson} from '../../assets/js/util'
       templateID=localStorage.getItem('templateID')
     }
 
-  /*  if((!stateArray)||stateArray[0]=="")
-      redirectAndGetCode();
-    else
-      return;*/
+    /*  if((!stateArray)||stateArray[0]=="")
+        redirectAndGetCode();
+      else
+        return;*/
     localStorage.setItem("templateID",templateID);
     //localStorage.removeItem("userId");
     if (localStorage.getItem('userId')/*&&false*/) {
@@ -113,15 +113,15 @@ import {host,strToJson} from '../../assets/js/util'
           unionid: "oFEYev1ch6EMJJ3Xdv4As-SevlSE"
         }
         var data=JSON.stringify(obj)
-       // sessionStorage.setItem('jwt', data);
+        // sessionStorage.setItem('jwt', data);
         localStorage.setItem('userId', defaultUser);
-       /* $.getJSON('http://vip.xuege.com/vip/get').then(function (response) {
-          userDefer.resolve(response.value);
-        });*/
+        /* $.getJSON('http://vip.xuege.com/vip/get').then(function (response) {
+           userDefer.resolve(response.value);
+         });*/
         return;
       }
 
-      var code = getQueryStringByName('code');
+      var code = getQueryStringByName('openid');
       if (!code) {
         if (PRODUCTION) {
           var getJwtTimes = localStorage.getItem('getJwtTimes') || 0;
@@ -138,16 +138,8 @@ import {host,strToJson} from '../../assets/js/util'
           localStorage.setItem('userId', defaultUser);
         }
       }else{
-        $.getJSON(host + "/wx/getUserInfoByCode", {code: code}).then(function (response) {
-          if (!response.succeed) {
-            redirectAndGetCode();
-          } else {
-            //var token=JSON.stringify(response.data.token)
-            //sessionStorage.setItem('jwt', token);
-            localStorage.setItem('userId', response.user.id);
-           // reloadUrl();
-
-          }
+        $.getJSON(host + "/wx/getWxUserInfo", {openid: code}).then(function (response) {
+          localStorage.setItem('userId', response.user.id);
         });
       }
 
@@ -173,7 +165,7 @@ import {host,strToJson} from '../../assets/js/util'
         "province": null,
         "city": null,
         "country": null,
-        "headimgurl": "http://wx.qlogo.cn/mmopen/DXgfT2rBIEOXvwvYFTIdQiaewjvicpcbnXXvRzWujO7lKIvG7h7zVicoNCia5hw2tGzAvy1Nog2TLgicS2ibaxptkwxmskxaaBlBpJ/0",
+        "headimgurl": "https://wx.qlogo.cn/mmopen/DXgfT2rBIEOXvwvYFTIdQiaewjvicpcbnXXvRzWujO7lKIvG7h7zVicoNCia5hw2tGzAvy1Nog2TLgicS2ibaxptkwxmskxaaBlBpJ/0",
         "unionid": null,
         "attention": false,
         "isAdmin": true,
@@ -245,8 +237,8 @@ import {host,strToJson} from '../../assets/js/util'
       //newHref=decodeURI(newHref)
       newHref=newHref.replace("_","&")
       console.log(newHref)
-      console.log('http://' + location.host + location.pathname+newHref)
-      location.href='http://' + location.host + location.pathname+newHref;
+      console.log('https://' + location.host + location.pathname+newHref)
+      location.href='https://' + location.host + location.pathname+newHref;
     }
     console.log(newHref)
   }
@@ -254,14 +246,16 @@ import {host,strToJson} from '../../assets/js/util'
   function redirectAndGetCode() {
     document.body.style.display="none"
     var dist= window.location.hash.substring(2,window.location.hash.indexOf("?"));
-    var state="dist+"+dist+"_";
+    var state="dist."+dist+"_";
     var hashObj=getSearchObject();
     for(var obj in hashObj){
-       state+=obj+"+"+hashObj[obj]+"_"
+      state+=obj+"."+hashObj[obj]+"_"
     }
-    console.log(state)
+
     //http://laravel.hcsoo.com/index.html?#/investorDetail?id=8&investType=1
     //location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0952e81967686150&redirect_uri=' + encodeURI('http://' + location.host + location.pathname+myHash) + '&response_type=code&scope=snsapi_userinfo&state=xgabcd';
-    location.href= 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx775d33e15997b1a4&redirect_uri=' + encodeURI('https://' + location.host + location.pathname) + '&response_type=code&scope=snsapi_userinfo&state='+state;
+    location.href='http://www.sunfunsoft.cn/50258141410f/Weixinapi/getopenid.aspx?url='+encodeURI('https://'+location.host+location.pathname+"?state="+state);
+   // console.log( abc)
+    // location.href= 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx775d33e15997b1a4&redirect_uri=' + encodeURI('https://' + location.host + location.pathname) + '&response_type=code&scope=snsapi_userinfo&state='+state;
   }
 })();

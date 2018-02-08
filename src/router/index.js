@@ -198,8 +198,12 @@ export default new Router({
             name: 'vipRules',
             component: resolve => require(['@/page/vip/vipRules.vue'], resolve)
         },{
+            path: '/secrecy',
+            name: 'secrecy',
+            component: resolve => require(['@/page/vip/secrecy.vue'], resolve)
+        },{
             path: '/vipSuccess',
-            name: 'vipSuccess',
+              name: 'vipSuccess',
             component: resolve => require(['@/page/vip/vipSuccess.vue'], resolve)
         },{
           path: '/error',
