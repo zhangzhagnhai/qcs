@@ -315,8 +315,9 @@
       this.getData();
       var _this=this;
       window.onscroll = function () {
+        console.log(document.documentElement.scrollTop)
         _this.defaultHeight=4.12*document.body.offsetWidth/7.5;
-        if(_this.defaultHeight<document.body.scrollTop){
+        if(_this.defaultHeight<document.documentElement.scrollTop){
           _this.showMenu=true;
         }
         else{
