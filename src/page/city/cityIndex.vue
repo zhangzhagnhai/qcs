@@ -9,10 +9,11 @@
       <div ref="scrollMenu" class="scrollMenu">
         <div class="cityMenu">
           <router-link :to="{name:'cityMenu',query: {typeMenu: 0}}" tag="span">创投资讯<div class="cityMenuBorder"></div></router-link>
-          <router-link :to="{name:'cityMenu',query: {typeMenu: 1}}" tag="span">活动<div class="cityMenuBorder"></div></router-link>
-          <router-link :to="{name:'cityMenu',query: {typeMenu: 2}}" tag="span">创投人物<div class="cityMenuBorder"></div></router-link>
-          <router-link :to="{name:'cityMenu',query: {typeMenu: 3}}" tag="span">氢创圈<div class="cityMenuBorder"></div></router-link>
-          <router-link :to="{name:'cityMenu',query: {typeMenu: 4}}" tag="span">氢创同城<div class="cityMenuBorder"></div></router-link>
+          <router-link :to="{name:'cityMenu',query: {typeMenu: 1}}" tag="span">区块链<div class="cityMenuBorder"></div></router-link>
+          <router-link :to="{name:'cityMenu',query: {typeMenu: 2}}" tag="span">活动<div class="cityMenuBorder"></div></router-link>
+          <router-link :to="{name:'cityMenu',query: {typeMenu: 3}}" tag="span">创投人物<div class="cityMenuBorder"></div></router-link>
+          <router-link :to="{name:'cityMenu',query: {typeMenu: 4}}" tag="span">氢创圈<div class="cityMenuBorder"></div></router-link>
+          <router-link :to="{name:'cityMenu',query: {typeMenu: 5}}" tag="span">氢创同城<div class="cityMenuBorder"></div></router-link>
         </div>
       </div>
      <!-- <div class="cutLines"></div>-->
@@ -50,11 +51,41 @@
     </div>
 
     <div class="cutLines"></div>
+    <!--区块链-->
+    <div class="menu">
+      <div class="menuLeftImg"></div>
+      <div class="menuLeftName">区块链</div>
+      <router-link v-if="filterNewsList.length>0" :to="{name:'cityMenu',query: {typeMenu: 1}}">
+        <div class="menuRightImg"></div>
+        <div class="menuRightName">全部</div>
+      </router-link>
+    </div>
+
+    <div v-if="filterBlockList.length>0">
+      <div v-for="(blockInfo,index) in filterBlockList">
+        <news v-bind:personInfo=blockInfo newsType="1"></news>
+        <div v-if="index!=filterBlockList.length-1" class="smallLine"></div>
+      </div>
+
+      <div v-if="BlockShowZK&&BlockList.length>BlockLimit" class="zhanKai">
+        <div style="display: inline-block" @click="expandBlock">
+          <span>展开更多</span>
+          <img src="../../assets/images/zhankai.png">
+        </div>
+      </div>
+    </div>
+
+    <div v-if="filterBlockList.length==0">
+      <img src="static/z.png" style="width: 3.31rem" class="noDataImg">
+      <div class="noDataFont">暂无区块链呢~</div>
+    </div>
+
+    <div class="cutLines"></div>
     <!--活动-->
     <div class="menu">
       <div class="menuLeftImg"></div>
       <div class="menuLeftName">活动</div>
-      <router-link v-if="filterActiveList.length>0" :to="{name:'cityMenu',query: {typeMenu: 1}}">
+      <router-link v-if="filterActiveList.length>0" :to="{name:'cityMenu',query: {typeMenu: 2}}">
         <div class="menuRightImg"></div>
         <div class="menuRightName">全部</div>
       </router-link>
@@ -85,7 +116,7 @@
     <div class="menu">
       <div class="menuLeftImg"></div>
       <div class="menuLeftName">创投人物</div>
-      <router-link v-if="filterNewsPersonList.length>0" :to="{name:'cityMenu',query: {typeMenu: 2}}">
+      <router-link v-if="filterNewsPersonList.length>0" :to="{name:'cityMenu',query: {typeMenu: 3}}">
         <div class="menuRightImg"></div>
         <div class="menuRightName">全部</div>
       </router-link>
@@ -121,7 +152,7 @@
     <div class="menu">
       <div class="menuLeftImg"></div>
       <div class="menuLeftName">人脉</div>
-      <router-link v-if="filterConnection.length>0" :to="{name:'cityMenu', query: {typeMenu: 3}}">
+      <router-link v-if="filterConnection.length>0" :to="{name:'cityMenu', query: {typeMenu: 4}}">
         <div class="menuRightImg"></div>
         <div class="menuRightName">全部</div>
       </router-link>
@@ -151,7 +182,7 @@
     <div class="menu">
       <div class="menuLeftImg"></div>
       <div class="menuLeftName">关于氢创同城</div>
-      <router-link :to="{name:'cityMenu', query: {typeMenu: 4}}">
+      <router-link :to="{name:'cityMenu', query: {typeMenu: 5}}">
         <div class="menuRightImg"></div>
         <div class="menuRightName">全部</div>
       </router-link>
@@ -176,6 +207,9 @@
         newsList:[],
         newsLimit:3,
         newsShowZK:true,
+        BlockList:[],
+        BlockLimit:3,
+        BlockShowZK:true,
         newsPersonList:[],
         newsPersonLimit:3,
         newsPersonShowZK:true,
@@ -208,6 +242,7 @@
         _this.$emit("loading",true);
         $.getJSON(host+"/city/cityIndex").then(function (response) {
           _this.newsList=response.news;
+          _this.BlockList=response.newsQukuailian;
           _this.newsPersonList=response.newsPerson;
           _this.connectionList=response.relationship;
           _this.activeList=response.activity;
@@ -221,6 +256,12 @@
           return;
         this.newsShowZK=false;
         this.newsLimit=this.newsList.length>8?8:this.newsList.length;
+      },
+      expandBlock:function(){
+        if(!this.BlockShowZK)
+          return;
+        this.BlockShowZK=false;
+        this.BlockLimit=this.BlockList.length>8?8:this.BlockList.length;
       },
       expandPersonNews:function(){
         if(!this.newsPersonShowZK)
@@ -245,6 +286,10 @@
       filterNewsList:function(){
         console.log(this.newsList.slice(0,this.newsLimit))
         return this.newsList.slice(0,this.newsLimit)
+      },
+      filterBlockList:function(){
+        console.log(this.BlockList.slice(0,this.BlockLimit))
+        return this.BlockList.slice(0,this.BlockLimit)
       },
       filterNewsPersonList:function(){
         return this.newsPersonList.slice(0,this.newsPersonLimit)
