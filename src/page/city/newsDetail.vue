@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-title :data-title='newsType==0?"创投资讯":"创投人物"'>
-      {{newsType==0?"创投资讯":"创投人物"}}
+    <div v-title :data-title='newsTypeName'>
+      {{newsTypeName}}
     </div>
 
     <div class="newsTitle">{{personInfo.title}}</div>
@@ -30,10 +30,24 @@
         },
         id:"",
         newsType:0,
-        templateId:""
+        templateId:"",
+        newsTypeName:""
       }
     },created(){
       this.newsType=this.$route.query.newsType;
+      switch (this.newsType-0){
+        case 0:
+          this.newsTypeName="创投资讯"
+          break;
+        case 1:
+          this.newsTypeName="区块链"
+          break;
+        case 2:
+          this.newsTypeName="创投人物"
+          break;
+        default:
+          this.newsTypeName="创投资讯"
+      }
       this.id=this.$route.query.id;
       this.templateId=this.$route.query.templateId;
 
