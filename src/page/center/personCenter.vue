@@ -5,14 +5,17 @@
     </div>
 
     <img src="static/beijing.png" class="headerBg">
-    <router-link tag="div" to="personManager">
+    <router-link tag="div" to="personManager" style="height: 3.72rem;">
       <img :src="userInfo.show_img" class="header">
       <img v-if="userInfo.hasRelationship>0" :src="vipImg[userInfo.hasRelationship-1]" class="vipImg">
-      <div class="centerName">{{userInfo.show_name}}</div>
-      <div class="centerPhone">{{userInfo.mobile?userInfo.mobile:"未绑定手机号"}}</div>
-    </router-link>
-    <router-link to="vipIntroduce">
-      <img src="static/huiyuanquanyi.png" class="centerEdit">
+      <div style="float: left; margin-top:0.5rem">
+        <div class="centerName">{{userInfo.show_name}}</div>
+        <div class="centerPhone">{{userInfo.mobile?userInfo.mobile:"未绑定手机号"}}</div>
+        <div style="clear: both"></div>
+        <router-link to="vipIntroduce">
+          <img src="static/huiyuanquanyi.png" class="centerEdit">
+        </router-link>
+      </div>
     </router-link>
     <div class="cutLine"></div>
     <div class="centerContainBg">
@@ -116,6 +119,7 @@
         _this.$emit("loading",true);
         $.getJSON(host+"/center/centerIndex",{id:this.id}).then(function (response) {
           _this.userInfo=response.user;
+          //_this.userInfo.hasRelationship=2
           _this.$emit("loading",false);
         })
       }
@@ -129,42 +133,46 @@
   .headerBg {
     height: 3.72rem;
     width: 7.5rem;
+    position: absolute;
     display: block;
   }
 
   .header {
     height: 1.46rem;
     width: 1.46rem;
-    position: absolute;
-    left: 50%;
-    margin-left: -0.81rem;
+    float: left;
+    position: relative;
+    margin-left: 0.47rem;
    /* left: 2.94rem;*/
     border-radius: 50%;
     top: 0.5rem;
     border:0.08rem solid white;
   }
   .centerEdit{
-    position:absolute; top:2.67rem; right: 0; width: 1.57rem; height: 0.45rem;
+    position: relative;  float: left; top:0.5rem; left: 0.25rem; width: 1.57rem; height: 0.45rem;
   }
 
   .centerName {
-    position: absolute;
-    top: 2.51rem;
-    font-size: 0.32rem;
-    height: 0.32rem;
-    line-height: 0.32rem;
+    position: relative;
+    float: left;
+   /* top: 2.51rem;*/
+    margin-left: 0.25rem;
+    top: 0.3rem;
+    font-size: 0.34rem;
+    height: 0.34rem;
+    line-height: 0.34rem;
     text-align: center;
-    width: 100%;
     color: white;
   }
   .centerPhone{
-    position: absolute;
-    top: 3.05rem;
+    position: relative;
+    float: left;
+    top: 0.36rem;
+    margin-left: 0.15rem;
     font-size: 0.28rem;
     height: 0.28rem;
     line-height: 0.28rem;
     text-align: center;
-    width: 100%;
     color: white;
   }
   .centerContainBg {
@@ -216,6 +224,6 @@
   }
 
   .vipImg{
-    position: absolute; top: 1.92rem; left: 50%; margin-left: -0.6rem; width: 1.2rem; height: 0.3rem
+    position: absolute; top: 1.92rem; left: 0.67rem; width: 1.2rem; height: 0.3rem
   }
 </style>
