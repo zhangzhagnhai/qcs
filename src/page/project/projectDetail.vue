@@ -83,6 +83,8 @@
     </div>
 
     <prevRegister v-if="showRegister"></prevRegister>
+
+    <img src="static/xiangqingyetubiao.png" class="blIcon">
   </div>
 </template>
 

@@ -63,5 +63,6 @@ textarea{border-radius:0;padding-left: 0.18rem; padding-right:0.18rem; width: 6.
 
 .noDataImg{display: block; margin: 1.65rem auto 1rem;}
 .noDataFont{display: block; text-align: center; height: 0.3rem; line-height: 0.3rem; font-size: 0.3rem; color: #6c747c; margin-bottom: 2.4rem;}
+.blIcon{position: fixed; bottom: 1.3rem; right: 0.26rem; width: 1.45rem}
 
 

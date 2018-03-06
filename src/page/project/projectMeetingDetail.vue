@@ -91,6 +91,8 @@
       　
       <router-link :to="{name:'projectAttend',query:{id:invest.id}}" class="rightButton">参会报名</router-link>
     </div>
+
+    <img src="static/xiangqingyetubiao.png" class="blIcon">
   </div>
 </template>
 <script>
