@@ -170,6 +170,14 @@ export default new Router({
           name: 'myProject',
           component: resolve => require(['@/page/center/myProject.vue'], resolve)
         },{
+          path: '/myWallet',
+          name: 'myWallet',
+          component: resolve => require(['@/page/center/myWallet.vue'], resolve)
+        },{
+          path: '/deposit',
+          name: 'deposit',
+          component: resolve => require(['@/page/center/deposit.vue'], resolve)
+        },{
           path: '/projectSubmit',
           name: 'projectSubmit',
           component: resolve => require(['@/page/center/projectSubmit.vue'], resolve)
