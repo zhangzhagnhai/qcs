@@ -93,7 +93,7 @@
         <div class="leftIcon">
           <img src="static/bolejihua.png">
         </div>
-        <router-link to="myProjectMeeting">
+        <router-link to="BLPlan">
           <span class="leftWord">伯乐计划</span>
           <img src="../../assets/images/youjiantou.png" class="rightArrow">
           <span class="rightWord">我的计划</span>

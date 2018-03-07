@@ -174,6 +174,10 @@ export default new Router({
           name: 'myWallet',
           component: resolve => require(['@/page/center/myWallet.vue'], resolve)
         },{
+          path: '/BLPlan',
+          name: 'BLPlan',
+          component: resolve => require(['@/page/center/BLPlan.vue'], resolve)
+        },{
           path: '/deposit',
           name: 'deposit',
           component: resolve => require(['@/page/center/deposit.vue'], resolve)
