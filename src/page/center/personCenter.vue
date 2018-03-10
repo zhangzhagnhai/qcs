@@ -105,7 +105,7 @@
         <div class="leftIcon">
           <img src="static/hezuodexiangmu.png">
         </div>
-        <router-link to="myProjectMeeting">
+        <router-link to="cooperationProject">
           <span class="leftWord">我合作的项目</span>
           <img src="../../assets/images/youjiantou.png" class="rightArrow">
           <span class="rightWord">查看已合作的项目</span>

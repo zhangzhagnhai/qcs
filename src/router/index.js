@@ -182,6 +182,18 @@ export default new Router({
           name: 'deposit',
           component: resolve => require(['@/page/center/deposit.vue'], resolve)
         },{
+          path: '/goodProject',
+          name: 'goodProject',
+          component: resolve => require(['@/page/blPlan/goodProject.vue'], resolve)
+        },{
+          path: '/cooperationProject',
+          name: 'cooperationProject',
+          component: resolve => require(['@/page/blPlan/cooperationProject.vue'], resolve)
+        },{
+          path: '/addBL',
+          name: 'addBL',
+          component: resolve => require(['@/page/blPlan/addBL.vue'], resolve)
+        },{
           path: '/projectSubmit',
           name: 'projectSubmit',
           component: resolve => require(['@/page/center/projectSubmit.vue'], resolve)

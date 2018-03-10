@@ -51,6 +51,7 @@
          _this.$emit("loading",true);
          $.getJSON(host+"/center/centerJoinCommunication",{id:this.id}).then(function (response) {
            _this.projectMeetingList=response.communiation;
+           _this.projectMeetingList=[{},{}]
            for(var i=0;i< _this.projectMeetingList.length;i++){
              switch(_this.projectMeetingList[i].com_status){
                case 0:

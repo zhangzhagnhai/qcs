@@ -84,7 +84,7 @@
 
     <prevRegister v-if="showRegister"></prevRegister>
 
-    <img src="static/xiangqingyetubiao.png" class="blIcon">
+    <router-link to="addBL"><img src="static/xiangqingyetubiao.png" class="blIcon"></router-link>
   </div>
 </template>
 

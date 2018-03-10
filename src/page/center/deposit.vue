@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: #f7f7f7">
+  <div style="background-color: #f7f7f7; min-height: 100%;">
     <div v-title data-title="我的余额">
       我的余额
     </div>

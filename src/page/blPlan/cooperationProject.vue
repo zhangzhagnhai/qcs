@@ -1,0 +1,46 @@
+<template>
+  <div>
+    <div v-title data-title="我合作的项目">
+      我合作的项目
+    </div>
+    <ul>
+       <li v-for="item in cooperationProject">
+         <img src="static/boletubiao.png">
+         <span class="projectContain">
+           <div class="cooperationName">婆婆妈妈生活网</div>
+           <div class="cooperationDes">已付定金<span>¥3000</span></div>
+           <div class="cooperationDes">尾款已确认(待确认)<span>¥13000</span></div>
+         </span>
+         <span class="zs">招商加盟</span>
+       </li>
+    </ul>
+    <div v-if="cooperationProject.length==0">
+      <img src="static/b.png" style="width: 3.02rem" class="noDataImg">
+      <div class="noDataFont">暂时还没有合作的项目呢~</div>
+    </div>
+  </div>
+</template>
+<script>
+    export default {
+        data() {
+            return {
+              cooperationProject:[
+                {},{},{}
+              ]
+            }
+        },
+        methods: {},
+        components: {}
+    }
+</script>
+<style scoped="">
+  ul{padding-left: 0.26rem}
+  li{height:1.5rem; padding:0.3rem 0; border-bottom: 0.5px solid #eee;}
+  li:last-child{border: none}
+  li img{width: 1.5rem; height: 1.5rem; float: left; border-radius: 3px;}
+  .projectContain{float: left; margin-left: 0.25rem; width: 3.5rem; height: 1.5rem;}
+  .cooperationName{font-size: 0.32rem; height:0.52rem;line-height: 0.52rem; color: #464c56; margin-bottom: 0.1rem }
+  .cooperationDes{font-size: 0.26rem; height:0.46rem;line-height: 0.46rem; color: #969fa9}
+  .cooperationDes span{margin-left: 0.1rem; font-size: 0.28rem; color: #4285f4}
+  .zs{float: right; margin-right: 0.26rem; width: 1.15rem; border: 0.5px solid #4285f4; color: #4285f4; height: 0.4rem; line-height: 0.4rem; border-radius: 3px; font-size: 0.24rem; text-align: center; box-sizing:border-box;  -moz-box-sizing:border-box;  -webkit-box-sizing:border-box;}
+</style>
