@@ -1,6 +1,19 @@
-ul{padding-left: 0.26rem}
-ul li{padding: 0.3rem 0; height: 1.8rem; border-bottom: 0.5px solid #dddddd;}
-ul li .imgContainer,.imgContainer img{position:relative; width: 2.4rem; height: 1.8rem; border-radius: 3px; overflow: hidden; float: left;}
+.zyList{padding-left: 0.26rem;  border-bottom: 0.5px solid #dddddd;}
+.zyList li{padding: 0.3rem 0; height: 1.8rem; border-bottom: 0.5px solid #dddddd;}
+.zyList li:last-child{border-bottom: none}
+.zyList li .imgContainer,.imgContainer img{position:relative; width: 2.4rem; height: 1.8rem; border-radius: 3px; overflow: hidden; float: left;}
+.xmList{padding-left: 0.26rem;  border-bottom: 0.5px solid #dddddd;}
+.xmList li{padding: 0.3rem 0;  border-bottom: 0.5px solid #dddddd;}
+.xmList li:last-child{border-bottom: none}
+.xmList li .imgContainer,.imgContainer img{position:relative; width: 2.4rem; height: 1.8rem; border-radius: 3px; overflow: hidden; float: left;}
+.xmList .xmDetail{width: 6.58rem; height: 0.75rem; padding: 0.2rem; margin: 0.2rem 0.26rem 0 0; border: 0.5px solid #c2cfd8; border-radius:3px}
+.xmList .xmName{height: 0.28rem}
+.xmName img{height: 0.28rem; float: left}
+.xmName span{float: left; margin-left: 0.15rem; height: 0.28rem; line-height: 0.28rem; font-size: 0.28rem; color: #333333;}
+.xmList .xmPrice{height: 0.28rem; margin-top: 0.2rem}
+.xmPrice span{height: 0.28rem; float: left; font-size: 0.26rem; line-height: 0.28rem;color: #969fa9; }
+.xmPrice .dj{width:3.3rem; }
+.xmPrice .price{color:#4285F4; font-size:0.28rem; width:3.3rem; }
 .status{position: absolute; width: 100%; height: 0.45rem; line-height: 0.45rem;font-size: 0.26rem; color: white; text-align: center; bottom: 0; }
 .statusBG{position: absolute; width: 100%; height: 0.45rem; line-height: 0.45rem;  background-color: #000; opacity: 0.6; bottom: 0; }
 .right{margin-left: 0.2rem; width: 4.38rem; height: 1.8rem; float: left;}
