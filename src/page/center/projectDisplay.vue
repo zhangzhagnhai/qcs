@@ -153,7 +153,6 @@
     }
   }
 </script>
-<style src="../../assets/css/projectMenu.css" scoped></style>
 <style scoped>
   .footer li {
     width: 33.3%;

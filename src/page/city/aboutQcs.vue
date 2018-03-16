@@ -89,11 +89,11 @@
   }
 </script>
 <style src="../../assets/css/connectionDetail.css" scoped></style>
-<style scoped>
+<style scoped>/*
   .fsNav{height: 0.88rem; background-color: #f7f7f7}
   .fsNavs{height: 0.58rem; width: 7rem; border: 1px solid #4285F4; border-radius: 3px; margin: 0 auto; overflow: hidden}
   .fsNavs div{width: 3.5rem; height: 0.58rem; line-height:0.58rem; float: left; text-align: center; font-size: 0.28rem;background-color:white; color:#4285F4;}
-  .fsNavs .select{background-color:#4285F4; color:white;}
+  .fsNavs .select{background-color:#4285F4; color:white;}*/
   .mainFS{height: 1.2rem; padding: 0.3rem 0.26rem; font-size: 0}
   .mainFSImg{width: 1.2rem; height: 1.2rem; float: left; border-radius: 3px;  border: 0.5px solid #efefef; box-sizing:border-box;}
   .mainFSFontContain{height: 1.2rem; width:5.48rem; float: left; margin-left: 0.3rem;}

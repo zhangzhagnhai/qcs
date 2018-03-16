@@ -144,7 +144,6 @@
     }
   }
 </script>
-<style src="../../assets/css/investorMenu.css" scoped></style>
 <style scoped>
      .isGray{background-color: #f7f7f7; bottom: 0; top:0}
      .rzImg{width:2.56rem; height: 2.14rem; display: block; margin: 0.8rem auto 1.15rem;}

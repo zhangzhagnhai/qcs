@@ -113,7 +113,6 @@
     }
   }
 </script>
-<style src="../../assets/css/investorMenu.css" scoped></style>
 <style scoped>
   .myProject{padding-left: 0.26rem}
   .myProject .myProjectLi{padding: 0.3rem 0; height: 1.5rem; border-bottom: 0.5px solid #dddddd;}

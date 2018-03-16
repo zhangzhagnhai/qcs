@@ -135,7 +135,6 @@
     }
   }
 </script>
-<style src="../../assets/css/projectMenu.css" scoped></style>
 <style src="../../assets/css/connectionEdit.css" scoped></style>
 <style scoped>
 

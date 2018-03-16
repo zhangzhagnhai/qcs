@@ -85,4 +85,3 @@
     }
   }
 </script>
-<style src="../../assets/css/investorMenu.css" scoped></style>

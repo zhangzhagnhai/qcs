@@ -123,7 +123,6 @@
      },
    }
 </script>
-<style src="../../assets/css/investorMenu.css" scoped></style>
 <style src="../../assets/css/myProjectMeeting.css" scoped>
 
 </style>

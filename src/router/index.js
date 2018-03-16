@@ -176,7 +176,7 @@ export default new Router({
         },{
           path: '/BLPlan',
           name: 'BLPlan',
-          component: resolve => require(['@/page/center/BLPlan.vue'], resolve)
+          component: resolve => require(['@/page/blPlan/BLPlan.vue'], resolve)
         },{
           path: '/deposit',
           name: 'deposit',

@@ -17,6 +17,7 @@ require('./assets/css/index.css')
 require('./assets/css/common.css')
 require('./assets/css/style.css')
 require('./assets/css/overlay.css')
+require('./assets/css/investorMenu.css')
 import './assets/js/jquery.min.js';
 import './assets/js/rem.js'
 import './assets/js/overlay.js'
