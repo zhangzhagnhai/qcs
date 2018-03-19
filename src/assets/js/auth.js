@@ -56,6 +56,7 @@ import {host,strToJson} from '../../assets/js/util'
         }
 
         request.setRequestHeader("templateId",  localStorage.getItem('templateID'));
+        request.setRequestHeader("BLId",  localStorage.getItem('BLId'));
         request.setRequestHeader("uid", localStorage.getItem('userId'));
       }
     });
@@ -68,7 +69,7 @@ import {host,strToJson} from '../../assets/js/util'
   //初始化验证.
   (function () {
     var templateID=localStorage.getItem('templateID')||5;
-
+    var BLId=0;
     var stateArray=getQueryStringByName('state').split("_");
     console.log(stateArray);
     if(stateArray&&stateArray.length>0){
@@ -81,10 +82,21 @@ import {host,strToJson} from '../../assets/js/util'
         }else if(getQueryStringByName('templateId')){
           templateID=getQueryStringByName('templateId')
         }
+
+        if(tempArray[0]=="BLId"&&tempArray[1]){
+          BLId=tempArray[1];
+          console.log("state BLId init");
+          break;
+        }else if(getQueryStringByName('BLId')){
+          BLId=getQueryStringByName('BLId')
+        }
       }
     }else if(getQueryStringByName('templateId')){
       templateID=getQueryStringByName('templateId')
       console.log("getQueryStringByName template init");
+      if(getQueryStringByName('BLId')){
+        BLId=getQueryStringByName('BLId')
+      }
     }else{
       templateID=localStorage.getItem('templateID')
     }
@@ -94,6 +106,7 @@ import {host,strToJson} from '../../assets/js/util'
     else
       return;*/
     localStorage.setItem("templateID",templateID);
+    localStorage.setItem("BLId",BLId);
     //localStorage.removeItem("userId");
     if (localStorage.getItem('userId')/*&&false*/) {
       /*获取氢创社用户信息*/

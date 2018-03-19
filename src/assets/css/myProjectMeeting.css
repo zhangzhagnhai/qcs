@@ -6,10 +6,11 @@
 .xmList li{padding: 0.3rem 0;  border-bottom: 0.5px solid #dddddd; font-size: 0}
 .xmList li:last-child{border-bottom: none}
 .xmList li .imgContainer,.imgContainer img{position:relative; width: 2.4rem; height: 1.8rem; border-radius: 3px; overflow: hidden; float: left;}
-.xmList .xmDetail{width: 6.58rem; height: 0.75rem; padding: 0.2rem; margin: 0.2rem 0.26rem 0 0; border: 0.5px solid #c2cfd8; border-radius:3px}
+.xmList .xmDetail{width: 6.58rem; height: 0.3rem; padding: 0.2rem; margin: 0.2rem 0.26rem 0 0; border: 0.5px solid #c2cfd8; border-radius:3px}
 .xmList .xmName{height: 0.28rem}
 .xmName img{height: 0.28rem; float: left}
 .xmName span{float: left; margin-left: 0.15rem; height: 0.28rem; line-height: 0.28rem; font-size: 0.28rem; color: #333333;}
+.xmName i{float: right; font-size: 0.28rem; line-height: 0.28rem; height: 0.28rem; color: #4285F4; font-style: normal;}
 .xmList .xmPrice{height: 0.28rem; margin-top: 0.2rem}
 .xmPrice span{height: 0.28rem; float: left; font-size: 0.26rem; line-height: 0.28rem;color: #969fa9; }
 .xmPrice .dj{width:3.3rem; }

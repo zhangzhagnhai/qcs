@@ -62,11 +62,12 @@
               <div class="xmName">
                 <img src="static/xiangmuer.png">
                 <span>婆婆妈妈生活网</span>
+                <i>审核中</i>
               </div>
-              <div class="xmPrice">
+             <!-- <div class="xmPrice">
                  <span class="dj"><span>已付定金</span><span class="price">¥8888.00</span></span>
                 <span><span>尾款待确认</span><span class="price">¥8888.00</span></span>
-              </div>
+              </div>-->
            </div>
          </router-link>
        </li>

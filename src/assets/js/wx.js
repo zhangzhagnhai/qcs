@@ -50,6 +50,7 @@ import {host,strToJson} from '../../assets/js/util'
 
   var setShare=function(data){
     console.log(data.href)
+    data.href+="&BLId=0"
     if(getCode==false){
       setTimeout(function(){
         setShare(data);
