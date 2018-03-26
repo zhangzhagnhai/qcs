@@ -17,7 +17,8 @@
     data() {
       return {
         isBL:false,
-        showShare:false
+        showShare:false,
+        userInfo:{}
       }
     },
     mounted(){
@@ -26,9 +27,21 @@
     },
     methods: {
       getData(){
+        var _this=this;
+        _this.$emit("loading",true);
+        $.getJSON(host+"/wx/getUserInfoByUid").then(function (response) {
+          _this.userInfo=response;
+          _this.$emit("loading",false);
+        })
       },
       submit(){
-        this.$router.push({name:'register'})
+        if(!this.userInfo.mobile){
+          this.$router.push({name:'register'})
+        }else{
+          $.getJSON(host+"/bole/becomebole").then(function (response) {
+            Overlay.show(response.msg)
+          })
+        }
       },
       openShare(){
         this.showShare=true;

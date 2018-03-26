@@ -29,7 +29,21 @@
               ]
             }
         },
-        methods: {},
+        mounted(){
+          this.templateId = this.$route.query.templateId;
+          this.getData();
+        },
+        methods: {
+          getData(){
+            var _this=this;
+            //_this.$emit("loading",true);
+            $.getJSON(host+"/center/myBuyProgram").then(function (response) {
+              _this.cooperationProject=response.user;
+              // _this.userInfo.hasRelationship=2
+             _this.$emit("loading",false);
+            })
+          }
+        },
         components: {}
     }
 </script>

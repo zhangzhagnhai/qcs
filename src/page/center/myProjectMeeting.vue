@@ -13,19 +13,19 @@
      </div>
 
      <ul class="zyList" v-if="select==1">
-       <li v-for="projectMeeting in projectMeetingList">
+       <li v-for="projectMeeting in personProjectMeetingList">
           <router-link :to="{name:'projectMeetingDetail',query:{id:projectMeeting.id}}">
             <div class="imgContainer">
               <img :src="projectMeeting.image"/>
               <div class="statusBG"></div>
-              <div class="status">{{projectMeeting.com_statusString}}</div>
+              <div class="status">{{projectMeeting.com_statusStr}}</div>
             </div>
 
             <div class="right">
                 <div class="rightName">{{projectMeeting.title}}</div>
                 <div class="rightItem">
                   <img src="../../assets/images/riqi.png">
-                  <span class="iconFont">{{projectMeeting.created_at | formatDate}} 至 {{projectMeeting.end_time | formatDate}}</span>
+                  <span class="iconFont">{{projectMeeting.start_time}} 至 {{projectMeeting.end_time}}</span>
                 </div>
                 <div class="rightItem">
                   <img src="../../assets/images/dizhi.png">
@@ -37,23 +37,23 @@
      </ul>
 
      <ul class="xmList" v-if="select==2">
-       <li v-for="projectMeeting in projectMeetingList">
+       <li v-for="projectMeeting in programCommunicationProgram">
          <router-link :to="{name:'projectMeetingDetail',query:{id:projectMeeting.id}}">
            <div style="display: inline-block">
              <div class="imgContainer">
                <img :src="projectMeeting.image"/>
                <div class="statusBG"></div>
-               <div class="status">{{projectMeeting.com_statusString}}</div>
+               <div class="status">{{projectMeeting.communication_statusStr}}</div>
              </div>
              <div class="right">
-               <div class="rightName">{{projectMeeting.title}}</div>
+               <div class="rightName">{{projectMeeting.communication_name}}</div>
                <div class="rightItem">
                  <img src="../../assets/images/riqi.png">
-                 <span class="iconFont">{{projectMeeting.created_at | formatDate}} 至 {{projectMeeting.end_time | formatDate}}</span>
+                 <span class="iconFont">{{projectMeeting.start_time}} 至 {{projectMeeting.end_time}}</span>
                </div>
                <div class="rightItem">
                  <img src="../../assets/images/dizhi.png">
-                 <span class="iconFont">{{"杭州 上城区"}}</span>
+                 <span class="iconFont">{{projectMeeting.location}}</span>
                </div>
              </div>
            </div>
@@ -61,8 +61,8 @@
            <div class="xmDetail">
               <div class="xmName">
                 <img src="static/xiangmuer.png">
-                <span>婆婆妈妈生活网</span>
-                <i>审核中</i>
+                <span>{{projectMeeting.program_name}}</span>
+                <i>{{projectMeeting.statusStr}}</i>
               </div>
              <!-- <div class="xmPrice">
                  <span class="dj"><span>已付定金</span><span class="price">¥8888.00</span></span>
@@ -72,7 +72,7 @@
          </router-link>
        </li>
      </ul>
-     <div v-if="projectMeetingList.length==0">
+     <div v-if="(personProjectMeetingList.length==0&&select==1)||(programCommunicationProgram.length==0&&select==2)">
        <img src="static/n.png" style="width: 3.02rem" class="noDataImg">
        <div class="noDataFont">还没参加过对接会哦~</div>
      </div>
@@ -85,7 +85,8 @@
      data(){
        return{
           select:1,
-          projectMeetingList: []
+         personProjectMeetingList: [],
+         programCommunicationProgram:[]
        }
      }, mounted(){
        this.templateId = this.$route.query.templateId;
@@ -94,7 +95,7 @@
        getData(){
          var _this=this;
          _this.$emit("loading",true);
-         $.getJSON(host+"/center/centerJoinCommunication",{id:this.id}).then(function (response) {
+        /* $.getJSON(host+"/center/centerJoinCommunication",{id:this.id}).then(function (response) {
            _this.projectMeetingList=response.communiation;
            for(var i=0;i< _this.projectMeetingList.length;i++){
              switch(_this.projectMeetingList[i].com_status){
@@ -109,6 +110,15 @@
                  break;
              }
            }
+           _this.$emit("loading",false);
+         })*/
+         $.getJSON(host+"/center/joinCommunicationPerson").then(function (response) {
+           _this.personProjectMeetingList=response.communiation;
+           _this.$emit("loading",false);
+         })
+
+         $.getJSON(host+"/center/joinCommunicationProgram").then(function (response) {
+           _this.programCommunicationProgram=response.communication;
            _this.$emit("loading",false);
          })
        },

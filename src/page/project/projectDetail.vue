@@ -5,6 +5,12 @@
     </div>
 
     <project :project="invest" isDetail="detail"></project>
+    <div style="margin: 0.1rem 0.26rem 0.3rem;; height: 0.45rem; ;">
+      <img src="static/qianbi.png" style="float: left; margin-top: 0.05rem; height: 0.35rem;">
+      <span style="float:left; margin-left: 0.12rem; font-size: 0.34rem; line-height: 0.45rem; height: 0.45rem; color: #4285F4;">8000</span>
+      <span style="padding-left: 0.13rem; font-size: 0.26rem;color: #4285F4; float:right; width: 1.37rem; height: 0.44rem;  line-height: 0.44rem; border: 1px solid #4285F4; border-radius: 3px;">招商加盟 ></span>
+    </div>
+    <div style="clear: both"></div>
     <div style="height: 0.2rem; background-color: #f7f7f7"></div>
 
     <div style="height: 0.86rem; border-bottom:  0.5px solid #dddddd;">

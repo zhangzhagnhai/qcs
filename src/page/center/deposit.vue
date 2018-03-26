@@ -6,20 +6,20 @@
     <div class="depositContainer">
         <div class="deposits">
           <span>支付宝账户</span>
-          <input type="text" placeholder="请输入提现支付宝账号" />
+          <input v-model="formInfo.zfb_zhanghao" type="text" placeholder="请输入提现支付宝账号" />
         </div>
         <div class="deposits" style="margin-top: 0.3rem; ">
           <span>支付宝姓名</span>
-          <input type="text" placeholder="请输入提现支付宝账户名" />
+          <input v-model="formInfo.zfb_xingming" type="text" placeholder="请输入提现支付宝账户名" />
         </div>
         <div class="depositNav">
            <div class="depositName">提现金额:</div>
            <div class="depositNums">
              <span>¥</span>
-             <input type="text" placeholder="请输入提现金额" />
+             <input type="number" placeholder="请输入提现金额" v-model="formInfo.money" />
            </div>
         </div>
-        <div class="ye">余额 ¥ 8888.00</div>
+        <div class="ye">余额 ¥ {{money}}</div>
         <div @click="tx" class="tx">提现</div>
     </div>
     <div class="lx">申请提交后1到2个工作日到账</div>
@@ -42,18 +42,41 @@
   </div>
 </template>
 <script>
+  import {host} from '../../assets/js/util'
     export default {
         data() {
             return {
-              showMc:false
+              showMc:false,
+              formInfo:{
+                zfb_zhanghao:"",
+                zfb_xingming:"",
+                money:'',
+             },
+              money:0
             }
-        },
+        }, mounted(){
+          this.templateId = this.$route.query.templateId;
+          this.getData();
+       },
         methods: {
           tx(){
-            this.showMc=true;
+            var _this=this;
+            $.getJSON(host+"/bole/tixian",this.formInfo).then(function (response) {
+               if(response.code==1){
+                 _this.showMc=true;
+               }
+            })
           },
           txApply(){
             this.showMc=false;
+          },
+          getData(){
+            var _this=this;
+            _this.$emit("loading",true);
+            $.getJSON(host+"/bole/boleInfo",{id:this.id}).then(function (response) {
+              _this.money=response.money;
+              _this.$emit("loading",false);
+            })
           }
         },
         components: {}

@@ -23,11 +23,14 @@
       <div style="clear: both"></div>
       <div class="yeContain">
         <router-link to="myWallet" tag="span">
-            <div class="yeNum">8700.00</div>
+            <div class="yeNum">{{money}}</div>
             <div class="yeName">余额</div>
         </router-link>
-        <router-link to="deposit" tag="span">
-            <img src="/static/tixian.png">
+        <router-link  v-if="!bid" to="addBL" tag="span">
+            <img src="static/chengweibole.png">
+        </router-link>
+        <router-link  v-if="bid" to="deposit" tag="span">
+          <img src="static/tixian.png">
         </router-link>
       </div>
       <router-link to="vipIntroduce" tag="span">
@@ -91,7 +94,7 @@
     <div class="centerContainBg">
       <div class="centerContain">
         <div class="leftIcon">
-          <img src="static/bolejihua.png">
+          <img  src="static/bolejihua.png">
         </div>
         <router-link to="BLPlan">
           <span class="leftWord">伯乐计划</span>
@@ -149,6 +152,8 @@
       return {
         userInfo: {
         },
+        money:0,
+        bid:'',
         vipImg:["static/qingyahuiuyan.png","static/qingmiaohuiyuan.png","static/qingsonghuiyuan.png"]
       }
     }, mounted(){
@@ -161,6 +166,13 @@
         $.getJSON(host+"/center/centerIndex",{id:this.id}).then(function (response) {
           _this.userInfo=response.user;
          // _this.userInfo.hasRelationship=2
+          _this.$emit("loading",false);
+        })
+
+        $.getJSON(host+"/bole/boleInfo",{id:this.id}).then(function (response) {
+          _this.money=response.money;
+          _this.bid=response.id;
+          // _this.userInfo.hasRelationship=2
           _this.$emit("loading",false);
         })
       }
@@ -259,5 +271,5 @@
   .yeContain span:first-child{ border-right: 0.5px solid white; box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box; }
   .yeNum{color:white; font-size: 0.38rem; line-height: 0.38rem; height: 0.38rem; font-weight: bold;  margin-top: -0.06rem}
   .yeName{color:white; margin-top: 0.2rem; font-size: 0.24rem; line-height: 0.24rem; height: 0.24rem;}
-  .yeContain img{width: 1.16rem; margin-top: 0.1rem}
+  .yeContain img{/*width: 1.16rem; */ height:0.4rem; margin-top: 0.1rem}
 </style>

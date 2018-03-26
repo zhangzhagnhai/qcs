@@ -6,28 +6,18 @@
      <div class="yeBg">
        <img src="static/yue.png" class="yeImg">
        <div class="yeName">我的余额</div>
-       <div class="yeNum">¥ 8888.00</div>
+       <div class="yeNum">¥ {{money}}</div>
        <router-link to="deposit" class="tx">提现</router-link>
      </div>
      <ul>
-       <li>
+       <li v-for="item in lsList">
          <div class="orderContain">
-           <span class="orderName">成功提现</span>
-           <span class="orderPrice">-1240.45</span>
+           <span class="orderName">{{item.type_str}}</span>
+           <span class="orderPrice">{{item.money2}}</span>
          </div>
          <div class="orderDes">
-           <span class="orderNum">订单号： 2017165645646156</span>
-           <span class="orderTime">02.12  18:20</span>
-         </div>
-       </li>
-       <li>
-         <div class="orderContain">
-           <span class="orderName">成功提现</span>
-           <span class="orderPrice">-1240.45</span>
-         </div>
-         <div class="orderDes">
-           <span class="orderNum">订单号： 2017165645646156</span>
-           <span class="orderTime">02.12  18:20</span>
+           <span class="orderNum">订单号： {{item.liushuiorder}}</span>
+           <span class="orderTime">{{item.created_time}}</span>
          </div>
        </li>
      </ul>
@@ -35,14 +25,32 @@
    </div>
 </template>
 <script>
+    import {host} from '../../assets/js/util'
     export default {
         data() {
             return {
-
+              money:0,
+              lsList:[]
             }
         },
+        mounted(){
+          this.templateId = this.$route.query.templateId;
+          this.getData();
+         },
         methods: {
-
+          getData(){
+            var _this=this;
+            _this.$emit("loading",true);
+            $.getJSON(host+"/bole/boleInfo").then(function (response) {
+              _this.money=response.money;
+              _this.$emit("loading",false);
+            })
+            $.getJSON(host+"/bole/boleLiushuidan").then(function (response) {
+              _this.lsList=response;
+              // _this.userInfo.hasRelationship=2
+              _this.$emit("loading",false);
+            })
+          }
         },
         components: {}
     }

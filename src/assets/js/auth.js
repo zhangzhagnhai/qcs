@@ -1,6 +1,6 @@
 import {host,strToJson} from '../../assets/js/util'
 (function () {
-  var PRODUCTION = true;
+  var PRODUCTION = false;
   var defaultUser=1;
   var userDefer = $.Deferred();
   //window.PRODUCTION=PRODUCTION;
@@ -56,7 +56,7 @@ import {host,strToJson} from '../../assets/js/util'
         }
 
         request.setRequestHeader("templateId",  localStorage.getItem('templateID'));
-        request.setRequestHeader("BLId",  localStorage.getItem('BLId'));
+        request.setRequestHeader("bid",  localStorage.getItem('BLId'));
         request.setRequestHeader("uid", localStorage.getItem('userId'));
       }
     });
