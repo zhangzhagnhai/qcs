@@ -8,7 +8,7 @@
          <img src="static/boletubiao.png">
          <span class="projectContain">
            <div class="cooperationName">婆婆妈妈生活网</div>
-           <div class="cooperationDes">已付定金<span>¥3000</span></div>
+           <div class="cooperationDes">已付<span>¥3000</span></div>
            <div class="cooperationDes">尾款已确认(待确认)<span>¥13000</span></div>
          </span>
          <span class="zs">招商加盟</span>
