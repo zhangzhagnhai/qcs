@@ -179,7 +179,7 @@
       this.getData();
       var _this=this;
       window.onscroll = function () {
-        if(document.body.scrollTop>0){
+        if(document.body.scrollTop>0||document.documentElement.scrollTop>0){
           _this.showMenu=true;
         }
       }
