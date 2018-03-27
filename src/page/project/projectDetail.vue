@@ -5,10 +5,10 @@
     </div>
 
     <project :project="invest" isDetail="detail"></project>
-    <div style="margin: 0.1rem 0.26rem 0.3rem;; height: 0.45rem; ;">
-      <img src="static/qianbi.png" style="float: left; margin-top: 0.05rem; height: 0.35rem;">
-      <span style="float:left; margin-left: 0.12rem; font-size: 0.34rem; line-height: 0.45rem; height: 0.45rem; color: #4285F4;">8000</span>
-      <span style="padding-left: 0.13rem; font-size: 0.26rem;color: #4285F4; float:right; width: 1.37rem; height: 0.44rem;  line-height: 0.44rem; border: 1px solid #4285F4; border-radius: 3px;">招商加盟 ></span>
+    <div class="zs">
+      <img src="static/qianbi.png" >
+      <span class="zsNum">8000</span>
+      <span class="zsBnt">招商加盟 ></span>
     </div>
     <div style="clear: both"></div>
     <div style="height: 0.2rem; background-color: #f7f7f7"></div>
@@ -52,20 +52,24 @@
     <!--底部操作按钮-->
     <div v-if="showMenu&&(isMeeting==='false'||!isMeeting)">
       <div style="height: 1rem"></div>
-      <ul class="footer" style="height: 1rem; position: fixed; bottom: 0; width: 100%;">
+      <ul class="footer" style="width: 4.5rem;">
         <li @click="selected(0)">
           <div class="icon-pl"></div>
-          <div class="footerFont">评论</div>
+          <div class="footerFont">评论 21</div>
         </li>
         <li @click="selected(1)">
           <div :class="invest.hasStar?['icon-dzer']:['icon-dz']"></div>
-          <div :class="invest.hasStar?'footerFont footerColor':'footerFont'">点赞</div>
+          <div :class="invest.hasStar?'footerFont footerColor':'footerFont'">点赞 22</div>
         </li>
         <li @click="selected(2)">
           <div :class="invest.hasInteresting?['icon-gxer']:['icon-gx']"></div>
-          <div :class="invest.hasInteresting?'footerFont footerColor':'footerFont'">我感兴趣</div>
+          <div :class="invest.hasInteresting?'footerFont footerColor':'footerFont'">我感兴趣 23</div>
         </li>
       </ul>
+      <div style="position:fixed; right:0; bottom:0; height: 1rem; width: 3rem; background-color: #4285F4">
+        <div style="margin-top: 0.16rem; font-size: 0.26rem; line-height: 0.26rem; height: 0.26rem; color: white; text-align: center">¥ 10000.00</div>
+        <div style="margin-top: 0.1rem; font-size: 0.32rem; line-height: 0.32rem; height: 0.32rem; color: white; text-align: center">我要合作</div>
+      </div>
     </div>
 
     <div v-if="showInterest" class="mengceng">
@@ -238,29 +242,14 @@
   .menuWordx .menuBlueLine {
     display: block;
   }
-
-  .team_ul {
-    display: inline-block;
-  }
-
-  .team_ul li {
-    float: left;
-    width: 100%
-  }
-
-  .teamContain {
-    padding-left: 0.3rem;
-  }
-
-  .teamContain1 {
-    border-bottom: 0.5px solid #d1d1d1;
-  }
-
-
-  .footer li {
-    width: 33.3%;
-    height: 1rem;
-    float: left;
-  }
+  .team_ul {  display: inline-block;  }
+  .team_ul li {  float: left;  width: 100%  }
+  .teamContain {  padding-left: 0.3rem;  }
+  .teamContain1 {  border-bottom: 0.5px solid #d1d1d1;  }
+  .footer li {  width: 33.3%;  height: 1rem;  float: left;  }
+  .zs{margin: 0.1rem 0.26rem 0.3rem;; height: 0.45rem;}
+  .zs img{float: left; margin-top: 0.05rem; height: 0.35rem;}
+  .zsNum{float:left; margin-left: 0.12rem; font-size: 0.34rem; line-height: 0.45rem; height: 0.45rem; color: #4285F4;}
+  .zsBnt{padding-left: 0.13rem; font-size: 0.26rem;color: #4285F4; float:right; width: 1.37rem; height: 0.44rem;  line-height: 0.44rem; border: 1px solid #4285F4; border-radius: 3px;}
 </style>
 
