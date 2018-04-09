@@ -16,7 +16,7 @@ import {host,strToJson} from '../../assets/js/util'
   url=location.href.split('#')[0]
   var defer = $.Deferred();
   var getCode=false;
-
+  var bid=-1
   $.getJSON(host+"/wx/wxApi", {url: url}).then(function (response) {
     var data = strToJson(response.config);
     console.log(data)
@@ -48,15 +48,26 @@ import {host,strToJson} from '../../assets/js/util'
     //alert('获取签名失败,无法调用微信接口.');
   });
 
+  var timer=setInterval(function(){
+    if(localStorage.getItem('userId')){
+      $.getJSON(host+"/bole/boleInfo").then(function (response) {
+        bid=response.id;
+        // _this.userInfo.hasRelationship=2
+        _this.$emit("loading",false);
+      })
+      clearInterval(timer)
+    }
+  },100)
+
   var setShare=function(data){
     console.log(data.href)
-    data.href+="&BLId=0"
-    if(getCode==false){
+    if(getCode==false||bid==-1){
       setTimeout(function(){
         setShare(data);
       },10000)
       return;
     }
+    data.href+="&BLId="+bid
     //var href=window.location.href.substr(0,window.location.href.indexOf('?'));
     wx.ready(function () {
       wx.onMenuShareTimeline({

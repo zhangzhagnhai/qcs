@@ -5,13 +5,13 @@
     </div>
     <ul>
        <li v-for="item in cooperationProject">
-         <img src="static/boletubiao.png">
+         <img :src="item.image">
          <span class="projectContain">
-           <div class="cooperationName">婆婆妈妈生活网</div>
-           <div class="cooperationDes">已付<span>¥3000</span></div>
-           <div class="cooperationDes">尾款已确认(待确认)<span>¥13000</span></div>
+           <div class="cooperationName">{{item.name}}</div>
+           <div class="cooperationDes">已付<span>¥{{item.pay_dingjin}}</span></div>
+           <div class="cooperationDes">{{item.weikuan_statusStr}}<span v-if="item.pay_weikuan-0!=0">¥{{item.pay_weikuan}}</span></div>
          </span>
-         <span class="zs">招商加盟</span>
+         <span class="zs">{{item.request}}</span>
        </li>
     </ul>
     <div v-if="cooperationProject.length==0">
@@ -21,11 +21,11 @@
   </div>
 </template>
 <script>
+    import {host,shareHref} from '../../assets/js/util'
     export default {
         data() {
             return {
               cooperationProject:[
-                {},{},{}
               ]
             }
         },
@@ -36,9 +36,9 @@
         methods: {
           getData(){
             var _this=this;
-            //_this.$emit("loading",true);
+            _this.$emit("loading",true);
             $.getJSON(host+"/center/myBuyProgram").then(function (response) {
-              _this.cooperationProject=response.user;
+              _this.cooperationProject=response;
               // _this.userInfo.hasRelationship=2
              _this.$emit("loading",false);
             })

@@ -7,8 +7,8 @@
     <project :project="invest" isDetail="detail"></project>
     <div class="zs">
       <img src="static/qianbi.png" >
-      <span class="zsNum">8000</span>
-      <span class="zsBnt">招商加盟 ></span>
+      <span class="zsNum">{{invest.price}}</span>
+      <span class="zsBnt">{{invest.request[0].name}} ></span>
     </div>
     <div style="clear: both"></div>
     <div style="height: 0.2rem; background-color: #f7f7f7"></div>
@@ -55,20 +55,20 @@
       <ul class="footer" style="width: 4.5rem;">
         <li @click="selected(0)">
           <div class="icon-pl"></div>
-          <div class="footerFont">评论 21</div>
+          <div class="footerFont">评论 {{invest.comments_count}}</div>
         </li>
         <li @click="selected(1)">
           <div :class="invest.hasStar?['icon-dzer']:['icon-dz']"></div>
-          <div :class="invest.hasStar?'footerFont footerColor':'footerFont'">点赞 22</div>
+          <div :class="invest.hasStar?'footerFont footerColor':'footerFont'">点赞 {{invest.star_count}}</div>
         </li>
         <li @click="selected(2)">
           <div :class="invest.hasInteresting?['icon-gxer']:['icon-gx']"></div>
-          <div :class="invest.hasInteresting?'footerFont footerColor':'footerFont'">我感兴趣 23</div>
+          <div :class="invest.hasInteresting?'footerFont footerColor':'footerFont'">我感兴趣 {{invest.interesting_count}}</div>
         </li>
       </ul>
-      <div style="position:fixed; right:0; bottom:0; height: 1rem; width: 3rem; background-color: #4285F4">
-        <div style="margin-top: 0.16rem; font-size: 0.26rem; line-height: 0.26rem; height: 0.26rem; color: white; text-align: center">¥ 10000.00</div>
-        <div style="margin-top: 0.1rem; font-size: 0.32rem; line-height: 0.32rem; height: 0.32rem; color: white; text-align: center">我要合作</div>
+      <div class="HZ">
+        <div class="HZPrice">¥ {{invest.price}}</div>
+        <div @click="pay" class="HZName">我要合作</div>
       </div>
     </div>
 
@@ -102,6 +102,7 @@
   import project from '../../components/project.vue'
   import teamDisplay from '../../components/teamDisplay'
   import prevRegister from '../../components/prevRegister'
+  import wx from 'weixin-js-sdk'
   import {host,shareHref} from '../../assets/js/util'
   export default {
 
@@ -109,7 +110,8 @@
     data () {
       return {
         invest: {
-          title:''
+          title:'',
+          request:[{}]
         },
         user:{},
         showRegister:false,
@@ -156,10 +158,12 @@
         } else if (index == 1) {
           if(this.invest.hasStar){
             this.invest.hasStar=0;
+            this.invest.star_count-=1
             Overlay.show("取消点赞", 1500)
           }
           else{
             this.invest.hasStar=1;
+            this.invest.star_count+=1
             Overlay.show("点赞成功", 1500)
           }
           $.getJSON(host+"/communication/programStar", {id:this.id,value:this.invest.hasStar}).then(function (response) {
@@ -172,6 +176,7 @@
           }
           if(!this.invest.hasInteresting){
             this.showInterest = true;
+            this.invest.interesting_count=parseInt(this.invest.interesting_count)+1;
           }
         }
       },
@@ -180,6 +185,32 @@
         this.invest.hasInteresting=1
         $.getJSON(host+"/communication/programIntesting", {id:this.id,value:this.invest.hasInteresting}).then(function (response) {
 
+        })
+      },
+      pay(){
+        if(this.isClick==true)
+          return;
+        this.isClick=true;
+        var _this=this;
+        $.getJSON(host+"/pay/program",{id:this.id}).then(function (res) {
+          _this.isClick=false;
+          console.log(res)
+          if(res.responese.code==1){
+            var data = res.responese.config;
+            wx.chooseWXPay({
+              timestamp: data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+              nonceStr: data.nonceStr, // 支付签名随机串，不长于 32 位
+              package: data.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+              signType:data.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+              paySign:data.paySign, // 支付签名
+              success: function (e) {
+                _this.closeActivePay();
+                _this.openMengCeng();
+              }
+            });
+          }else{
+            Overlay.show(res.responese.msg, 2000);
+          }
         })
       }
     },
@@ -250,6 +281,9 @@
   .zs{margin: 0.1rem 0.26rem 0.3rem;; height: 0.45rem;}
   .zs img{float: left; margin-top: 0.05rem; height: 0.35rem;}
   .zsNum{float:left; margin-left: 0.12rem; font-size: 0.34rem; line-height: 0.45rem; height: 0.45rem; color: #4285F4;}
-  .zsBnt{padding-left: 0.13rem; font-size: 0.26rem;color: #4285F4; float:right; width: 1.37rem; height: 0.44rem;  line-height: 0.44rem; border: 1px solid #4285F4; border-radius: 3px;}
+  .zsBnt{padding:0 0.06rem 0 0.13rem; font-size: 0.26rem;color: #4285F4; float:right; height: 0.44rem;  line-height: 0.44rem; border: 1px solid #4285F4; border-radius: 3px;}
+  .HZ{position:fixed; right:0; bottom:0; height: 1rem; width: 3rem; background-color: #4285F4}
+  .HZPrice{margin-top: 0.16rem; font-size: 0.26rem; line-height: 0.26rem; height: 0.26rem; color: white; text-align: center}
+  .HZName{margin-top: 0.1rem; font-size: 0.32rem; line-height: 0.32rem; height: 0.32rem; color: white; text-align: center}
 </style>
 

@@ -1,6 +1,6 @@
 import {host,strToJson} from '../../assets/js/util'
 (function () {
-  var PRODUCTION = false;
+  var PRODUCTION = true;
   var defaultUser=1;
   var userDefer = $.Deferred();
   //window.PRODUCTION=PRODUCTION;
@@ -68,7 +68,7 @@ import {host,strToJson} from '../../assets/js/util'
 
   //初始化验证.
   (function () {
-    var templateID=localStorage.getItem('templateID')||5;
+    var templateID=localStorage.getItem('templateID')||1;
     var BLId=0;
     var stateArray=getQueryStringByName('state').split("_");
     console.log(stateArray);
