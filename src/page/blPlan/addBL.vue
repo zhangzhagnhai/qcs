@@ -33,6 +33,11 @@
           _this.userInfo=response;
           _this.$emit("loading",false);
         })
+
+        $.getJSON(host+"/bole/boleInfo").then(function (response) {
+          console.log(response)
+          _this.isBL=response.id;
+        })
       },
       submit(){
         if(!this.userInfo.mobile){
@@ -56,5 +61,5 @@
 </script>
 <style scoped="">
   .addBL{position:fixed; bottom:0; width:7.5rem; height: 0.9rem;line-height:0.88rem; font-size: 0.36rem; color: #9c291d; text-align: center; background:url("../../../static/anniuBL.png");}
-  .shareImg{background: url(/static/share1.png); background-size: cover; width: 100%; position: fixed;  height:13.34rem;  top: 0;}
+  .shareImg{background: url("../../../static/share1.png"); background-size: cover; width: 100%; position: fixed;  height:13.34rem;  top: 0;}
 </style>

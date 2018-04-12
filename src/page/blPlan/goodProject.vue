@@ -25,6 +25,7 @@
     },
     methods: {
       getData(){
+        this.setShare();
       },
       submit(){
         this.$router.push({name:'register'})
@@ -34,6 +35,16 @@
       },
       closeShare(){
         this.showShare=false;
+      },
+      setShare(){
+        this.templateId=this.$route.query.templateId;
+        var href=shareHref+"#goodProject?id="+this.userInfo.communication_id+"&templateId="+this.templateId;
+        JSDK.setShare({
+          title:"氢创同城",
+          desc:"氢创同城",
+          imgUrl:window.fenshe.fenshe_logo,
+          href:href
+        });
       },
     },
     components: {

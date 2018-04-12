@@ -66,9 +66,9 @@
           <div :class="invest.hasInteresting?'footerFont footerColor':'footerFont'">我感兴趣 {{invest.interesting_count}}</div>
         </li>
       </ul>
-      <div class="HZ">
+      <div @click="pay" class="HZ">
         <div class="HZPrice">¥ {{invest.price}}</div>
-        <div @click="pay" class="HZName">我要合作</div>
+        <div  class="HZName">我要合作</div>
       </div>
     </div>
 
@@ -119,6 +119,7 @@
         selectItem: 1,
         showInterest: 0,
         isMeeting:0,
+        isClick:false,
         showMenu:false
       }
     },

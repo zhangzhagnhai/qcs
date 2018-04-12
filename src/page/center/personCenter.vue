@@ -33,7 +33,7 @@
           <img src="static/tixian.png">
         </router-link>
       </div>
-      <router-link to="vipIntroduce" tag="span">
+      <router-link to="addBL" tag="span">
        <img src="static/boletubiao.png" class="boletubiao">
       </router-link>
     </router-link>
@@ -173,7 +173,7 @@
           _this.money=response.money;
           _this.bid=response.id;
           // _this.userInfo.hasRelationship=2
-          _this.$emit("loading",false);
+          //_this.$emit("loading",false);
         })
       }
     },

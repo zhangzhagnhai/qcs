@@ -147,7 +147,7 @@
             }
             break;
           case 1:
-            if(this.newInfos.length<1){
+            if(this.blockchains.length<1){
               _this.$emit("loading",true);
               $.getJSON(host+"/city/newsQukuailianList").then(function (response) {
                 _this.blockchains=response.newsQukuailian;

@@ -22,7 +22,7 @@
             <div class="rightItem">
               <img src="../../assets/images/dizhi.png">
               <span class="iconFont">{{active.city_str}}<span>{{active.county_str}}</span></span>
-              <span class="iconFont" style="float: right; color: #4285F4;">{{active.price?'￥'+active.price:'免费'}}</span>
+              <span class="iconFont" style="float: right; color: #4285F4;">{{active.price-0?'￥'+active.price:'免费'}}</span>
             </div>
           </div>
         </router-link>
@@ -80,6 +80,6 @@
     }
   }
 </script>
-<style src="../../assets/css/myProjectMeeting.css" scoped>
+<style src="../../assets/css/myActive.css" scoped>
 </style>
 <style scoped></style>

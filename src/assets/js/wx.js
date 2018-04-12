@@ -53,7 +53,6 @@ import {host,strToJson} from '../../assets/js/util'
       $.getJSON(host+"/bole/boleInfo").then(function (response) {
         bid=response.id;
         // _this.userInfo.hasRelationship=2
-        _this.$emit("loading",false);
       })
       clearInterval(timer)
     }
