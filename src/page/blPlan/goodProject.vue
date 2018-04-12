@@ -38,7 +38,7 @@
       },
       setShare(){
         this.templateId=this.$route.query.templateId;
-        var href=shareHref+"#goodProject?id="+this.userInfo.communication_id+"&templateId="+this.templateId;
+        var href=shareHref+"#goodProject?templateId="+this.templateId;
         JSDK.setShare({
           title:"氢创同城",
           desc:"氢创同城",
