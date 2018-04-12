@@ -87,9 +87,11 @@
     <div v-if="showMenu" class="defaultSubmit"></div>
 
     <div v-if="showMenu" class="footerContainer">
-      <div @click="toSelectProgram" :to="{name:'selectProject',query:{meetingId:invest.id}}" :class="invest.com_status==2?'leftButtonx':'leftButton'">项目报名</div>
+      <div v-if="invest.com_status!=2" @click="toSelectProgram" :to="{name:'selectProject',query:{meetingId:invest.id}}" class="leftButton">项目报名</div>
       　
-      <div @click="toProjectAttend" :to="{name:'projectAttend',query:{id:invest.id}}" class="rightButton" :style="{backgroundColor: invest.com_status==2?'#a8a7a7':'#4285F4'}">参会报名</div>
+      <div v-if="invest.com_status!=2"  @click="toProjectAttend" :to="{name:'projectAttend',query:{id:invest.id}}" class="rightButton">参会报名</div>
+
+      <div v-if="invest.com_status==2" class="gray">对接会已结束</div>
     </div>
 
     <router-link to="addBL"><img src="static/xiangqingyetubiao.png" class="blIcon"></router-link>
@@ -274,20 +276,6 @@
     border-right: 0.5px solid #dddddd;
   }
 
-  .leftButtonx {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    width: 2.8rem;
-    height: 0.88rem;
-    line-height: 0.88rem;
-    float: left;
-    font-size: 0.36rem;
-    text-align: center;
-    color: white;
-    background-color:#a8a7a7 ;
-    border-right: 0.5px solid #a8a7a7;
-  }
 
   .rightButton {
     box-sizing: border-box;
@@ -303,6 +291,15 @@
     background-color: #4285F4;
   }
 
+  .gray{
+    width: 7.5rem;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    font-size: 0.36rem;
+    text-align: center;
+    color: white;
+     background-color: #a8a7a7;
+  }
   .menus {
     float: left;
     height: 0.86rem;
