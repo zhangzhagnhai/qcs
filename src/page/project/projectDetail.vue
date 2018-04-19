@@ -8,7 +8,7 @@
     <div class="zs">
       <img src="static/qianbi.png" >
       <span class="zsNum">{{invest.price}}</span>
-      <span class="zsBnt">{{invest.request[0].name}} ></span>
+      <span @click="pay" class="zsBnt">{{invest.request[0].name}} ></span>
     </div>
     <div style="clear: both"></div>
     <div style="height: 0.2rem; background-color: #f7f7f7"></div>
@@ -164,7 +164,7 @@
           }
           else{
             this.invest.hasStar=1;
-            this.invest.star_count+=1
+            this.invest.star_count=  this.invest.star_count-0+1
             Overlay.show("点赞成功", 1500)
           }
           $.getJSON(host+"/communication/programStar", {id:this.id,value:this.invest.hasStar}).then(function (response) {

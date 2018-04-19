@@ -69,12 +69,15 @@
           },
           txApply(){
             this.showMc=false;
+            this.$router.push({name:'personCenter'})
           },
           getData(){
             var _this=this;
             _this.$emit("loading",true);
             $.getJSON(host+"/bole/boleInfo",{id:this.id}).then(function (response) {
               _this.money=response.money;
+              _this.formInfo.zfb_zhanghao=response.zfb_zhanghao
+              _this.formInfo.zfb_xingming=response.zfb_xingming
               _this.$emit("loading",false);
             })
           }

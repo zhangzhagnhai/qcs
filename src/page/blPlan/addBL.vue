@@ -6,7 +6,7 @@
       <img src="static/jiarubolejihua.png" style="width: 7.5rem">
       <div style="height: 0.9rem"></div>
       <div v-if="!isBL" class="addBL" @click="submit">马上加入伯乐计划</div>
-      <div v-if="isBL" class="addBL" @click="openShare">邀请好友成为伯乐</div>
+      <div v-if="isBL" class="addBL" @click="openShare"><!--邀请好友成为伯乐-->您已是伯乐，分享给好友</div>
       <div class="shareImg" v-if="showShare" @click="closeShare"></div>
     </div>
 </template>
@@ -24,6 +24,7 @@
     mounted(){
       this.templateId = this.$route.query.templateId;
       this.getData();
+      this.setShare()
     },
     methods: {
       getData(){
@@ -38,6 +39,16 @@
           console.log(response)
           _this.isBL=response.id;
         })
+      },
+      setShare(){
+        this.templateId=this.$route.query.templateId;
+        var href=shareHref+"#addBL?templateId="+this.templateId;
+        JSDK.setShare({
+          title:"我是伯乐，我为创业者带盐！",
+          desc:"慧眼识英雄，共享百万创投奖金池！你的创投圈是时候更新一下了！",
+          imgUrl:window.fenshe.fenshe_logo,
+          href:href
+        });
       },
       submit(){
         if(!this.userInfo.mobile){

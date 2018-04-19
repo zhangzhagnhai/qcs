@@ -40,8 +40,8 @@
         this.templateId=this.$route.query.templateId;
         var href=shareHref+"#goodProject?templateId="+this.templateId;
         JSDK.setShare({
-          title:"氢创同城",
-          desc:"氢创同城",
+          title:"我有好项目",
+          desc:"让所有的金子都发光发亮，不辜负每一份梦想",
           imgUrl:window.fenshe.fenshe_logo,
           href:href
         });

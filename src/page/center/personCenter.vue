@@ -24,7 +24,7 @@
       <div class="yeContain">
         <router-link to="myWallet" tag="span">
             <div class="yeNum">{{money}}</div>
-            <div class="yeName">余额</div>
+            <div class="yeName">伯乐金</div>
         </router-link>
         <router-link  v-if="!bid" to="addBL" tag="span">
             <img src="static/chengweibole.png">

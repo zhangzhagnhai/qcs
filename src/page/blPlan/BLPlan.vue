@@ -91,9 +91,19 @@
       </li>
     </ul>
 
-    <div v-if="(select==1&&programDealList.length==0)||(select==2&&projectMeetingList.length==0)||(select==3&&programList.length==0)">
+    <div v-if="select==1&&programDealList.length==0">
       <img src="static/f.png" style="width: 3.02rem" class="noDataImg">
-      <div class="noDataFont">暂时还没有{{strArr[select-1]}}~</div>
+      <div class="noDataFont">暂时还没有项目成交~</div>
+    </div>
+
+    <div v-if="select==2&&projectMeetingList.length==0">
+      <img src="static/f.png" style="width: 3.02rem" class="noDataImg">
+      <div class="noDataFont">暂时还没有对接会推荐~</div>
+    </div>
+
+    <div v-if="select==3&&programList.length==0">
+      <img src="static/f.png" style="width: 3.02rem" class="noDataImg">
+      <div class="noDataFont">暂时还没有项目推荐~</div>
     </div>
 
     <div class="defaultSubmit"></div>
@@ -159,7 +169,7 @@
         },
         mounted(){
           this.templateId = this.$route.query.templateId;
-          this.selectMenu(1);
+          this.selectMenu(this.select);
         },
         filters: {
           formatDate(time) {
