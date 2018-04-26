@@ -22,221 +22,221 @@ export default new Router({
         {
           path: '/hello',
           name: 'hello',
-          component: resolve => require(['@/components/Hello.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/components/Hello')), 'common')
         },
         {
           path: '/index',
           name: 'index',
-          component:  resolve => require(['@/page/index.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/index')), 'project')
+        }, {
           path: '/projectIndex',
           name: 'projectIndex',
-          component:  resolve => require(['@/page/project/projectIndex.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/project/projectIndex')), 'project')
         }, {
           path: '/projectMeetingList',
           name: 'projectMeetingList',
-          component: resolve => require(['@/page/project/projectMeetingList.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/project/projectMeetingList')), 'project')
         }, {
           path: '/projectList',
           name: 'projectList',
-          component:  resolve => require(['@/page/project/projectList.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/project/projectList')), 'project')
         }, {
           path: '/projectMeetingDetail',
           name: 'projectMeetingDetail',
-          component: resolve => require(['@/page/project/projectMeetingDetail.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/project/projectMeetingDetail')), 'project')
         }, {
           path: '/projectDetail',
           name: 'projectDetail',
-          component:  resolve => require(['@/page/project/projectDetail.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/project/projectDetail')), 'project')
         }, {
           path: '/projectCommentList',
           name: 'projectCommentList',
-          component: resolve => require(['@/page/project/projectCommentList.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/project/projectCommentList')), 'project')
         }, {
           path: '/projectAttend',
           name: 'projectAttend',
-          component: resolve => require(['@/page/project/projectAttend.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/project/projectAttend')), 'project')
         }, {
           path: '/cityIndex',
           name: 'cityIndex',
-          component:  resolve => require(['@/page/city/cityIndex.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/city/cityIndex')), 'city')
         }, {
           path: '/cityMenu',
           name: 'cityMenu',
-          component: resolve => require(['@/page/city/cityMenu.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/city/cityMenu')), 'city')
         }, {
           path: '/activeDetail',
           name: 'activeDetail',
-          component:  resolve => require(['@/page/city/activeDetail.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/city/activeDetail')), 'city')
         }, {
           path: '/activeBaomingList',
           name: 'activeBaomingList',
-          component:  resolve => require(['@/page/city/activeBaomingList.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/city/activeBaomingList')), 'city')
         }, {
           path: '/newsDetail',
           name: 'newsDetail',
-          component:  resolve => require(['@/page/city/newsDetail.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/city/newsDetail')), 'city')
         }, {
           path: '/connectionDetail',
           name: 'connectionDetail',
-          component:  resolve => require(['@/page/city/connectionDetail.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/city/connectionDetail')), 'city')
+        }, {
           path: '/memberDetail',
-            name: 'memberDetail',
-            component:  resolve => require(['@/page/city/memberDetail.vue'], resolve)
-        },{
+          name: 'memberDetail',
+          component: r => require.ensure([], () => r(require('@/page/city/memberDetail')), 'city')
+        }, {
           path: '/addQcs',
           name: 'addQcs',
-          component:  resolve => require(['@/page/city/addQcs.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/city/addQcs')), 'city')
+        }, {
           path: '/aboutDetail',
           name: 'aboutDetail',
-          component:  resolve => require(['@/page/city/aboutDetail.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/city/aboutDetail')), 'city')
         }, {
           path: '/serviceIndex',
           name: 'serviceIndex',
-          component:  resolve => require(['@/page/service/serviceIndex.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/service/serviceIndex')), 'service')
         },
         {
           path: '/investorList',
           name: 'investorList',
-          component:   resolve => require(['@/page/service/investorList.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/service/investorList')), 'service')
         }, {
           path: '/investorDetail',
           name: 'investorDetail',
-          component:  resolve => require(['@/page/service/investorDetail.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/service/investorDetail')), 'service')
         }, {
           path: '/selectProject',
           name: 'selectProject',
-          component:  resolve => require(['@/page/service/selectProject.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/service/selectProject')), 'service')
         }, {
           path: '/thinkList',
           name: 'thinkList',
-          component:  resolve => require(['@/page/service/thinkList.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/service/thinkList')), 'service')
         }, {
           path: '/thinkDetail',
           name: 'thinkDetail',
-          component:  resolve => require(['@/page/service/thinkDetail.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/service/thinkDetail')), 'service')
         }, {
           path: '/personCenter',
           name: 'personCenter',
-          component: resolve => require(['@/page/center/personCenter.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/personCenter')), 'center')
+        }, {
           path: '/personManager',
           name: 'personManager',
-          component: resolve => require(['@/page/center/personManager.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/personManager')), 'center')
+        }, {
           path: '/personNameEdit',
           name: 'personNameEdit',
-          component: resolve => require(['@/page/center/personNameEdit.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/personNameEdit')), 'center')
+        }, {
           path: '/messageList',
           name: 'messageList',
-          component: resolve => require(['@/page/center/messageList.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/messageList')), 'center')
+        }, {
           path: '/messageSystem',
           name: 'messageSystem',
-          component: resolve => require(['@/page/center/messageSystem.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/messageSystem')), 'center')
+        }, {
           path: '/messagePerson',
           name: 'messagePerson',
-          component: resolve => require(['@/page/center/messagePerson.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/messagePerson')), 'center')
+        }, {
           path: '/connectionDisplay',
           name: 'connectionDisplay',
-          component: resolve => require(['@/page/center/connectionDisplay.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/connectionDisplay')), 'center')
+        }, {
           path: '/connectionEdit',
           name: 'connectionEdit',
-          component: resolve => require(['@/page/center/connectionEdit.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/connectionEdit')), 'center')
+        }, {
           path: '/memberDisplay',
-            name: 'memberDisplay',
-            component: resolve => require(['@/page/center/memberDisplay.vue'], resolve)
-        },{
+          name: 'memberDisplay',
+          component: r => require.ensure([], () => r(require('@/page/center/memberDisplay')), 'center')
+        }, {
           path: '/memberEdit',
-            name: 'memberEdit',
-            component: resolve => require(['@/page/center/memberEdit.vue'], resolve)
-        },{
+          name: 'memberEdit',
+          component: r => require.ensure([], () => r(require('@/page/center/memberEdit')), 'center')
+        }, {
           path: '/register',
           name: 'register',
-          component: resolve => require(['@/page/center/register.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/register')), 'center')
+        }, {
           path: '/myInvestor',
           name: 'myInvestor',
-          component: resolve => require(['@/page/center/myInvestor.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/myInvestor')), 'center')
+        }, {
           path: '/myProject',
           name: 'myProject',
-          component: resolve => require(['@/page/center/myProject.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/myProject')), 'center')
+        }, {
           path: '/myWallet',
           name: 'myWallet',
-          component: resolve => require(['@/page/center/myWallet.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/myWallet')), 'center')
+        }, {
           path: '/BLPlan',
           name: 'BLPlan',
-          component: resolve => require(['@/page/blPlan/BLPlan.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/blPlan/BLPlan')), 'blPlan')
+        }, {
           path: '/deposit',
           name: 'deposit',
-          component: resolve => require(['@/page/center/deposit.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/deposit')), 'blPlan')
+        }, {
           path: '/goodProject',
           name: 'goodProject',
-          component: resolve => require(['@/page/blPlan/goodProject.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/blPlan/goodProject')), 'blPlan')
+        }, {
           path: '/cooperationProject',
           name: 'cooperationProject',
-          component: resolve => require(['@/page/blPlan/cooperationProject.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/blPlan/cooperationProject')), 'blPlan')
+        }, {
           path: '/addBL',
           name: 'addBL',
-          component: resolve => require(['@/page/blPlan/addBL.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/blPlan/addBL')), 'blPlan')
+        }, {
           path: '/projectSubmit',
           name: 'projectSubmit',
-          component: resolve => require(['@/page/center/projectSubmit.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/projectSubmit')), 'center')
+        }, {
           path: '/projectDisplay',
           name: 'projectDisplay',
-          component: resolve => require(['@/page/center/projectDisplay.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/projectDisplay')), 'center')
+        }, {
           path: '/myProjectMeeting',
           name: 'myProjectMeeting',
-          component: resolve => require(['@/page/center/myProjectMeeting.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/myProjectMeeting')), 'center')
+        }, {
           path: '/myActive',
           name: 'myActive',
-          component: resolve => require(['@/page/center/myActive.vue'], resolve)
-        },{
-           path: '/vipIntroduce',
-            name: 'vipIntroduce',
-            component: resolve => require(['@/page/vip/vipIntroduce.vue'], resolve)
-        },{
-           path: '/vipSubmit',
-            name: 'vipSubmit',
-            component: resolve => require(['@/page/vip/vipSubmit.vue'], resolve)
-        },{
-            path: '/vipRules',
-            name: 'vipRules',
-            component: resolve => require(['@/page/vip/vipRules.vue'], resolve)
-        },{
-            path: '/secrecy',
-            name: 'secrecy',
-            component: resolve => require(['@/page/vip/secrecy.vue'], resolve)
-        },{
-            path: '/vipSuccess',
-              name: 'vipSuccess',
-            component: resolve => require(['@/page/vip/vipSuccess.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/center/myActive')), 'center')
+        }, {
+          path: '/vipIntroduce',
+          name: 'vipIntroduce',
+          component: r => require.ensure([], () => r(require('@/page/vip/vipIntroduce')), 'vip')
+        }, {
+          path: '/vipSubmit',
+          name: 'vipSubmit',
+          component: r => require.ensure([], () => r(require('@/page/vip/vipSubmit')), 'vip')
+        }, {
+          path: '/vipRules',
+          name: 'vipRules',
+          component: r => require.ensure([], () => r(require('@/page/vip/vipRules')), 'vip')
+        }, {
+          path: '/secrecy',
+          name: 'secrecy',
+          component: r => require.ensure([], () => r(require('@/page/vip/secrecy')), 'vip')
+        }, {
+          path: '/vipSuccess',
+          name: 'vipSuccess',
+          component: r => require.ensure([], () => r(require('@/page/vip/vipSuccess')), 'vip')
+        }, {
           path: '/error',
           name: 'error',
-          component: resolve => require(['@/page/error.vue'], resolve)
-        },{
+          component: r => require.ensure([], () => r(require('@/page/error')), 'common')
+        }, {
           path: '/*',
           name: 'projectIndexs',
-          component: resolve => require(['@/page/project/projectIndex.vue'], resolve)
+          component: r => require.ensure([], () => r(require('@/page/project/projectIndex')), 'project')
         }
 
       ]

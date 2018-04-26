@@ -99,11 +99,11 @@
 </template>
 
 <script>
-  import project from '../../components/project.vue'
-  import teamDisplay from '../../components/teamDisplay'
-  import prevRegister from '../../components/prevRegister'
+  import project from '@/components/project.vue'
+  import teamDisplay from '@/components/teamDisplay'
+  import prevRegister from '@/components/prevRegister'
   import wx from 'weixin-js-sdk'
-  import {host,shareHref} from '../../assets/js/util'
+  import {host,shareHref} from '@/assets/js/util'
   export default {
 
     name: 'app',
