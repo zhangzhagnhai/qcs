@@ -23,9 +23,9 @@ export function formatDateA(date, fmt) {
 };
 
 export function formatDate(date, fmt) {
-  //date= new Date(Date.parse(date)/1000)
   if(!date)
     return
+  //date= new Date(Date.parse(date)/1000)
   if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, (date.substr(0,4) + '').substr(4 - RegExp.$1.length));
   }

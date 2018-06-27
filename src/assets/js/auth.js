@@ -56,7 +56,12 @@ import {host,strToJson} from '../../assets/js/util'
         }
 
         request.setRequestHeader("templateId",  localStorage.getItem('templateID'));
-        request.setRequestHeader("bid",  localStorage.getItem('BLId'));
+        console.log(getQueryStringByName('BLId'))
+        if(getQueryStringByName('BLId')){
+          request.setRequestHeader("bid",  getQueryStringByName('BLId'));
+        }else{
+          request.setRequestHeader("bid",  localStorage.getItem('BLId'));
+        }
         request.setRequestHeader("uid", localStorage.getItem('userId'));
       }
     });
