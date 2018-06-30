@@ -56,10 +56,10 @@
         <div class="leftIcon">
           <img src="static/renmai.png">
         </div>
-        <span class="leftWord">氢创圈</span>
+        <span class="leftWord">加入会员</span>
         <router-link :to="{name:userInfo.hasRelationship==0?'vipIntroduce':'memberEdit'}">
           <img src="../../assets/images/youjiantou.png" class="rightArrow">
-          <span class="rightWord">{{userInfo.hasRelationship==0?"申请成为会员":"完善信息进入氢创圈"}}</span>
+          <span class="rightWord">{{userInfo.hasRelationship==0?"申请成为会员":"完善信息加入会员"}}</span>
         </router-link>
       </div>
     </div>
@@ -129,7 +129,7 @@
     </div>
 
     <div class="centerContainBg">
-      <div class="centerContain" style="border: none">
+      <div class="centerContain" >
         <div class="leftIcon">
           <img src="static/huodong.png">
         </div>
@@ -141,6 +141,18 @@
       </div>
     </div>
 
+    <div class="centerContainBg">
+      <router-link :to="{name:'aboutQcsIndex'}">
+      <div class="centerContain" style="border: none">
+        <div class="leftIcon">
+          <img src="static/aboutus.png">
+        </div>
+          <span class="leftWord">关于我们</span>
+         <img src="../../assets/images/youjiantou.png" class="rightArrow">
+          <span class="rightWord"></span>
+      </div>
+      </router-link>
+    </div>
     <foot select="3"></foot>
   </div>
 </template>

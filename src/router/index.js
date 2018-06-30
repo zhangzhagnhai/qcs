@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 import PageTransition from '@/components/PageTransition'
 
 Router.prototype.goBack = function () {
@@ -88,6 +87,10 @@ export default new Router({
           path: '/addQcs',
           name: 'addQcs',
           component: r => require.ensure([], () => r(require('@/page/city/addQcs')), 'city')
+        }, {
+          path: '/aboutQcsIndex',
+          name: 'aboutQcsIndex',
+          component: r => require.ensure([], () => r(require('@/page/city/aboutQcsIndex')), 'city')
         }, {
           path: '/aboutDetail',
           name: 'aboutDetail',

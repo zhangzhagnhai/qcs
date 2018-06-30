@@ -4,20 +4,21 @@
       项目展示
     </div>
 
+    <img src="static/adpro.jpg" class="adpro">
     <div id="list">
       <div class="inverstList" v-for="(invest,index) in investList">
       <!--  <div value="/test/Project/projectDetail/id/23.html" :to="{name:'hello'}" @click="clickIndex=index" :style="{'backgroundColor':clickIndex==index?'#ebebeb':'white'}">
           <project v-bind:project=invest></project>
         </div>-->
         <router-link :to="{name:'projectDetail', query: {id: invest.id,isMeeting:false  }}">
-          <project v-bind:project=invest isMeeting="false"></project>
+          <project v-bind:project=invest :isMeeting="true"></project>
         </router-link>
         <div v-if="index!=investList.length-1" class="cutLine"></div>
       </div>
     </div>
-
-    <div style="height: 0.9rem"></div>
-    <router-link to="projectSubmit" class="submit">我有好项目</router-link>
+    <foot select="0"></foot>
+   <!-- <div style="height: 0.9rem"></div>
+    <router-link to="projectSubmit" class="submit">我有好项目</router-link>-->
 
   </div>
 </template>
@@ -62,6 +63,12 @@
       })*/
       }
     },
+    computed:{
+      filterProjectList:function(){
+        console.log(this.projectList.slice(0,this.projectListLimit))
+        return this.projectList.slice(0,this.projectListLimit)
+      }
+    },
     watch: {
       clickIndex: function (val) {
         console.log(val)
@@ -77,10 +84,11 @@
       this.getData();
     },
     components: {
-      project
+      project,
+      foot
     }
   }
 </script>
-<style lang="scss" scoped>
-
+<style scoped>
+  .adpro{width: 100%; height: 3.5rem; display: block;}
 </style>

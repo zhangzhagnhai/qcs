@@ -17,17 +17,17 @@
     data(){
       return{
          goWhere:[{
-           href:"projectIndex",
+           href:"projectList",
            id:'dj',
-           name:"对接会"
+           name:"项目"
          },{
            href:"cityIndex",
            id:'cl',
            name:"城里"
          },{
-           href:"serviceIndex",
+           href:"thinkList",
            id:'fw',
-           name:"服务"
+           name:"智库"
          },{
            href:"personCenter",
            id:'wd',

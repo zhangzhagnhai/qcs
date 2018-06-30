@@ -13,7 +13,7 @@
           <span ref="c" :class="selectIndex==2?'select':''"  @click="selectMenu(2)" >活动<div class="cityMenuBorder"></div></span>
           <span ref="d" :class="selectIndex==3?'select':''"  @click="selectMenu(3)" >创投人物<div class="cityMenuBorder"></div></span>
           <span ref="e" :class="selectIndex==4?'select':''"  @click="selectMenu(4)" >氢创圈<div class="cityMenuBorder"></div></span>
-          <span ref="f" :class="selectIndex==5?'select':''"  @click="selectMenu(5)" >氢创同城<div class="cityMenuBorder"></div></span>
+          <span ref="f" :class="selectIndex==5?'select':''"  @click="selectMenu(5)" >投资人<div class="cityMenuBorder"></div></span>
         </div>
       </div>
       <div class="cutLines"></div>
@@ -75,9 +75,9 @@
           <div class="noDataFont">还没有会员加入,快来抢占先机~</div>
         </div>
 
-        <div v-if="selectIndex==5">
+        <!--<div v-if="selectIndex==5">
           <aboutQcs v-bind:aboutQcs=aboutQcs></aboutQcs>
-        </div>
+        </div>-->
 
 
     </div>
@@ -123,7 +123,8 @@
       this.templateId=this.$route.query.templateId;
       this.control=false;
      // this.getData();
-    },methods:{
+    },
+    methods:{
       shareInit(){
         this.setShare(window.fenshe.fenshe_logo);
       },

@@ -13,14 +13,18 @@
         <div v-if="index!=thinkList.length-1" class="cutLine"></div>
       </li>
     </ul>
-
+    <foot select="2"></foot>
 
   </div>
 </template>
 <script>
   import {host,shareHref} from '../../assets/js/util'
+  import foot from '../../components/Foot'
   import wx from 'weixin-js-sdk'
   export default{
+    components: {
+      foot
+    },
     data: function () {
       return {
         thinkList: []
@@ -30,7 +34,8 @@
     }, mounted(){
       this.templateId = this.$route.query.templateId;
       this.getData();
-    }, methods: {
+    },
+    methods: {
       getData(){
         var _this = this;
         _this.$emit("loading",true);
