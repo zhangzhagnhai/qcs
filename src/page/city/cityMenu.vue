@@ -21,60 +21,56 @@
     </div>
 
     <div style="height: 1.15rem;"></div>
-    <div  v-if="control">
-        <div v-if="selectIndex==0" v-for="(news,newsIndex) in newInfos">
+    <div   v-if="control">
+        <div v-if="selectIndex==0" v-for="(news,newsIndex) in newInfos" class="infos">
           <news :personInfo="news" newsType="0"></news>
-          <div v-if="newsIndex!=newInfos.length-1" class="smallLine"></div>
         </div>
         <div v-if="newInfos.length==0&&selectIndex==0">
           <img src="static/z.png" style="width: 3.31rem" class="noDataImg">
           <div class="noDataFont">暂无创投资讯呢~</div>
         </div>
 
-        <div v-if="selectIndex==1" v-for="(blockchain,blockchainIndex) in blockchains">
+        <div v-if="selectIndex==1" v-for="(blockchain,blockchainIndex) in blockchains" class="infos">
           <news :personInfo="blockchain" newsType="1"></news>
-          <div v-if="blockchainIndex!=blockchains.length-1" class="smallLine"></div>
         </div>
         <div v-if="blockchains.length==0&&selectIndex==1">
           <img src="static/z.png" style="width: 3.31rem" class="noDataImg">
           <div class="noDataFont">暂无创投资讯呢~</div>
         </div>
 
-        <div v-if="selectIndex==2" v-for="(active,activeIndex) in activeList">
+        <div v-if="selectIndex==2" v-for="(active,activeIndex) in activeList" class="infos">
           <active v-bind:active=active></active>
-          <div v-if="activeIndex!=activeList.length-1" class="smallLine"></div>
         </div>
         <div v-if="activeList.length==0&&selectIndex==2">
           <img src="static/x.png" style="width: 3.27rem" class="noDataImg">
           <div class="noDataFont">还没有开展任何的活动~</div>
         </div>
 
-        <div v-if="selectIndex==3" v-for="(personInfo,personIndex) in personInfos">
+        <div v-if="selectIndex==3" v-for="(personInfo,personIndex) in personInfos" class="infos">
           <news :personInfo="personInfo"  newsType="2"></news>
-          <div v-if="personIndex!=personInfos.length-1" class="smallLine"></div>
         </div>
         <div v-if="personInfos.length==0&&selectIndex==3">
           <img src="static/c.png" style="width: 3.49rem" class="noDataImg">
           <div class="noDataFont">暂无创投人物的专访~</div>
         </div>
 
-        <!--<div v-if="selectIndex==3" v-for="(connection,connectionIndex) in connectionList">
-          <connection v-bind:connection=connection></connection>
-          <div v-if="connectionIndex!=connectionList.length-1" class="smallLine"></div>
-        </div>
-        <div v-if="connectionList.length==0&&selectIndex==3">
-          <img src="static/v.png" style="width: 3.74rem" class="noDataImg">
-          <div class="noDataFont">还没有人脉加入,快来抢占先机~</div>
-        </div>-->
-        <div v-if="selectIndex==4" v-for="(connection,connectionIndex) in connectionList">
+        <div v-if="selectIndex==4" v-for="(connection,connectionIndex) in connectionList" class="infos">
           <member v-bind:connection=connection></member>
-          <div v-if="connectionIndex!=connectionList.length-1" class="smallLine"></div>
         </div>
         <div v-if="connectionList.length==0&&selectIndex==4">
           <img src="static/v.png" style="width: 3.74rem" class="noDataImg">
           <div class="noDataFont">还没有会员加入,快来抢占先机~</div>
         </div>
 
+        <div v-if="selectIndex==5" v-for="(investor,investorIndex) in investorList" class="infos">
+          <router-link class="aDiv"  :to="{ name : 'investorDetail', query: {id: investor.id,investType:1}}">
+            <investor v-bind:investor=investor></investor>
+           </router-link>
+        </div>
+        <div v-if="investorList.length==0&&selectIndex==5">
+          <img src="static/s.png" style="width: 3.74rem" class="noDataImg">
+          <div class="noDataFont">还没有投资人的加入~</div>
+        </div>
         <!--<div v-if="selectIndex==5">
           <aboutQcs v-bind:aboutQcs=aboutQcs></aboutQcs>
         </div>-->
@@ -90,6 +86,7 @@
   import active from '../../components/active'
   import connection from '../../components/connection'
   import member from '../../components/member'
+  import investor from '../../components/investor'
   import aboutQcs from '../city/aboutQcs'
   import foot from '../../components/Foot'
   import {host,shareHref} from '../../assets/js/util'
@@ -106,6 +103,7 @@
          ],
         connectionList:[
         ],
+        investorList:[],
         aboutQcs:{
 
         },
@@ -197,10 +195,10 @@
             }
             break;
           case 5:
-            if(!this.aboutQcs.fenshe_logo){
+            if(this.investorList.length<1){
               _this.$emit("loading",true);
-              $.getJSON(host+"/city/fensheList").then(function (response) {
-                _this.aboutQcs=response.fenshe;
+              $.getJSON(host+"/service/investor").then(function (response) {
+                _this.investorList=response.investor;
                 _this.control=true;
                 _this.$emit("loading",false);
               })
@@ -248,8 +246,8 @@
             desc="你的朋友，决定圈子";
             break;
           case 5:
-            title=window.fenshe.name;
-            desc="世界上本没有城，志同道合的人多了，便有了城。关注创投，分享精彩！";
+            title="氢创同城丨找资金";
+            desc="让项目资本资源，精准对接。氢创创投，给你需要！";
             break;
           default:
             title="氢创同城丨创投资讯";
@@ -310,6 +308,7 @@
       active,
       connection,
       member,
+      investor,
       aboutQcs,
       foot
     }
@@ -318,4 +317,8 @@
 
 </script>
 <style src="../../assets/css/cityMenu.css" scoped></style>
+<style scoped>
+  .infos > :first-child{border-bottom: 0.5px solid #ddd}
+  .infos:last-child > :first-child{border: none}
+</style>
 

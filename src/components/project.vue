@@ -3,7 +3,7 @@
     <img :src="project.image" class="projectMeetingImgs"  v-if="project.isMeetingProject&&isDetail">
     <div style="padding: 0 0.26rem; font-size: 0">
         <div v-if="!project.isMeetingProject||!isDetail">
-          <div v-if="!isMeeting" class="projectMeetingTop" >
+          <div  class="projectMeetingTop" >
             <img :src=project.fenshe.fenshe_logo >
             <div class="fenShe">
               <div class="fensheName">{{project.fenshe.name}}</div>
@@ -13,7 +13,7 @@
             </div>
           </div>
 
-          <div v-if="isMeeting" style="height: 0.3rem"></div>
+     <!--     <div v-if="isMeeting" style="height: 0.3rem"></div>-->
 
           <div style="position: relative; border-radius: 3px; overflow: hidden; height: 3.92rem;">
             <img :src="project.image" class="projectMeetingImg">
@@ -29,29 +29,31 @@
         </div>
 
         <div class="projectName">{{project.name}}</div>
-        <p :class="isDetail?'summary':'summarys'">{{project.summary}}</p>
+        <div v-if="isDetail">
+            <p :class="isDetail?'summary':'summarys'">{{project.summary}}</p>
 
-      <!--旧版诉求-->
-       <!-- <p class="appeal"><span style="font-weight: bold">诉求: </span>{{project.summary}}</p>-->
+          <!--旧版诉求-->
+           <!-- <p class="appeal"><span style="font-weight: bold">诉求: </span>{{project.summary}}</p>-->
 
-        <div style="height: 0.26rem; margin: 0.3rem 0">
-          <div class="title_tag" v-for="tags in project.tag">
-            <div class="img"></div>
-            <div class="font">{{tags.name}}</div>
-          </div>
-          <div class="address">
-              <span>{{project.city_str}}</span>
-              <span style="margin-right: 0.2rem">{{project.province_str}}</span>
-              <img src="../assets/images/didian.png" style="margin-right: 0.1rem">
-          </div>
-        </div>
+            <div style="height: 0.26rem; margin: 0.3rem 0">
+              <div class="title_tag" v-for="tags in project.tag">
+                <div class="img"></div>
+                <div class="font">{{tags.name}}</div>
+              </div>
+              <div class="address">
+                  <span>{{project.city_str}}</span>
+                  <span style="margin-right: 0.2rem">{{project.province_str}}</span>
+                  <img src="../assets/images/didian.png" style="margin-right: 0.1rem">
+              </div>
+            </div>
 
-        <div class="smallLine"></div>
-        <div style="display: inline-block">
-           <div class="appeals">诉求:</div>
-           <ul class="appealList">
-             <li v-for="request in project.request">{{request.name}}</li>
-           </ul>
+            <div class="smallLine"></div>
+            <div style="display: inline-block">
+               <div class="appeals">诉求:</div>
+               <ul class="appealList">
+                 <li v-for="request in project.request">{{request.name}}</li>
+               </ul>
+            </div>
         </div>
      </div>
    </div>

@@ -177,19 +177,50 @@
       <img src="static/v.png" style="width: 3.74rem" class="noDataImg">
       <div class="noDataFont">还没有人脉加入,快来抢占先机~</div>
     </div>
-    <!--<div class="cutLines"></div>-->
 
-    <!--关于氢创同城-->
-  <!--  <div class="menu">
+    <!--投资人-->
+    <div class="menu">
       <div class="menuLeftImg"></div>
-      <div class="menuLeftName">关于氢创同城</div>
-      <router-link :to="{name:'cityMenu', query: {typeMenu: 5}}">
+      <div class="menuLeftName">投资人</div>
+      <router-link v-if="filterConnection.length>0" :to="{name:'cityMenu', query: {typeMenu: 5}}">
         <div class="menuRightImg"></div>
         <div class="menuRightName">全部</div>
       </router-link>
     </div>
 
-    <router-link :to="{name:'cityMenu', query: {typeMenu: 4}}">
+    <div v-if="filterInvestor.length>0">
+      <div v-for="(investor,investorIndex) in filterInvestor">
+        <router-link class="aDiv"  :to="{ name : 'investorDetail', query: {id: investor.id,investType:1}}">
+           <investor v-bind:investor=investor></investor>
+           <div v-if="investorIndex!=filterInvestor.length-1" class="smallLine"></div>
+         </router-link>
+      </div>
+
+      <div v-if="investorShowZK&&investorList.length>investorLimit" class="zhanKai">
+        <div style="display: inline-block" @click="expandInvestor">
+          <span>展开更多</span>
+          <img src="../../assets/images/zhankai.png">
+        </div>
+      </div>
+    </div>
+
+    <div v-if="filterInvestor.length==0">
+      <img src="static/s.png" style="width: 3.74rem" class="noDataImg">
+      <div class="noDataFont">还没有投资人的加入~</div>
+    </div>
+    <!--<div class="cutLines"></div>-->
+
+    <!--关于氢创同城-->
+ <!--   <div class="menu">
+      <div class="menuLeftImg"></div>
+      <div class="menuLeftName">关于氢创同城</div>
+      <router-link :to="{name:'aboutQcsIndex'}">
+        <div class="menuRightImg"></div>
+        <div class="menuRightName">全部</div>
+      </router-link>
+    </div>
+
+    <router-link :to="{name:'aboutQcsIndex'}">
       <img :src="center.web_image" class="aboutQcs">
     </router-link>-->
     <foot select="1"></foot>
@@ -199,6 +230,7 @@
   import news from '../../components/news'
   import active from '../../components/active'
   import connection from '../../components/connection'
+  import investor from '../../components/investor'
   import foot from '../../components/Foot'
   import {host,shareHref} from '../../assets/js/util'
   import banner from '../../components/banner'
@@ -220,6 +252,9 @@
         connectionList:[],
         connectionLimit:4,
         connectionShowZK:true,
+        investorList:[],
+        investorLimit:4,
+        investorShowZK:true,
         center:{},
         defaultHeight:0,
         showMenu:false,
@@ -241,6 +276,9 @@
       getData: function () {
         var _this=this;
         _this.$emit("loading",true);
+        $.getJSON(host+"/service/investor").then(function (response) {
+          _this.investorList=response.investor;
+        })
         $.getJSON(host+"/city/cityIndex").then(function (response) {
           _this.newsList=response.news;
           _this.BlockList=response.newsQukuailian;
@@ -281,15 +319,19 @@
           return;
         this.connectionShowZK=false;
         this.connectionLimit=this.connectionList.length>8?8:this.connectionList.length;
+      },
+      expandInvestor:function(){
+        if(!this.investorShowZK)
+          return;
+        this.investorShowZK=false;
+        this.investorLimit=this.investorList.length>8?8:this.investorList.length;
       }
     },
     computed:{
       filterNewsList:function(){
-        console.log(this.newsList.slice(0,this.newsLimit))
         return this.newsList.slice(0,this.newsLimit)
       },
       filterBlockList:function(){
-        console.log(this.BlockList.slice(0,this.BlockLimit))
         return this.BlockList.slice(0,this.BlockLimit)
       },
       filterNewsPersonList:function(){
@@ -300,6 +342,9 @@
       },
       filterConnection:function(){
         return this.connectionList.slice(0,this.connectionLimit)
+      },
+      filterInvestor:function(){
+        return this.investorList.slice(0,this.investorLimit)
       }
     },
     components: {
@@ -307,6 +352,7 @@
       banner,
       active,
       connection,
+      investor,
       foot
     },mounted(){
       if(this.newsList.length>0){
