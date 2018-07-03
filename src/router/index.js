@@ -239,7 +239,7 @@ export default new Router({
         }, {
           path: '/*',
           name: 'projectIndexs',
-          component: r => require.ensure([], () => r(require('@/page/project/projectIndex')), 'project')
+          component: r => require.ensure([], () => r(require('@/page/project/projectList')), 'project')
         }
 
       ]

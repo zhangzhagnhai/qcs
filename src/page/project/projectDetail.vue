@@ -3,7 +3,7 @@
     <div v-title :data-title="invest.name">
       {{invest.name}}
     </div>
-
+    <router-link to="projectList" class="dh"><img src="static/arow.png">项目详情</router-link>
     <project :project="invest" isDetail="detail"></project>
     <div class="zs">
       <img src="static/qianbi.png" >
@@ -67,8 +67,8 @@
         </li>
       </ul>
       <div @click="pay" class="HZ">
-        <div class="HZPrice">¥ {{invest.price}}</div>
-        <div  class="HZName">我要合作</div>
+     <!--   <div class="HZPrice">¥ {{invest.price}}</div>-->
+        <div  class="HZName">预付订金</div>
       </div>
     </div>
 
@@ -99,7 +99,7 @@
 </template>
 
 <script>
-  import project from '@/components/project.vue'
+  import project from '../../components/project.vue'
   import teamDisplay from '@/components/teamDisplay'
   import prevRegister from '@/components/prevRegister'
   import wx from 'weixin-js-sdk'
@@ -230,6 +230,8 @@
 
 </script>
 <style scoped>
+  .dh{height: 1rem; line-height: 1rem; text-align: center; font-size: 0.36rem;  border-bottom: 0.5px solid #dddddd;}
+  .dh img{position: absolute;left: .3rem; height: .36rem; margin-top: .32rem}
   .template p{width: 100% !important; height: auto !important; color: #464c56; margin-bottom: 0.2rem; font-size: 0.28rem}
   .template img{margin-bottom: 0.2rem}
   .menus {
@@ -285,6 +287,6 @@
   .zsBnt{padding:0 0.06rem 0 0.13rem; font-size: 0.26rem;color: #4285F4; float:right; height: 0.44rem;  line-height: 0.44rem; border: 1px solid #4285F4; border-radius: 3px;}
   .HZ{position:fixed; right:0; bottom:0; height: 1rem; width: 3rem; background-color: #4285F4}
   .HZPrice{margin-top: 0.16rem; font-size: 0.26rem; line-height: 0.26rem; height: 0.26rem; color: white; text-align: center}
-  .HZName{margin-top: 0.1rem; font-size: 0.32rem; line-height: 0.32rem; height: 0.32rem; color: white; text-align: center}
+  .HZName{font-size: 0.36rem; line-height: 1rem; height: 1rem; color: white; text-align: center}
 </style>
 

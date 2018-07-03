@@ -32,6 +32,31 @@
         <div v-if="isDetail">
             <p :class="isDetail?'summary':'summarys'">{{project.summary}}</p>
 
+            <div class="rzComContain">
+              <div class="rzComItems">
+                <div class="rzComItem">
+                   <div>{{2100000 | toPrice}}</div>
+                   <div>起投额</div>
+                </div>
+                <div class="rzComItem">
+                  <div>{{21000000 | toPrice}}</div>
+                  <div>融资总额</div>
+                </div>
+              </div>
+              <div class="rzComItems">
+                <div class="rzComItem">
+                  <div>{{18900000 | toPrice}}</div>
+                  <div>已预约金额</div>
+                </div>
+                <div class="rzComItem">
+                  <div>10</div>
+                  <div>总份数</div>
+                </div>
+              </div>
+              <div class="djsItem">
+                预计期倒计时<span>4天21时59分</span>
+              </div>
+            </div>
           <!--旧版诉求-->
            <!-- <p class="appeal"><span style="font-weight: bold">诉求: </span>{{project.summary}}</p>-->
 
@@ -60,6 +85,7 @@
 </template>
 
 <script>
+  import {toPrice} from '../assets/js/util'
   export default {
     data(){
       return {
@@ -69,7 +95,12 @@
     created(){
       if(!this.project.fenshe)
         this.project.fenshe={}
-    }
+    },
+    filters: {
+      toPrice(time) {
+        return toPrice(time);
+      }
+    },
   }
 </script>
 <style src="../assets/css/project.css" scoped></style>
@@ -84,4 +115,12 @@
     .appeals{float: left;font-size: 0.26rem; line-height: 0.26rem; height: 0.26rem; margin-top:0.3rem; padding: 0.07rem 0;  width: 0.65rem; color:#464c56}
     .appealList{float: left; width: 6.5rem; margin-bottom: 0.3rem; margin-left: -0.17rem;}
     .appealList li{font-size: 0.26rem; line-height: 0.26rem; height: 0.26rem; margin-top:0.3rem; margin-left: 0.3rem;  padding: 0.07rem 0.1rem; background-color:#f6f9f8; color: #969fa9; border-radius: 5px; float: left}
+    .rzComContain{padding: 0 0.26rem; background-color: #eee; width: 100%; margin:0.1rem 0 0.1rem -0.26rem}
+    .rzComItems{height: 1.25rem;  border-bottom:0.5px solid #ddd;}
+    .rzComItem{float: left; height: 1.25rem; width: 50%; box-sizing: border-box; border-right: 0.5px solid #ddd;}
+    .rzComItem:last-child{border: none}
+    .rzComItem div:first-child{ font-size: 0.36rem; height: 0.36rem; line-height: 0.36rem; padding-top: 0.25rem; color: #464c56; text-align: center;}
+    .rzComItem div:last-child{ font-size: 0.26rem; height: 0.26rem; line-height: 0.28rem; padding-top: 0.15rem; color: #969fa9; text-align: center;}
+    .djsItem{ height: 0.9rem; line-height: 0.9rem; font-size: 0.28rem; text-align: center; color: #464c56}
+    .djsItem span{margin-left: 0.15rem;color: #4285f4;}
 </style>

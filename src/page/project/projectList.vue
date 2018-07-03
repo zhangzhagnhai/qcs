@@ -9,7 +9,7 @@
         <div class="rzNum">11</div>
         <div class="rzName">融资项目</div>
       </div><div class="rzItem">
-        <div class="rzNum">11</div>
+        <div class="rzNum">{{1111 | toPrice}}</div>
         <div class="rzName">累计融资额</div>
       </div><div class="rzItem">
         <div class="rzNum">1961</div>
@@ -17,7 +17,7 @@
       </div></div>
     <div class="cutLine"></div>
     <div id="list">
-      <div class="inverstList" v-for="(invest,index) in investList">
+      <div class="inverstList" v-for="(invest,index) in filterProjectList">
       <!--  <div value="/test/Project/projectDetail/id/23.html" :to="{name:'hello'}" @click="clickIndex=index" :style="{'backgroundColor':clickIndex==index?'#ebebeb':'white'}">
           <project v-bind:project=invest></project>
         </div>-->
@@ -41,7 +41,13 @@
             <div class="rzName">总份数</div>
           </div></div>
         </router-link>
-        <div v-if="index!=investList.length-1" class="cutLine"></div>
+        <div v-if="index!=filterProjectList.length-1" class="cutLine"></div>
+      </div>
+    </div>
+    <div v-if="projectShowZK&&investList.length>projectListLimit" class="zhanKai">
+      <div style="display: inline-block" @click="expandProject">
+        <span>展开更多</span>
+        <img src="../../assets/images/zhankai.png">
       </div>
     </div>
     <foot select="0"></foot>
@@ -53,17 +59,24 @@
 <script>
   import project from '../../components/project.vue'
   import foot from '../../components/Foot'
-  import {host,shareHref} from '../../assets/js/util'
+  import {host,shareHref,toPrice} from '../../assets/js/util'
   export default {
     data(){
       return {
         clickIndex:-1,
         investList: [],
-        templateId:""
+        templateId:"",
+        projectShowZK:true,
+        projectListLimit:3
       }
     },
     created(){
       this.templateId=this.$route.query.templateId;
+    },
+    filters: {
+      toPrice(time) {
+        return toPrice(time);
+      }
     },
     methods: {
       getData: function () {
@@ -89,12 +102,18 @@
           console.log(res.body);
         this.investList = res.body == null ? [] : res.body;
       })*/
+      },
+      expandProject(){
+        if(!this.projectShowZK)
+          return;
+        this.projectShowZK=false;
+        this.projectListLimit=this.investList.length;
       }
     },
     computed:{
       filterProjectList:function(){
-        console.log(this.projectList.slice(0,this.projectListLimit))
-        return this.projectList.slice(0,this.projectListLimit)
+        console.log(this.investList.slice(0,this.projectListLimit))
+        return this.investList.slice(0,this.projectListLimit)
       }
     },
     watch: {
