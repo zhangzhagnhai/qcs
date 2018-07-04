@@ -197,7 +197,7 @@
           case 5:
             if(this.investorList.length<1){
               _this.$emit("loading",true);
-              $.getJSON(host+"/service/investor").then(function (response) {
+              $.getJSON(host+"/city/investorList").then(function (response) {
                 _this.investorList=response.investor;
                 _this.control=true;
                 _this.$emit("loading",false);

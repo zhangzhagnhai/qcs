@@ -2,10 +2,10 @@
   <div style="font-size: 0px; width: 100%; overflow: hidden; position: relative">
     <ul class="imgUl" :style="{transform: 'translate(-'+(7.5*banners.length)+'rem, 0px)'}">
       <li v-for="(banner,index) in banners">
-        <router-link :to="{name : banner.href,query: {id: banner.id}}"><img :src="banner.src" class="logoImg"></router-link>
+        <a :href="banner.url"><img :src="banner.image" class="logoImg"></a>
       </li>
       <li v-for="(banner,index) in banners">
-        <router-link :to="{name : banner.href,query: {id: banner.id}}"><img :src="banner.src" class="logoImg"></router-link>
+        <a :href="banner.url"><img :src="banner.image" class="logoImg"></a>
       </li>
     </ul>
     <div style="position:absolute; height: 0.18rem; bottom: 0.2rem;left: 0; right: 0; margin: 0 auto; text-align: center;">
@@ -22,25 +22,22 @@
 <script>
   import '../assets/js/jquery.min.js';
   import '../assets/js/hammer.js';
+  import {host,shareHref} from '../assets/js/util'
   import {scroll} from '../assets/js/scroll.js';
   export default {
     data(){
       return{
-        banners:[{
-          href:"projectMeetingDetail",
-          src: "static/banner1.jpg",
-          id:1
-        },{
-          href:"activeDetail",
-          src:"static/banner2.jpg",
-          id:18
-        }
+        banners:[
         ]
       }
     },created(){
-      setTimeout(function(){
-        var obj=scroll()
-        obj.init();
+      var _this=this
+      $.getJSON(host+"/global/getProgramLunbo").then(function (response) {
+        _this.banners=response;
+        setTimeout(function(){
+          var obj=scroll(_this.banners.length)
+          obj.init();
+        })
       })
     }
   }

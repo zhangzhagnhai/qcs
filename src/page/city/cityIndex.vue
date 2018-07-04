@@ -285,6 +285,7 @@
           _this.newsPersonList=response.newsPerson;
           _this.connectionList=response.relationship;
           _this.activeList=response.activity;
+          _this.investorList=response.investor;
           _this.center=response.center;
           _this.setShare();
           _this.$emit("loading",false);

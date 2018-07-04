@@ -3,8 +3,7 @@
     <div v-title data-title="项目展示">
       项目展示
     </div>
-
-    <img src="static/adpro.jpg" class="adpro">
+    <banner></banner>
     <div class="rzContain"><div class="rzItem">
         <div class="rzNum">11</div>
         <div class="rzName">融资项目</div>
@@ -59,6 +58,7 @@
 <script>
   import project from '../../components/project.vue'
   import foot from '../../components/Foot'
+  import banner from '../../components/banner'
   import {host,shareHref,toPrice} from '../../assets/js/util'
   export default {
     data(){
@@ -132,6 +132,7 @@
     },
     components: {
       project,
+      banner,
       foot
     }
   }
