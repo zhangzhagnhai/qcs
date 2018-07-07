@@ -14,6 +14,7 @@
           <span ref="d" :class="selectIndex==3?'select':''"  @click="selectMenu(3)" >创投人物<div class="cityMenuBorder"></div></span>
           <span ref="e" :class="selectIndex==4?'select':''"  @click="selectMenu(4)" >氢创圈<div class="cityMenuBorder"></div></span>
           <span ref="f" :class="selectIndex==5?'select':''"  @click="selectMenu(5)" >投资人<div class="cityMenuBorder"></div></span>
+          <span ref="g" :class="selectIndex==6?'select':''"  @click="selectMenu(6)" >氢创同城<div class="cityMenuBorder"></div></span>
         </div>
       </div>
       <div class="cutLines"></div>
@@ -74,7 +75,9 @@
         <!--<div v-if="selectIndex==5">
           <aboutQcs v-bind:aboutQcs=aboutQcs></aboutQcs>
         </div>-->
-
+        <div v-if="selectIndex==6">
+          <aboutQcs v-bind:aboutQcs=aboutQcs></aboutQcs>
+        </div>
 
     </div>
 
@@ -114,7 +117,7 @@
     },
     created(){
       this.selectIndex= parseInt(this.$route.query.typeMenu);
-      if(this.selectIndex!=1&&this.selectIndex!=2&&this.selectIndex!=3&&this.selectIndex!=4&&this.selectIndex!=5){
+      if(this.selectIndex!=1&&this.selectIndex!=2&&this.selectIndex!=3&&this.selectIndex!=4&&this.selectIndex!=5&&this.selectIndex!=6){
         this.selectIndex=0
       }
       this.type = this.$route.params.type;
@@ -206,6 +209,18 @@
               _this.control=true;
             }
             break;
+          case 6:
+            if(!this.aboutQcs.fenshe_logo){
+              _this.$emit("loading",true);
+              $.getJSON(host+"/city/fensheList").then(function (response) {
+                _this.aboutQcs=response.fenshe;
+                _this.control=true;
+                _this.$emit("loading",false);
+              })
+            }else{
+              _this.control=true;
+            }
+            break;
           default:
             if(this.newInfos.length<1){
               _this.$emit("loading",true);
@@ -249,6 +264,10 @@
             title="氢创同城丨找资金";
             desc="让项目资本资源，精准对接。氢创创投，给你需要！";
             break;
+          case 6:
+            title=window.fenshe.name;
+            desc="世界上本没有城，志同道合的人多了，便有了城。关注创投，分享精彩！";
+            break;
           default:
             title="氢创同城丨创投资讯";
             desc="放眼全球，汇集全国，聚焦同城。热门不造作，前沿不浮夸，来点猛料！";
@@ -275,6 +294,7 @@
           this.width[3]=this.$refs.d.offsetWidth;
           this.width[4]=this.$refs.e.offsetWidth;
           this.width[5]=this.$refs.f.offsetWidth;
+          this.width[6]=this.$refs.g.offsetWidth;
           var containWidth=this.$refs.scrollMenu.offsetWidth;
           var totalWidth=0;
           for(var i=0;i<=this.selectIndex;i++)

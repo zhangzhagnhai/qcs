@@ -35,26 +35,29 @@
             <div class="rzComContain">
               <div class="rzComItems">
                 <div class="rzComItem">
-                   <div>{{2100000 | toPrice}}</div>
+                   <div>{{project.every_money-0}}万</div>
                    <div>起投额</div>
                 </div>
                 <div class="rzComItem">
-                  <div>{{21000000 | toPrice}}</div>
+                  <div>{{project.dest_money-0}}万</div>
                   <div>融资总额</div>
                 </div>
               </div>
               <div class="rzComItems">
                 <div class="rzComItem">
-                  <div>{{18900000 | toPrice}}</div>
+                  <div>{{project.already_money-0}}万</div>
                   <div>已预约金额</div>
                 </div>
                 <div class="rzComItem">
-                  <div>10</div>
+                  <div>{{project.dest_fenshu}}</div>
                   <div>总份数</div>
                 </div>
               </div>
-              <div class="djsItem">
-                预计期倒计时<span>4天21时59分</span>
+              <div v-if="project.buy_end_time_timstamp-0>=60" class="djsItem">
+                预计期倒计时<span>{{project.buy_end_time_timstamp | countTime}}</span>
+              </div>
+              <div v-if="project.buy_end_time_timstamp-0<60" class="djsItem">
+                融资已经结束
               </div>
             </div>
           <!--旧版诉求-->
@@ -85,7 +88,7 @@
 </template>
 
 <script>
-  import {toPrice} from '../assets/js/util'
+  import {toPrice,countTime} from '../assets/js/util'
   export default {
     data(){
       return {
@@ -99,6 +102,9 @@
     filters: {
       toPrice(time) {
         return toPrice(time);
+      },
+      countTime(time){
+        return countTime(time);
       }
     },
   }

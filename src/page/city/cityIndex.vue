@@ -14,7 +14,7 @@
           <router-link :to="{name:'cityMenu',query: {typeMenu: 3}}" tag="span">创投人物<div class="cityMenuBorder"></div></router-link>
           <router-link :to="{name:'cityMenu',query: {typeMenu: 4}}" tag="span">氢创圈<div class="cityMenuBorder"></div></router-link>
           <router-link :to="{name:'cityMenu',query: {typeMenu: 5}}" tag="span">投资人<div class="cityMenuBorder"></div></router-link>
-    <!--      <router-link :to="{name:'cityMenu',query: {typeMenu: 5}}" tag="span">氢创同城<div class="cityMenuBorder"></div></router-link>-->
+          <router-link :to="{name:'cityMenu',query: {typeMenu: 6}}" tag="span">氢创同城<div class="cityMenuBorder"></div></router-link>
         </div>
       </div>
      <!-- <div class="cutLines"></div>-->
@@ -211,18 +211,18 @@
     <!--<div class="cutLines"></div>-->
 
     <!--关于氢创同城-->
- <!--   <div class="menu">
+    <div class="menu">
       <div class="menuLeftImg"></div>
       <div class="menuLeftName">关于氢创同城</div>
-      <router-link :to="{name:'aboutQcsIndex'}">
+      <router-link :to="{name:'cityMenu',query: {typeMenu: 6}}">
         <div class="menuRightImg"></div>
         <div class="menuRightName">全部</div>
       </router-link>
     </div>
 
-    <router-link :to="{name:'aboutQcsIndex'}">
+    <router-link :to="{name:'cityMenu',query: {typeMenu: 6}}">
       <img :src="center.web_image" class="aboutQcs">
-    </router-link>-->
+    </router-link>
     <foot select="1"></foot>
   </div>
 </template>

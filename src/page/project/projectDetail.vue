@@ -140,6 +140,13 @@
         $.getJSON(host+"/communication/programDetail", {id:_this.id,templateId: _this.templateId}).then(function (response) {
           _this.invest =response.program;
           _this.user=response.user;
+          setInterval(function(){
+            if(  _this.invest.buy_end_time_timstamp){
+              _this.invest.buy_end_time_timstamp-=1
+            }else{
+              _this.invest.buy_end_time_timstamp=0
+            }
+          },1000)
           // _this.$set(_this,"invest",response.communication);
           _this.$emit("loading",false);
           console.log(_this.isMeeting)

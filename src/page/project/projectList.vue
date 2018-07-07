@@ -5,13 +5,13 @@
     </div>
     <banner></banner>
     <div class="rzContain"><div class="rzItem">
-        <div class="rzNum">11</div>
+        <div class="rzNum">{{webData.web_investor}}</div>
         <div class="rzName">融资项目</div>
       </div><div class="rzItem">
-        <div class="rzNum">{{1111 | toPrice}}</div>
+        <div class="rzNum">{{webData.web_rongzi_money | toPrice}}万</div>
         <div class="rzName">累计融资额</div>
       </div><div class="rzItem">
-        <div class="rzNum">1961</div>
+        <div class="rzNum">{{webData.web_investor}}</div>
         <div class="rzName">认证投资人数</div>
       </div></div>
     <div class="cutLine"></div>
@@ -22,21 +22,22 @@
         </div>-->
         <router-link :to="{name:'projectDetail', query: {id: invest.id,isMeeting:false  }}">
           <project v-bind:project=invest :isMeeting="true"></project>
-          <div class="djs">预计期倒计时<span>4天21时59分</span></div>
+          <div class="djs" v-if="invest.buy_end_time_timstamp-0>=60">预计期倒计时<span>{{invest.buy_end_time_timstamp | countTime}}</span></div>
+          <div class="djs" v-if="invest.buy_end_time_timstamp-0<60">融资已经结束</div>
           <div class="jd" >
               <div class="jdleft">
-                <div style="width: 60%"></div>
+                <div :style="{width: invest.precent}"></div>
               </div>
-              <div class="jdRigth" >70%</div>
+              <div class="jdRigth" >{{invest.precent }}</div>
           </div>
           <div class="rzContain"><div class="rzItem">
-            <div class="rzNum">2100万</div>
+            <div class="rzNum">{{invest.dest_money-0}}万</div>
             <div class="rzName">目标额</div>
           </div><div class="rzItem">
-            <div class="rzNum">210万</div>
+            <div class="rzNum">{{invest.every_money-0}}万</div>
             <div class="rzName">起投额</div>
           </div><div class="rzItem">
-            <div class="rzNum">10份</div>
+            <div class="rzNum">{{invest.dest_fenshu}}份</div>
             <div class="rzName">总份数</div>
           </div></div>
         </router-link>
@@ -59,12 +60,13 @@
   import project from '../../components/project.vue'
   import foot from '../../components/Foot'
   import banner from '../../components/banner'
-  import {host,shareHref,toPrice} from '../../assets/js/util'
+  import {host,shareHref,toPrice,countTime} from '../../assets/js/util'
   export default {
     data(){
       return {
         clickIndex:-1,
         investList: [],
+        webData:{},
         templateId:"",
         projectShowZK:true,
         projectListLimit:3
@@ -76,6 +78,9 @@
     filters: {
       toPrice(time) {
         return toPrice(time);
+      },
+      countTime(time){
+        return countTime(time);
       }
     },
     methods: {
@@ -85,6 +90,18 @@
         _this.$emit("loading",true);
         $.getJSON(host+"/communication/programList", { templateId: _this.templateId}).then(function (response) {
           _this.investList =response.program;
+          _this.investList.forEach(function(item){
+            item.precent=item.dest_money-0?(item.already_money *100/item.dest_money).toFixed(0)+'%':'100%'
+          })
+          setInterval(function(){
+            _this.investList.forEach(function(item){
+              if(item.buy_end_time_timstamp){
+                item.buy_end_time_timstamp-=1
+              }else{
+                item.buy_end_time_timstamp=0
+              }
+            })
+          },1000)
           _this.$emit("loading",false);
           JSDK.setShare({
             title:"氢创同城丨项目列表",
@@ -93,15 +110,17 @@
             href:href
           });
         })
-
-       /* this.$http.post(host + "/Api/getHetouList", {
-          status: this.status,
-          city: this.city,
-          keyword: this.keyword
-        }).then(res = > {
-          console.log(res.body);
-        this.investList = res.body == null ? [] : res.body;
-      })*/
+        $.getJSON(host+"/global/getProgramRongziInfo", { templateId: _this.templateId}).then(function (response){
+          _this.webData=response
+        })
+        /* this.$http.post(host + "/Api/getHetouList", {
+           status: this.status,
+           city: this.city,
+           keyword: this.keyword
+         }).then(res = > {
+           console.log(res.body);
+         this.investList = res.body == null ? [] : res.body;
+       })*/
       },
       expandProject(){
         if(!this.projectShowZK)
