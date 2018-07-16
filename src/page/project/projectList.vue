@@ -91,7 +91,11 @@
         $.getJSON(host+"/communication/programList", { templateId: _this.templateId}).then(function (response) {
           _this.investList =response.program;
           _this.investList.forEach(function(item){
-            item.precent=item.dest_money-0?(item.already_money *100/item.dest_money).toFixed(0)+'%':'100%'
+            if(item.already_money >item.dest_money){
+              item.precent='100%'
+            }else{
+              item.precent=item.dest_money-0?(item.already_money *100/item.dest_money).toFixed(0)+'%':'100%'
+            }
           })
           setInterval(function(){
             _this.investList.forEach(function(item){
