@@ -142,7 +142,7 @@
     </div>
 
     <div class="centerContainBg">
-      <router-link :to="{name:'aboutQcsIndex'}">
+      <router-link :to="{name:'cityMenu',query: {typeMenu: 6}}">
       <div class="centerContain" style="border: none">
         <div class="leftIcon">
           <img src="static/aboutus.png">

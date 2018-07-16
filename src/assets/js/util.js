@@ -23,5 +23,14 @@ var toPrice=function (num) {
   if (num) { result = num + result; }
   return result;
 }
-export {host,shareHref,strToJson,toPrice}
+
+var countTime=function(time){
+    var day=Math.floor(time/(24*60*60))
+    var dayLeave=time%(24*60*60)
+    var hour=Math.floor(dayLeave/(60*60))
+    var hourLeave=time%(60*60)
+    var minute=Math.floor(hourLeave/60)
+    return day+"天"+hour+"时"+minute+"分"
+}
+export {host,shareHref,strToJson,toPrice,countTime}
 
