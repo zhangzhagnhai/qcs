@@ -1,10 +1,10 @@
-export function scroll() {
+export function scroll(length) {
     var scrollTimer;
     var width;
     var timer, resetTimer;
     var isMoving = false;
     var countReset = 0;
-    var length=parseInt($("#lunboCount").val());
+ /*   var length=parseInt($("#lunboCount").val());*/
     var scrollIndex = length;
     var imgScroll = function () {
         clearInterval(scrollTimer);
